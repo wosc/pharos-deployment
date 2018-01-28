@@ -1,4 +1,6 @@
 DEPENDENCIES
+  wosc
+    path: cookbooks/wosc
   wosc-fastcgi
     path: cookbooks/wosc-fastcgi
   wosc-radicale
@@ -21,7 +23,9 @@ GRAPH
     windows (>= 1.2.2)
   windows (3.4.4)
     ohai (>= 4.0.0)
+  wosc (1.0.0)
   wosc-fastcgi (0.1.0)
   wosc-radicale (0.1.0)
   wosc-shaarli (1.0.0)
     ark (>= 0.0.0)
+    wosc (>= 0.0.0)
