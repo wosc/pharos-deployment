@@ -27,6 +27,8 @@ Vagrant.configure('2') do |config|
       chef.log_level = ENV.fetch('CHEF_LOG', 'info').downcase.to_sym
       chef.cookbooks_path = '/home/cache/vagrant-chef' # guaranteed to be empty
       chef.nodes_path = '/home/cache/vagrant-chef' # guaranteed to be empty
+      # XXX inline chef.arguments = '--config-option' doesn't work
+      chef.custom_config_path = 'client-vagrant.rb'
 
       chef.add_recipe 'wosc-radicale'
 
