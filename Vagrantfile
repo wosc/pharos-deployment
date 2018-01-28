@@ -2,6 +2,7 @@
 # Requirements
 # Vagrant >= 2.0
 # vagrant plugin install vagrant-lxc --plugin-version 1.2.4
+# vagrant plugin install vagrant-berkshelf
 # chefdk >= 2.4.17
 
 Vagrant.configure('2') do |config|
@@ -24,6 +25,7 @@ Vagrant.configure('2') do |config|
     default.vm.provision 'chef_zero' do |chef|
       chef.install = false
       chef.log_level = ENV.fetch('CHEF_LOG', 'info').downcase.to_sym
+      chef.cookbooks_path = '/home/cache/vagrant-chef' # guaranteed to be empty
       chef.nodes_path = '/home/cache/vagrant-chef' # guaranteed to be empty
 
       chef.add_recipe 'wosc-radicale'
