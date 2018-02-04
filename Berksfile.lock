@@ -3,6 +3,8 @@ DEPENDENCIES
     path: cookbooks/wosc
   wosc-fastcgi
     path: cookbooks/wosc-fastcgi
+  wosc-letsencrypt
+    path: cookbooks/wosc-letsencrypt
   wosc-radicale
     path: cookbooks/wosc-radicale
   wosc-shaarli
@@ -19,12 +21,24 @@ GRAPH
   mingw (2.0.1)
     seven_zip (>= 0.0.0)
   ohai (5.2.1)
+  poise (2.8.1)
+  poise-archive (1.5.0)
+    poise (~> 2.6)
+  poise-languages (2.1.1)
+    poise (~> 2.5)
+    poise-archive (~> 1.0)
+  poise-python (1.6.0)
+    poise (~> 2.7)
+    poise-languages (~> 2.0)
   seven_zip (2.0.2)
     windows (>= 1.2.2)
   windows (3.4.4)
     ohai (>= 4.0.0)
   wosc (1.0.0)
   wosc-fastcgi (0.1.0)
+  wosc-letsencrypt (1.0.0)
+    poise-python (>= 0.0.0)
+    wosc (>= 0.0.0)
   wosc-radicale (0.1.0)
   wosc-shaarli (1.0.0)
     ark (>= 0.0.0)
