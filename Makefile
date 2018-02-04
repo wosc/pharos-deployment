@@ -13,6 +13,7 @@ deploy:
 	sudo chef-client --local-mode --config $(CURDIR)/client.rb -j $(CURDIR)/nodes/$(PRODUCTION_HOST).json
 
 
+berks: build/.berks.success
 build/.berks.success: Berksfile
 	berks vendor $(CURDIR)/build
 	@touch $@
