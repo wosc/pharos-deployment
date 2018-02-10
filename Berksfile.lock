@@ -5,10 +5,14 @@ DEPENDENCIES
     path: cookbooks/wosc-fastcgi
   wosc-letsencrypt
     path: cookbooks/wosc-letsencrypt
+  wosc-mysql
+    path: cookbooks/wosc-mysql
   wosc-radicale
     path: cookbooks/wosc-radicale
   wosc-shaarli
     path: cookbooks/wosc-shaarli
+  wosc-wallabag
+    path: cookbooks/wosc-wallabag
 
 GRAPH
   ark (3.1.0)
@@ -39,7 +43,12 @@ GRAPH
   wosc-letsencrypt (1.0.0)
     poise-python (>= 0.0.0)
     wosc (>= 0.0.0)
+  wosc-mysql (1.0.0)
   wosc-radicale (0.1.0)
   wosc-shaarli (1.0.0)
     ark (>= 0.0.0)
     wosc (>= 0.0.0)
+  wosc-wallabag (1.0.0)
+    ark (>= 0.0.0)
+    wosc (>= 0.0.0)
+    wosc-mysql (>= 0.0.0)
