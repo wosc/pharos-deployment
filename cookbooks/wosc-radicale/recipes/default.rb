@@ -1,4 +1,5 @@
-VERSION = '2.1.8'
+VERSION = '1.1.6'
+# XXX Version 2.x removes the "ics-file" storage backend
 
 wosc_service_user "radicale" do
   shell "/bin/bash"
@@ -52,6 +53,12 @@ template "/srv/radicale/serve.py" do
   owner "radicale"
   group "radicale"
   notifies :run, "execute[supervisorctl restart radicale]", :delayed
+end
+
+group "courier" do
+  action :manage
+  append true
+  members "radicale"
 end
 
 
