@@ -1,5 +1,5 @@
 name             "wosc-radicale"
-version          "0.1.0"
+version          "1.0.0"
 
 maintainer       "Wolfgang Schnerring"
 maintainer_email "wosc@wosc.de"
@@ -11,3 +11,7 @@ long_description IO.read(File.join(File.dirname(__FILE__), "README.md"))
 
 chef_version     ">= 12"
 supports         "ubuntu", ">= 16.04"
+
+depends          "poise-python"
+depends          "wosc"
+depends          "wosc-fastcgi"
