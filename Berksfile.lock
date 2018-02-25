@@ -5,6 +5,8 @@ DEPENDENCIES
     path: cookbooks/wosc-fastcgi
   wosc-letsencrypt
     path: cookbooks/wosc-letsencrypt
+  wosc-mailserver
+    path: cookbooks/wosc-mailserver
   wosc-mysql
     path: cookbooks/wosc-mysql
   wosc-radicale
@@ -43,6 +45,9 @@ GRAPH
   wosc-letsencrypt (1.0.0)
     poise-python (>= 0.0.0)
     wosc (>= 0.0.0)
+  wosc-mailserver (1.0.0)
+    wosc (>= 0.0.0)
+    wosc-mysql (>= 0.0.0)
   wosc-mysql (1.0.0)
   wosc-radicale (1.0.0)
     poise-python (>= 0.0.0)
