@@ -4,12 +4,12 @@ service "exim4" do
 end
 
 
-wosc_mysql_database "mailserver"
-wosc_mysql_user "mail" do
+wosc_mysql_database node["mailserver"]["db_name"]
+wosc_mysql_user node["mailserver"]["db_user"] do
   password node["mailserver"]["db_pass"]
 end
-wosc_mysql_grant "mailserver" do
-  user "mail"
+wosc_mysql_grant node["mailserver"]["db_name"] do
+  user node["mailserver"]["db_user"]
 end
 
 template "/etc/exim4/schema.sql" do
@@ -75,4 +75,36 @@ directory "/var/spool/exim4/scan" do
   owner "Debian-exim"
   group "Debian-exim"
   mode "0775"
+end
+
+
+package "courier-imap-ssl"
+service "courier-imap-ssl"
+package "courier-authlib-mysql"
+service "courier-authdaemon"
+
+group "courier" do
+  action :manage
+  append true
+  members "Debian-exim"
+end
+
+template "/etc/courier/authdaemonrc" do
+  source "courier/authdaemonrc"
+  owner "daemon"
+  group "daemon"
+  mode "0660"
+  notifies :restart, "service[courier-authdaemon]", :delayed
+end
+template "/etc/courier/authmysqlrc" do
+  source "courier/authmysqlrc"
+  owner "daemon"
+  group "daemon"
+  mode "0660"
+  notifies :restart, "service[courier-authdaemon]", :delayed
+end
+
+template "/etc/courier/imapd-ssl" do
+  source "courier/imapd-ssl"
+  notifies :restart, "service[courier-imap-ssl]"
 end

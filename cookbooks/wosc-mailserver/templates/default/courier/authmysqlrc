@@ -24,8 +24,8 @@
 # The server name, userid, and password used to log in.
 
 MYSQL_SERVER		localhost
-MYSQL_USERNAME		admin
-MYSQL_PASSWORD		admin
+MYSQL_USERNAME		<%=node["mailserver"]["db_user"]%>
+MYSQL_PASSWORD		<%=node["mailserver"]["db_pass"]%>
 
 ##NAME: SSLINFO:0
 #
@@ -46,14 +46,14 @@ MYSQL_PASSWORD		admin
 # MYSQL_SOCKET can be used with MySQL version 3.22 or later, it specifies the
 # filesystem pipe used for the connection
 #
-# MYSQL_SOCKET		/var/run/mysqld/mysqld.sock
+MYSQL_SOCKET		/var/run/mysqld/mysqld.sock
 
 ##NAME: MYSQL_PORT:0
 #
 # MYSQL_PORT can be used with MySQL version 3.22 or later to specify a port to
 # connect to.
 
-MYSQL_PORT		0
+#MYSQL_PORT		0
 
 ##NAME: MYSQL_OPT:0
 #
@@ -65,7 +65,7 @@ MYSQL_OPT		0
 #
 # The name of the MySQL database we will open:
 
-MYSQL_DATABASE		mysql
+MYSQL_DATABASE		<%=node["mailserver"]["db_name"]%>
 
 #NAME: MYSQL_CHARACTER_SET:0
 #
@@ -80,7 +80,7 @@ MYSQL_DATABASE		mysql
 # The name of the table containing your user data.  See README.authmysqlrc
 # for the required fields in this table. 
 
-MYSQL_USER_TABLE	passwd
+MYSQL_USER_TABLE	mailboxes
 
 ##NAME: MYSQL_CRYPT_PWFIELD:0
 #
@@ -89,7 +89,7 @@ MYSQL_USER_TABLE	passwd
 # passwords go into MYSQL_CLEAR_PWFIELD.  Cleartext passwords allow
 # CRAM-MD5 authentication to be implemented.
 
-MYSQL_CRYPT_PWFIELD	crypt
+MYSQL_CRYPT_PWFIELD	password
 
 ##NAME: MYSQL_CLEAR_PWFIELD:0
 #
@@ -125,18 +125,18 @@ MYSQL_GID_FIELD		gid
 #  SELECT MYSQL_UID_FIELD, MYSQL_GID_FIELD, ... WHERE id='loginid'
 #
 
-MYSQL_LOGIN_FIELD	id
+MYSQL_LOGIN_FIELD	login
 
 ##NAME: MYSQL_HOME_FIELD:0
 #
 
-MYSQL_HOME_FIELD	home
+MYSQL_HOME_FIELD	mailbox_path
 
 ##NAME: MYSQL_NAME_FIELD:0
 #
 # The user's name (optional)
 
-MYSQL_NAME_FIELD	name
+#MYSQL_NAME_FIELD	name
 
 ##NAME: MYSQL_MAILDIR_FIELD:0
 #

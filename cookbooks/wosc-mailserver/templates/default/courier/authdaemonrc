@@ -24,7 +24,7 @@
 # by removing them from the following list.  The available modules you
 # can use are: authuserdb authpam authpgsql authldap authmysql authsqlite authcustom authpipe
 
-authmodulelist="authpam"
+authmodulelist="authmysql"
 
 ##NAME: authmodulelistorig:4
 #

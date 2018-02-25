@@ -54,7 +54,7 @@ SSLPIDFILE=/var/run/courier/imapd-ssl.pid
 
 ##NAME: SSLLOGGEROPTS:0
 #
-# courierlogger(1) options.                                        
+# courierlogger(1) options.
 #
 
 SSLLOGGEROPTS="-name=imapd-ssl"
@@ -131,6 +131,9 @@ COURIERTLS=/usr/bin/couriertls
 #
 # SSL23 (OpenSSL), or "TLS_1:TLS1:SSL3" (GnuTLS)
 
+TLS_PROTOCOL="TLS1"
+TLS_STARTTLS_PROTOCOL="TLS1"
+
 ##NAME: TLS_STARTTLS_PROTOCOL:0
 # 
 # TLS_STARTTLS_PROTOCOL is used instead of TLS_PROTOCOL for the IMAP STARTTLS
@@ -165,6 +168,8 @@ COURIERTLS=/usr/bin/couriertls
 # LOW -- all ciphers that use fewer than a 128 bit key size, the NULL cipher
 #        is not included
 # ALL -- all ciphers except the NULL cipher
+
+TLS_CIPHER_LIST="ECDH+AESGCM:DH+AESGCM:ECDH+AES256:DH+AES256:ECDH+AES128:DH+AES:ECDH+3DES:DH+3DES:RSA+AESGCM:RSA+AES:RSA+3DES:!aNULL:!MD5:!DSS"
 
 ##NAME: TLS_MIN_DH_BITS:0
 #
@@ -257,7 +262,8 @@ TLS_CERTS=X509
 #
 # This is an experimental feature.
 
-TLS_CERTFILE=/etc/courier/imapd.pem
+#TLS_CERTFILE=/etc/courier/imapd.pem
+TLS_CERTFILE=/srv/letsencrypt/data/mail.wosc.de/courier.pem
 
 ##NAME: TLS_TRUSTCERTS:0
 #
