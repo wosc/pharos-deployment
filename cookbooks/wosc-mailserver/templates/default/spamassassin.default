@@ -1,0 +1,3 @@
+OPTIONS="--create-prefs --nouser-config --sql-config --username nobody --max-children 5"
+PIDFILE="/var/run/spamassassin/spamd.pid"
+CRON=1
