@@ -1,0 +1,16 @@
+ws.ddns == 1.1.1
+gocept.logging == 0.8.1
+lxml == 4.1.1
+
+requests == 2.18.4
+certifi == 2018.1.18
+chardet == 3.0.4
+idna == 2.6
+urllib3 == 1.22
+
+Flask == 0.12.2
+Jinja2 == 2.10
+MarkupSafe == 1.0
+Werkzeug == 0.14.1
+click == 6.7
+itsdangerous == 0.24
