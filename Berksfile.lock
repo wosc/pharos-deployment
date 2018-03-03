@@ -13,6 +13,8 @@ DEPENDENCIES
     path: cookbooks/wosc-mysql
   wosc-radicale
     path: cookbooks/wosc-radicale
+  wosc-roundcube
+    path: cookbooks/wosc-roundcube
   wosc-shaarli
     path: cookbooks/wosc-shaarli
   wosc-thyrida
@@ -61,6 +63,11 @@ GRAPH
     poise-python (>= 0.0.0)
     wosc (>= 0.0.0)
     wosc-fastcgi (>= 0.0.0)
+  wosc-roundcube (1.0.0)
+    ark (>= 0.0.0)
+    wosc (>= 0.0.0)
+    wosc-fastcgi (>= 0.0.0)
+    wosc-mysql (>= 0.0.0)
   wosc-shaarli (1.0.0)
     ark (>= 0.0.0)
     wosc (>= 0.0.0)
