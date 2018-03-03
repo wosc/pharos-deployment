@@ -1,6 +1,8 @@
 DEPENDENCIES
   wosc
     path: cookbooks/wosc
+  wosc-cgi
+    path: cookbooks/wosc-cgi
   wosc-fastcgi
     path: cookbooks/wosc-fastcgi
   wosc-letsencrypt
@@ -43,6 +45,10 @@ GRAPH
   windows (3.4.4)
     ohai (>= 4.0.0)
   wosc (1.0.0)
+  wosc-cgi (1.0.0)
+    poise-python (>= 0.0.0)
+    wosc (>= 0.0.0)
+    wosc-fastcgi (>= 0.0.0)
   wosc-fastcgi (0.1.0)
   wosc-letsencrypt (1.0.0)
     poise-python (>= 0.0.0)
