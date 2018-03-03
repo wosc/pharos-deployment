@@ -37,3 +37,44 @@ link "/etc/nginx/sites-enabled/thyrida.wosc.de" do
   to "/etc/nginx/sites-available/thyrida.wosc.de"
   notifies :reload, "service[nginx]", :delayed
 end
+
+
+include_recipe "wosc-cgi"
+directory "/srv/cgiserv/thyrida"
+template "/srv/cgiserv/thyrida/start.sh" do
+  source "start.sh"
+  owner "cgiserv"
+  group "cgiserv"
+  mode "0774"
+end
+
+group "supervisor" do
+  action :manage
+  append true
+  members "cgiserv"
+end
+
+file "/srv/cgiserv/apache.d/thyrida.conf" do
+  content "ScriptAlias /start-thyrida /srv/cgiserv/thyrida/start.sh\n"
+  notifies :run, "execute[supervisorctl restart cgiserv]", :delayed
+end
+
+
+template "/srv/thyrida/maybe-stop.sh" do
+  source "stop.sh"
+  owner "thyrida"
+  group "thyrida"
+  mode "0755"
+end
+
+group "supervisor" do
+  action :manage
+  append true
+  members "thyrida"
+end
+
+cron "stop thyrida when idle" do
+  user "thyrida"
+  minute "*/30"
+  command "/srv/thyrida/maybe-stop.sh"
+end

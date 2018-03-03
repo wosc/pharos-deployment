@@ -13,5 +13,6 @@ chef_version     ">= 12"
 supports         "ubuntu", ">= 16.04"
 
 depends          "wosc"
+depends          "wosc-cgi"
 depends          "wosc-fastcgi"
 depends          "wosc-mysql"
