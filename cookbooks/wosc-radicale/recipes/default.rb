@@ -33,6 +33,9 @@ pip_requirements "/srv/radicale/requirements.txt" do
   options "--no-deps"
 end
 
+execute "sed -i -e 's/sock.send(line)/sock.send(line.encode(\"utf-8\"))/' -e 's/\"GID\"/b\"GID\"/' /srv/radicale/deployment/lib/python3.5/site-packages/radicale/auth/courier.py" do
+  not_if "grep -q 'b\"GID\"' /srv/radicale/deployment/lib/python3.5/site-packages/radicale/auth/courier.py"
+end
 
 template "/srv/radicale/radicale.conf" do
   source "radicale.conf"
