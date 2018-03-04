@@ -9,6 +9,8 @@ DEPENDENCIES
     path: cookbooks/wosc-letsencrypt
   wosc-mailserver
     path: cookbooks/wosc-mailserver
+  wosc-matomo
+    path: cookbooks/wosc-matomo
   wosc-mysql
     path: cookbooks/wosc-mysql
   wosc-radicale
@@ -57,6 +59,11 @@ GRAPH
     wosc (>= 0.0.0)
   wosc-mailserver (1.0.0)
     wosc (>= 0.0.0)
+    wosc-mysql (>= 0.0.0)
+  wosc-matomo (1.0.0)
+    ark (>= 0.0.0)
+    wosc (>= 0.0.0)
+    wosc-fastcgi (>= 0.0.0)
     wosc-mysql (>= 0.0.0)
   wosc-mysql (1.0.0)
   wosc-radicale (1.0.0)
