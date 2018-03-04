@@ -1,0 +1,12 @@
+ws.webpasswd == 2.0.1
+python-pam == 1.8.2
+
+Flask == 0.12.2
+Jinja2 == 2.10
+MarkupSafe == 1.0
+Werkzeug == 0.14.1
+click == 6.7
+itsdangerous == 0.24
+
+flask_wtf == 0.14.2
+wtforms == 2.1
