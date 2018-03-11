@@ -1,11 +1,19 @@
 # Taken from https://github.com/Kozea/Radicale/blob/1.1.x/radicale.wsgi
+import logging
 import radicale
 import radicale.log
 import waitress
 
 
+def wsgi(environ, start_response):
+    try:
+        return APP(environ, start_response)
+    except Exception:
+        logging.error('Uncaught exception', exc_info=True)
+
+
 radicale.log.start()
-wsgi = radicale.Application()
+APP = radicale.Application()
 waitress.serve(
     wsgi, threads=4,
     unix_socket='/srv/radicale/http.sock', unix_socket_perms='660')
