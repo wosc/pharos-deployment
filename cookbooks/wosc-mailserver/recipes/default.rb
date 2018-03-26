@@ -168,3 +168,9 @@ template "/etc/courier/imapd-ssl" do
   source "courier/imapd-ssl"
   notifies :restart, "service[courier-imap-ssl]"
 end
+
+package "socat"
+template "/usr/local/bin/authdaemon-test" do
+  source "courier/authdaemon-test"
+  mode "0755"
+end
