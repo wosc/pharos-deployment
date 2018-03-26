@@ -1,0 +1,11 @@
+--- /usr/bin/archivemail.debian	2018-03-26 20:15:34.564136981 +0200
++++ /usr/bin/archivemail	2018-03-26 20:15:25.499925489 +0200
+@@ -1557,7 +1557,7 @@
+     password = None
+     try: 
+         if options.pwfile: 
+-            username, url = split_qstr(url, '@')
++            username, url = split_qstr(url, '#')  # wosc patched
+         else: 
+             try:
+                 username, url = split_qstr(url, ':')
