@@ -45,11 +45,7 @@ end
 
 
 include_recipe "wosc-fastcgi::nginx"
-template "/etc/nginx/sites-available/bookmarks.wosc.de" do
+template "/srv/shaarli/nginx.conf" do
   source "nginx.conf"
-  notifies :reload, "service[nginx]", :delayed
-end
-link "/etc/nginx/sites-enabled/bookmarks.wosc.de" do
-  to "/etc/nginx/sites-available/bookmarks.wosc.de"
   notifies :reload, "service[nginx]", :delayed
 end

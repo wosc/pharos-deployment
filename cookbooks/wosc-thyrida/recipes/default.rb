@@ -29,12 +29,8 @@ end
 
 
 include_recipe "wosc-fastcgi::nginx"
-template "/etc/nginx/sites-available/thyrida.wosc.de" do
+template "/srv/thyrida/nginx.conf" do
   source "nginx.conf"
-  notifies :reload, "service[nginx]", :delayed
-end
-link "/etc/nginx/sites-enabled/thyrida.wosc.de" do
-  to "/etc/nginx/sites-available/thyrida.wosc.de"
   notifies :reload, "service[nginx]", :delayed
 end
 

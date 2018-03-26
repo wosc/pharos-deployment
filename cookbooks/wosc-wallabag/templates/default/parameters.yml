@@ -13,7 +13,7 @@ parameters:
   # with PostgreSQL and SQLite, you must set "utf8"
   database_charset: utf8mb4
 
-  domain_name: 'http://reader.wosc.de'
+  domain_name: 'https://pharos.wosc.de'
 
   mailer_transport: smtp
   mailer_host: 127.0.0.1
@@ -49,4 +49,4 @@ parameters:
 
 framework:
   assets:
-    base_urls: 'http://reader.wosc.de/reader'
+    base_urls: 'https://pharos.wosc.de/reader'

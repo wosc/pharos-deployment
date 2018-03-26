@@ -57,11 +57,7 @@ end
 
 
 include_recipe "wosc-fastcgi::nginx"
-template "/etc/nginx/sites-available/logs.wosc.de" do
+template "/srv/matomo/nginx.conf" do
   source "nginx.conf"
-  notifies :reload, "service[nginx]", :delayed
-end
-link "/etc/nginx/sites-enabled/logs.wosc.de" do
-  to "/etc/nginx/sites-available/logs.wosc.de"
   notifies :reload, "service[nginx]", :delayed
 end

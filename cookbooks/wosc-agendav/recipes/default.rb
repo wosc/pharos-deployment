@@ -54,11 +54,7 @@ end
 
 
 include_recipe "wosc-fastcgi::nginx"
-template "/etc/nginx/sites-available/calendar2.wosc.de" do
+template "/srv/agendav/nginx.conf" do
   source "nginx.conf"
-  notifies :reload, "service[nginx]", :delayed
-end
-link "/etc/nginx/sites-enabled/calendar2.wosc.de" do
-  to "/etc/nginx/sites-available/calendar2.wosc.de"
   notifies :reload, "service[nginx]", :delayed
 end

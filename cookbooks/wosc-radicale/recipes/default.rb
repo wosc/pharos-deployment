@@ -86,11 +86,7 @@ group "radicale" do
 end
 
 include_recipe "wosc-fastcgi::nginx"
-template "/etc/nginx/sites-available/calendar.wosc.de" do
+template "/srv/radicale/nginx.conf" do
   source "nginx.conf"
-  notifies :reload, "service[nginx]", :delayed
-end
-link "/etc/nginx/sites-enabled/calendar.wosc.de" do
-  to "/etc/nginx/sites-available/calendar.wosc.de"
   notifies :reload, "service[nginx]", :delayed
 end
