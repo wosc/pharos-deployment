@@ -51,6 +51,8 @@ GRAPH
   windows (3.4.4)
     ohai (>= 4.0.0)
   wosc (1.0.0)
+    ark (>= 0.0.0)
+    wosc-fastcgi (>= 0.0.0)
   wosc-agendav (1.0.0)
     ark (>= 0.0.0)
     wosc (>= 0.0.0)

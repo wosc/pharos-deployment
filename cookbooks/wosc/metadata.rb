@@ -11,3 +11,6 @@ long_description IO.read(File.join(File.dirname(__FILE__), "README.md"))
 
 chef_version     ">= 12"
 supports         "ubuntu", ">= 16.04"
+
+depends          "ark"
+depends          "wosc-fastcgi"

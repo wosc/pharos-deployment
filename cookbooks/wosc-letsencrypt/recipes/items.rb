@@ -10,6 +10,7 @@ end
 
 [
   "grmusik.de",
+  "wosc.de",
   "mail.wosc.de",
   "pharos.wosc.de",
 ].each do |domain|
