@@ -43,6 +43,15 @@ execute "wallabag_db_schema" do
   not_if "echo 'show tables' | mysql -uroot wallabag | grep -q ."
 end
 
+execute "wallabag_admin_password" do
+  command "php bin/console --env=prod fos:user:change-password wallabag #{node['wallabag']['root_pass']}"
+  cwd "/srv/wallabag"
+  not_if "echo 'select username from wallabag_user' | mysql wallabag | grep -q root"
+end
+execute "wallabag_admin_login" do
+  command "echo 'update wallabag_user set username=\"root\", username_canonical=\"root\"' | mysql wallabag"
+  not_if "echo 'select username from wallabag_user' | mysql wallabag | grep -q root"
+end
 
 include_recipe "wosc-fastcgi::supervisor"
 template "/etc/supervisor/conf.d/wallabag.conf" do
