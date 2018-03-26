@@ -18,3 +18,8 @@ template "/etc/supervisor/supervisord.conf" do
   source "supervisord.conf"
   notifies :restart, "service[supervisor]", :delayed
 end
+
+execute "reload_supervisor" do
+  action :nothing
+  command "supervisorctl reread; supervisorctl update"
+end

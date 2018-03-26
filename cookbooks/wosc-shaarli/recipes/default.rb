@@ -39,8 +39,7 @@ end
 include_recipe "wosc-fastcgi::supervisor"
 template "/etc/supervisor/conf.d/shaarli.conf" do
   source "supervisor.conf"
-  # XXX Too agressive since it restarts *all* services
-  # notifies :reload, "service[supervisor]", :delayed
+  notifies :run, "execute[reload_supervisor]", :delayed
 end
 
 
