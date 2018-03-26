@@ -52,6 +52,7 @@ GRAPH
     ohai (>= 4.0.0)
   wosc (1.0.0)
     ark (>= 0.0.0)
+    poise-python (>= 0.0.0)
     wosc-fastcgi (>= 0.0.0)
   wosc-agendav (1.0.0)
     ark (>= 0.0.0)

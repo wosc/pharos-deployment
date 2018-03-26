@@ -13,4 +13,5 @@ chef_version     ">= 12"
 supports         "ubuntu", ">= 16.04"
 
 depends          "ark"
+depends          "poise-python"
 depends          "wosc-fastcgi"
