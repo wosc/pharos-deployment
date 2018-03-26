@@ -1,0 +1,17 @@
+--- git-notifier.orig	2018-03-26 21:05:44.954105020 +0200
++++ /usr/local/gitnotify/git-notifier	2018-03-26 21:06:53.759660899 +0200
+@@ -1,4 +1,4 @@
+-#! /usr/bin/env python
++#!/usr/local/gitnotify/bin/python
+ 
+ import getpass
+ import optparse
+@@ -692,7 +692,7 @@
+ 
+     subject = git("show '--pretty=format:%%s (%%h)' -s %s" % rev)
+ 
+-    subject = "%s: %s" % (subject_head, subject[0])
++    subject = subject[0]  # wosc patched
+ 
+     show_cmd = "show -s --no-color --pretty=medium %s" % rev
+     diff_cmd = "diff-tree --root --patch-with-stat --no-color --ignore-space-at-eol --textconv %s %s" % (merge_diff, rev)
