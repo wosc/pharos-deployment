@@ -67,3 +67,25 @@ cron "gitnotify" do
   user "wosc"
   mailto "wosc@wosc.de"
 end
+
+
+package "mercurial"
+
+directory "/home/wosc/hgmail" do
+  # Clone repositories to watch here, with `hg clone -U`
+  owner "wosc"
+  group "wosc"
+end
+
+template "/home/wosc/hgmail/hgrc" do
+  source "hgrc"
+  owner "wosc"
+  group "wosc"
+end
+cron "hgnotify" do
+  command "bash -c 'export HGRCPATH=/home/wosc/hgmail/hgrc; for i in /home/wosc/hgmail/*/; do hg --quiet --repository $i pull; done'"
+  hour "5"
+  minute "30"
+  user "wosc"
+  mailto "wosc@wosc.de"
+end
