@@ -44,6 +44,13 @@ pip_requirements "/srv/letsencrypt/requirements.txt" do
   options "--no-deps"
 end
 
+template "/usr/local/src/simple-logging.patch" do
+  source "simple-logging.patch"
+end
+execute "patch -p0 < /usr/local/src/simple-logging.patch" do
+  not_if "grep -q 'wosc patched' /srv/letsencrypt/deployment/lib/python3.5/site-packages/simp_le.py"
+end
+
 
 # nginx integration
 

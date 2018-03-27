@@ -1,0 +1,11 @@
+--- simp_le.py.orig	2018-03-27 11:58:19.042224808 +0200
++++ /srv/letsencrypt/deployment/lib/python3.5/site-packages/simp_le.py	2018-03-27 11:58:40.198767998 +0200
+@@ -1509,7 +1509,7 @@
+ 
+ def setup_logging(verbose):
+     """Setup basic logging."""
+-    level = logging.DEBUG if verbose else logging.INFO
++    level = logging.DEBUG if verbose else logging.WARNING  # wosc patched
+     root_logger = logging.getLogger()
+     root_logger.setLevel(level)
+     handler = logging.StreamHandler()
