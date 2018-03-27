@@ -25,6 +25,8 @@ DEPENDENCIES
     path: cookbooks/wosc-thyrida
   wosc-wallabag
     path: cookbooks/wosc-wallabag
+  wosc-wordpress
+    path: cookbooks/wosc-wordpress
 
 GRAPH
   ark (3.1.0)
@@ -94,6 +96,11 @@ GRAPH
     wosc-fastcgi (>= 0.0.0)
     wosc-mysql (>= 0.0.0)
   wosc-wallabag (1.0.0)
+    ark (>= 0.0.0)
+    wosc (>= 0.0.0)
+    wosc-fastcgi (>= 0.0.0)
+    wosc-mysql (>= 0.0.0)
+  wosc-wordpress (1.0.0)
     ark (>= 0.0.0)
     wosc (>= 0.0.0)
     wosc-fastcgi (>= 0.0.0)
