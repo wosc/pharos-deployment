@@ -33,7 +33,7 @@ template "/srv/cgiserv/apache.d/ddns.conf" do
   notifies :run, "execute[supervisorctl restart cgiserv]", :delayed
 end
 
-file "/srv/cgiserv/nginx.d/ddns.conf" do
-  content "location /dns-update { proxy_pass http://cgi; }\n"
+template "/srv/cgiserv/nginx.d/ddns.conf" do
+  source "ddns/nginx.conf"
   notifies :reload, "service[nginx]", :delayed
 end
