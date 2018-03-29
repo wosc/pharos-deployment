@@ -5,6 +5,7 @@ end
 [
   "bin",
   "data",
+  "node",
 ].each do |dir|
     directory "/srv/prometheus/#{dir}" do
       owner "prometheus"
@@ -37,7 +38,6 @@ template "/srv/prometheus/server.yml" do
   group "prometheus"
   notifies :run, "execute[supervisorctl restart prometheus]", :delayed
 end
-
 
 include_recipe "wosc-fastcgi::supervisor"
 template "/etc/supervisor/conf.d/prometheus.conf" do
