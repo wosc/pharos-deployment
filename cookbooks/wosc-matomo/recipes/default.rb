@@ -10,6 +10,12 @@ wosc_service_user "matomo" do
   shell "/bin/bash"
 end
 
+group "adm" do  # to read nginx logs
+  action :manage
+  append true
+  members "matomo"
+end
+
 VERSION = '3.3.0'
 
 ark "matomo" do
@@ -59,4 +65,30 @@ include_recipe "wosc-fastcgi::nginx"
 template "/srv/matomo/nginx.conf" do
   source "nginx.conf"
   notifies :reload, "service[nginx]", :delayed
+end
+
+
+package "python2.7"
+
+import_logs = "python2 /srv/matomo/misc/log-analytics/import_logs.py --url https://pharos.wosc.de/logs/ --log-format-name=ncsa_extended --enable-http-errors --enable-http-redirects --enable-static --enable-bots"
+cron "import-accesslogs-wosc.de" do
+  command "#{import_logs} --idsite=1 /var/log/nginx/wosc.de-access.log.1 > /dev/null"
+  hour "8"
+  minute "0"
+  user "matomo"
+  mailto "wosc@wosc.de"
+end
+cron "import-accesslogs-grmusik.de" do
+  command "#{import_logs} --idsite=2 /var/log/nginx/grmusik.de-access.log.1 > /dev/null"
+  hour "8"
+  minute "30"
+  user "matomo"
+  mailto "wosc@wosc.de"
+end
+cron "process-imports" do
+  command "php /srv/matomo/console core:archive --url=https://pharos.wosc.de/logs/ > /dev/null"
+  hour "9"
+  minute "0"
+  user "matomo"
+  mailto "wosc@wosc.de"
 end
