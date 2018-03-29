@@ -85,6 +85,7 @@ GRAPH
     ark (>= 0.0.0)
     wosc (>= 0.0.0)
     wosc-fastcgi (>= 0.0.0)
+    wosc-mysql (>= 0.0.0)
   wosc-radicale (1.0.0)
     poise-python (>= 0.0.0)
     wosc (>= 0.0.0)
