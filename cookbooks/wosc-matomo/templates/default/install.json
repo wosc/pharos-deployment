@@ -6,7 +6,7 @@
     "base_domain": "pharos.wosc.de",
     "site_name": "wosc.de",
     "site_url": "http://wosc.de",
-    "geo_provider": "default",
+    "geo_provider": "geoip_pecl",
     "database": {
         "host": "localhost",
         "adapter": "Pdo\\Mysql",

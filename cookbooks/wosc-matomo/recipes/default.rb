@@ -5,6 +5,8 @@ package "php7.0-gd"
 package "php7.0-mbstring"
 package "php7.0-mysql"
 package "php7.0-xml"
+package "php-geoip"
+package "geoip-database-contrib"
 
 wosc_service_user "matomo" do
   shell "/bin/bash"
@@ -89,6 +91,19 @@ cron "process-imports" do
   command "php /srv/matomo/console core:archive --url=https://pharos.wosc.de/logs/ > /dev/null"
   hour "9"
   minute "0"
+  user "matomo"
+  mailto "wosc@wosc.de"
+end
+
+
+file "/etc/sudoers.d/matomo-geoip" do
+  content "matomo ALL=(root) NOPASSWD: /usr/sbin/update-geoip-database\n"
+end
+cron "update-geoip" do
+  command "sudo update-geoip-database"
+  hour "4"
+  minute "45"
+  day "15"
   user "matomo"
   mailto "wosc@wosc.de"
 end
