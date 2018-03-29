@@ -7,7 +7,17 @@ for domain in */; do
     domain=$(basename $domain)
     cd ~/data/$domain
 
-    ~/deployment/bin/simp_le --email $email --vhost $domain:~/public/$domain \
+    aliases=$domain
+    if [ -f ./aliases ]; then
+        aliases="$aliases $(tr "\n" " " < ./aliases)"
+    fi
+
+    vhosts=""
+    for name in $aliases; do
+        vhosts="$vhosts --vhost $name:$HOME/public/$domain"
+    done
+
+    ~/deployment/bin/simp_le --email $email $vhosts \
         --reuse_key -f key.pem -f cert.pem -f fullchain.pem -f account_key.json
     updated=$?
     rm -rf ~/public/$domain/acme-challenge

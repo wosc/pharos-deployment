@@ -39,3 +39,7 @@ cookbook_file "/srv/letsencrypt/data/mail.wosc.de/update" do
   source "mail.wosc.de.update"
   mode "0755"
 end
+
+cookbook_file "/srv/letsencrypt/data/grmusik.de/aliases" do
+  source "grmusik.de.aliases"
+end
