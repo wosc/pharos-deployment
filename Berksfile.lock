@@ -15,6 +15,8 @@ DEPENDENCIES
     path: cookbooks/wosc-matomo
   wosc-mysql
     path: cookbooks/wosc-mysql
+  wosc-prometheus
+    path: cookbooks/wosc-prometheus
   wosc-radicale
     path: cookbooks/wosc-radicale
   wosc-roundcube
@@ -79,6 +81,10 @@ GRAPH
     wosc-fastcgi (>= 0.0.0)
     wosc-mysql (>= 0.0.0)
   wosc-mysql (1.0.0)
+  wosc-prometheus (1.0.0)
+    ark (>= 0.0.0)
+    wosc (>= 0.0.0)
+    wosc-fastcgi (>= 0.0.0)
   wosc-radicale (1.0.0)
     poise-python (>= 0.0.0)
     wosc (>= 0.0.0)
