@@ -22,6 +22,13 @@ ark "wallabag" do
   group "wallabag"
 end
 
+template "/usr/local/src/wallabag-backup-api.patch" do
+  source "backup-api.patch"
+end
+execute "patch -p0 < /usr/local/src/wallabag-backup-api.patch" do
+  not_if "grep -q backup /srv/wallabag/app/config/routing.yml"
+end
+
 template "/srv/wallabag/app/config/parameters.yml" do
   source "parameters.yml"
   owner "wallabag"
