@@ -8,7 +8,7 @@ $app['db.options'] = [
         'driver' => 'pdo_mysql'
 ];
 
-$app['caldav.baseurl'] = 'http://calendar.wosc.de/cal/';
+$app['caldav.baseurl'] = 'http://localhost:7076';
 $app['caldav.publicurls'] = false;
 // $app['caldav.baseurl.public'] = 'https://caldav.server.com';
 
