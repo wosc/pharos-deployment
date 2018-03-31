@@ -9,9 +9,9 @@ python_virtualenv "/srv/cgiserv/nginxdbauth" do
   user "cgiserv"
   group "cgiserv"
   python "nginxdbauth"
-  setuptools_version "38.4.1"
-  pip_version "9.0.1"
-  wheel_version "0.30.0"
+  pip_version node["python"]["pip_version"]
+  setuptools_version node["python"]["setuptools_version"]
+  wheel_version node["python"]["wheel_version"]
 end
 
 template "/srv/cgiserv/nginxdbauth/requirements.txt" do
