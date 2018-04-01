@@ -36,7 +36,7 @@ vol="$(echo "$MQS" |awk '{print $2}')"
 
 MQF="$(echo "$MQ" |grep '\*\*\* frozen \*\*\*$')"
 #15h   15K 1eJSFg-0003ls-MJ <iztotfq@informinge.biz.ua> *** frozen ***
-fz="$(echo "$MQF" |wc -l)"
+fz="$(echo -n "$MQF" |wc -l)"
 fzvol="$(( $(echo $(echo "$MQF" |awk '{print $2}' |while read i; do unit2val $i; done) |tr ' ' '+') ))"
 
 echo "
