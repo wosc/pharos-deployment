@@ -62,6 +62,7 @@ Vagrant.configure('2') do |config|
       # chef.add_recipe 'wosc-cgi::ddns'
       # chef.add_recipe 'wosc-cgi::nginxdbauth'
       # chef.add_recipe 'wosc-cgi::passwd'
+      # chef.add_recipe 'wosc-cgi::uptimerobot'
 
       # chef.add_recipe 'wosc::pharos'
       # chef.add_recipe 'wosc::woscde'
@@ -107,6 +108,7 @@ Vagrant.configure('2') do |config|
         "prometheus" => {
           "db_pass" => "asdf",
           "root_pass" => "asdfasdf",
+          "uptimerobot_api_key" => "asdf",
         },
         "python" => {
           "pip_version" => "9.0.1",
