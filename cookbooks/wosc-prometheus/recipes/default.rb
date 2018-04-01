@@ -64,3 +64,15 @@ template "/srv/prometheus/nginx.conf" do
   source "nginx.conf"
   notifies :reload, "service[nginx]", :delayed
 end
+
+# node_exporter doesn't expose total number of processes, unsure whether
+# <https://github.com/prometheus/node_exporter/issues/790> will help.
+template "/srv/prometheus/bin/node_exporter-numprocs" do
+  source "node_exporter-numprocs.sh"
+  mode "0755"
+end
+cron "numprocs" do
+  command "/srv/prometheus/bin/node_exporter-numprocs"
+  user "prometheus"
+  mailto "wosc@wosc.de"
+end
