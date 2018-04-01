@@ -36,7 +36,7 @@ template "/srv/prometheus/server.yml" do
   source "server.yml"
   owner "prometheus"
   group "prometheus"
-  notifies :run, "execute[supervisorctl restart prometheus]", :delayed
+  notifies :run, "execute[reload prometheus]", :delayed
 end
 
 include_recipe "wosc-fastcgi::supervisor"
@@ -53,7 +53,8 @@ end
 #   notifies :run, "execute[reload_supervisor]", :delayed
 # end
 
-execute "supervisorctl restart prometheus" do
+execute "reload prometheus" do
+  command "kill -HUP $(supervisorctl pid prometheus)"
   action :nothing
 end
 
