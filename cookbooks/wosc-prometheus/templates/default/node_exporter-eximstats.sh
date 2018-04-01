@@ -77,6 +77,10 @@ mail_rejects_hosts_total ${Rejects_HOSTS:-0} $TS
 mail_rejects_tmp_total ${TmpRejects_MSG:-0} $TS
 # TYPE mail_rejects_tmp_hosts_total counter
 mail_rejects_tmp_hosts_total ${TmpRejects_HOSTS:-0} $TS
+
+# HELP mail_fatal_errors_total Number of lines in the paniclog file
+# TYPE mail_fatal_errors_total counter
+mail_fatal_errors_total $(wc -l < /var/log/exim4/paniclog) $TS
 " > ${DEST}.tmp
 mv -f ${DEST}{.tmp,}
 
