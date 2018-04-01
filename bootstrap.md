@@ -13,6 +13,11 @@ set default en_GB.utf8
 /etc/hosts: MYIP pharos.wosc.de pharos rz-hostname
 /etc/hostname: pharos
 # maybe set up local apt mirror
+# dd if=/dev/zero of=/swapfile bs=1024 count=$((2048*1024))
+# chmod 600 /swapfile
+# mkswap /swapfile
+# swapon /swapfile
+# echo "/swapfile none swap sw 0 0" >> /etc/fstab
 
 $ wosc ssh-copy-id
 - restore /home/git/dot.git from Backup
