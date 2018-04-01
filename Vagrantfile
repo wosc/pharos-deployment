@@ -55,6 +55,7 @@ Vagrant.configure('2') do |config|
       # chef.add_recipe 'wosc-prometheus::exim'
       # chef.add_recipe 'wosc-prometheus::grafana'
       # chef.add_recipe 'wosc-prometheus::mysql'
+      # chef.add_recipe 'wosc-prometheus::nginx'
       # chef.add_recipe 'wosc-prometheus::supervisord'
 
       # chef.add_recipe 'wosc-cgi'
