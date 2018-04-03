@@ -5,6 +5,7 @@
   "httpie",
   "jq",
   "mc",
+  "mosh",
   "rsync",
   "screen",
   "unzip",
