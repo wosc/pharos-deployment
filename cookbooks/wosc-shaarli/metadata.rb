@@ -14,3 +14,4 @@ supports         "ubuntu", ">= 16.04"
 
 depends          "ark"
 depends          "wosc"
+depends          "wosc-fastcgi"

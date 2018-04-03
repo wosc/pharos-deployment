@@ -98,6 +98,7 @@ GRAPH
   wosc-shaarli (1.0.0)
     ark (>= 0.0.0)
     wosc (>= 0.0.0)
+    wosc-fastcgi (>= 0.0.0)
   wosc-thyrida (1.0.0)
     wosc (>= 0.0.0)
     wosc-cgi (>= 0.0.0)

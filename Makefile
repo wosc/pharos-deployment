@@ -20,3 +20,8 @@ berks: build/.berks.success
 build/.berks.success: Berksfile Berksfile.lock
 	berks vendor $(CURDIR)/build
 	@touch $@
+
+
+.PHONY: foodcritic
+foodcritic:
+	foodcritic -t ~FC071 -t ~FC078 -t ~FC069 --context cookbooks/*
