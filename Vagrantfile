@@ -77,6 +77,7 @@ Vagrant.configure('2') do |config|
       # chef.add_recipe 'wosc::esniper'
       # chef.add_recipe 'wosc::mail'
       # chef.add_recipe 'wosc::rsspull'
+      # chef.add_recipe 'wosc::twitter'
       # chef.add_recipe 'wosc::unison'
       # chef.add_recipe 'wosc::youtube'
 
