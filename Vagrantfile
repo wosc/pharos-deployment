@@ -109,6 +109,7 @@ Vagrant.configure('2') do |config|
         },
         "prometheus" => {
           "db_pass" => "asdf",
+          "email_pass" => "asdf",
           "root_pass" => "asdfasdf",
           "uptimerobot_api_key" => "asdf",
         },

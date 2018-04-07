@@ -28,3 +28,41 @@ cron "mail-stats" do
   user "prometheus"
   mailto "wosc@wosc.de"
 end
+
+
+python_runtime "mailcheck" do
+  version "3.5"
+  provider :system
+end
+python_virtualenv "/usr/local/mailcheck" do
+  python "mailcheck"
+  pip_version node["python"]["pip_version"]
+  setuptools_version node["python"]["setuptools_version"]
+  wheel_version node["python"]["wheel_version"]
+end
+python_package "ws.mailcheck" do
+  version "1.0.1"
+end
+link "/usr/local/bin/mail-check-roundtrip" do
+  to "/usr/local/mailcheck/bin/mail-check-rountrip"
+end
+
+template "/srv/prometheus/mailcheck.conf" do
+  source "mailcheck.conf"
+  owner "prometheus"
+  group "prometheus"
+  mode "0600"
+end
+
+template "/srv/prometheus/bin/node_exporter-mailcheck" do
+  source "node_exporter-mailcheck.sh"
+  owner "prometheus"
+  group "prometheus"
+  mode "0755"
+end
+cron "mailcheck" do
+  command "/srv/prometheus/bin/node_exporter-mailcheck"
+  minute "*/5"
+  user "prometheus"
+  mailto "wosc@wosc.de"
+end
