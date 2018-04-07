@@ -52,6 +52,7 @@ Vagrant.configure('2') do |config|
       # chef.add_recipe 'wosc-wallabag'
 
       # chef.add_recipe 'wosc-prometheus'
+      # chef.add_recipe 'wosc-prometheus::alert'
       # chef.add_recipe 'wosc-prometheus::exim'
       # chef.add_recipe 'wosc-prometheus::grafana'
       # chef.add_recipe 'wosc-prometheus::mysql'

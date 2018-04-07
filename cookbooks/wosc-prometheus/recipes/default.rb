@@ -4,6 +4,7 @@ end
 
 [
   "bin",
+  "conf.d",
   "data",
   "node",
 ].each do |dir|
@@ -16,7 +17,7 @@ end
 ark "prometheus" do
   url "https://github.com/prometheus/prometheus/releases/download/v2.2.1/prometheus-2.2.1.linux-amd64.tar.gz"
   action :cherry_pick
-  creates "--wildcards '*/prometheus'"
+  creates "--wildcards '*/prometheus' '*/promtool'"
   path "/srv/prometheus/bin"
 end
 ark "node_exporter" do

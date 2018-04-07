@@ -1,0 +1,17 @@
+route:
+  receiver: wosc
+  group_by: [alertname]
+
+receivers:
+  - name: wosc
+    <% if node["prometheus"]["pushover_user_key"] %>
+    pushover_configs:
+      - user_key: <%=node["prometheus"]["pushover_user_key"]%>
+        token: <%=node["prometheus"]["pushover_api_key"]%>
+        send_resolved: false
+    <% else %>
+    email_configs:
+      - to: wosc@wosc.de
+      - from: wosc+prometheus@wosc.de
+      - smarthost: localhost
+    <% end %>
