@@ -33,7 +33,7 @@ cron "archivemail-spam" do
 end
 
 cron "notify reboot" do
-  command "echo `date` | /usr/bin/mail -s 'pharos rebooted' wosc@localhost"
+  command "sleep 30; echo `date` | /usr/bin/mail -s 'pharos rebooted' wosc@localhost"
   time :reboot
   user "wosc"
   mailto "wosc@wosc.de"
