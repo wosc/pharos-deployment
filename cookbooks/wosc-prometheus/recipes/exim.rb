@@ -40,15 +40,23 @@ python_virtualenv "/usr/local/mailcheck" do
   setuptools_version node["python"]["setuptools_version"]
   wheel_version node["python"]["wheel_version"]
 end
-python_package "ws.mailcheck" do
-  version "1.0.1"
+
+template "/usr/local/mailcheck/requirements.txt" do
+  source "mailcheck-requirements.txt"
 end
-link "/usr/local/bin/mail-check-roundtrip" do
-  to "/usr/local/mailcheck/bin/mail-check-rountrip"
+pip_requirements "/usr/local/mailcheck/requirements.txt" do
+  virtualenv "/usr/local/mailcheck"
+  options "--no-deps"
 end
 
 template "/srv/prometheus/mailcheck.conf" do
   source "mailcheck.conf"
+  owner "prometheus"
+  group "prometheus"
+  mode "0600"
+end
+template "/srv/prometheus/caldavcheck.conf" do
+  source "caldavcheck.conf"
   owner "prometheus"
   group "prometheus"
   mode "0600"
