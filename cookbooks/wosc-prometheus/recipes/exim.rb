@@ -74,3 +74,10 @@ cron "mailcheck" do
   user "prometheus"
   mailto "wosc@wosc.de"
 end
+
+template "/srv/prometheus/conf.d/alert-mailcheck.yml" do
+  source "alert-mailcheck.yml"
+  owner "prometheus"
+  group "prometheus"
+  notifies :run, "execute[reload prometheus]", :delayed
+end
