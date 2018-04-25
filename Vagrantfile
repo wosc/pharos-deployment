@@ -48,6 +48,7 @@ Vagrant.configure('2') do |config|
       # chef.add_recipe 'wosc-agendav'
 
       # chef.add_recipe 'wosc-matomo'
+      chef.add_recipe 'wosc-peerjs'
       # chef.add_recipe 'wosc-shaarli'
       # chef.add_recipe 'wosc-wallabag'
 
