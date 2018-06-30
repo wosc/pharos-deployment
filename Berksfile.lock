@@ -52,7 +52,7 @@ GRAPH
   poise-languages (2.1.1)
     poise (~> 2.5)
     poise-archive (~> 1.0)
-  poise-python (1.6.0)
+  poise-python (1.7.0)
     poise (~> 2.7)
     poise-languages (~> 2.0)
   seven_zip (2.0.2)

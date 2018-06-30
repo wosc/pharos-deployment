@@ -1,4 +1,4 @@
-VERSION = '0.10.0'
+VERSION = '0.11.0'
 
 ark "mysqld_exporter" do
   url "https://github.com/prometheus/mysqld_exporter/releases/download/v#{VERSION}/mysqld_exporter-#{VERSION}.linux-amd64.tar.gz"

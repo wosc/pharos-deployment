@@ -14,8 +14,8 @@ end
     end
 end
 
-VERSION = '2.2.1'
-NODE_VERSION = '0.15.2'
+VERSION = '2.3.1'
+NODE_VERSION = '0.16.0'
 
 ark "prometheus" do
   url "https://github.com/prometheus/prometheus/releases/download/v#{VERSION}/prometheus-#{VERSION}.linux-amd64.tar.gz"
