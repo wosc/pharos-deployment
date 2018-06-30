@@ -3,8 +3,10 @@ directory "/srv/prometheus/data/alerts" do
   group "prometheus"
 end
 
+VERSION = '0.14.0'
+
 ark "alertmanager" do
-  url "https://github.com/prometheus/alertmanager/releases/download/v0.14.0/alertmanager-0.14.0.linux-amd64.tar.gz"
+  url "https://github.com/prometheus/alertmanager/releases/download/v#{VERSION}/alertmanager-#{VERSION}.linux-amd64.tar.gz"
   action :cherry_pick
   creates "--wildcards '*/alertmanager' '*/amtool'"
   path "/srv/prometheus/bin"

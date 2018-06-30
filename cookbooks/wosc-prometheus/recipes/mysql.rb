@@ -1,5 +1,7 @@
+VERSION = '0.10.0'
+
 ark "mysqld_exporter" do
-  url "https://github.com/prometheus/mysqld_exporter/releases/download/v0.10.0/mysqld_exporter-0.10.0.linux-amd64.tar.gz"
+  url "https://github.com/prometheus/mysqld_exporter/releases/download/v#{VERSION}/mysqld_exporter-#{VERSION}.linux-amd64.tar.gz"
   action :cherry_pick
   creates "--wildcards '*/mysqld_exporter'"
   path "/srv/prometheus/bin"

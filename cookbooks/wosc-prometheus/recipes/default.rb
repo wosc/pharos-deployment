@@ -14,14 +14,17 @@ end
     end
 end
 
+VERSION = '2.2.1'
+NODE_VERSION = '0.15.2'
+
 ark "prometheus" do
-  url "https://github.com/prometheus/prometheus/releases/download/v2.2.1/prometheus-2.2.1.linux-amd64.tar.gz"
+  url "https://github.com/prometheus/prometheus/releases/download/v#{VERSION}/prometheus-#{VERSION}.linux-amd64.tar.gz"
   action :cherry_pick
   creates "--wildcards '*/prometheus' '*/promtool'"
   path "/srv/prometheus/bin"
 end
 ark "node_exporter" do
-  url "https://github.com/prometheus/node_exporter/releases/download/v0.15.2/node_exporter-0.15.2.linux-amd64.tar.gz"
+  url "https://github.com/prometheus/node_exporter/releases/download/v#{NODE_VERSION}/node_exporter-#{NODE_VERSION}.linux-amd64.tar.gz"
   action :cherry_pick
   creates "--wildcards '*node_exporter'"
   path "/srv/prometheus/bin"
