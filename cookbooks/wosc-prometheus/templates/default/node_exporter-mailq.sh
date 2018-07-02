@@ -16,9 +16,6 @@ unit2val() {
     echo $v
 }
 
-# Timestamp is an int64 (milliseconds since epoch)
-TS="$(date +%s%N |cut -b1-13)"
-
 MQ="$(mailq)"
 
 MQS="$(echo "$MQ" |/usr/sbin/exiqsumm |grep 'TOTAL$')"
@@ -42,19 +39,19 @@ fzvol="$(( $(echo $(echo "$MQF" |awk '{print $2}' |while read i; do unit2val $i;
 echo "
 # HELP mail_queue_total The total number of messages in queue.
 # TYPE mail_queue_total gauge
-mail_queue_total ${nb:-0} $TS
+mail_queue_total ${nb:-0}
 
 # HELP mail_queue_bytes_total The total size of all messages in queue.
 # TYPE mail_queue_bytes_total gauge
-mail_queue_bytes_total $(unit2val ${vol:-0}) $TS
+mail_queue_bytes_total $(unit2val ${vol:-0})
 
 # HELP mail_queue_frozen_total The total number of frozen messages in queue.
 # TYPE mail_queue_frozen_total gauge
-mail_queue_frozen_total ${fz:-0} $TS
+mail_queue_frozen_total ${fz:-0}
 
 # HELP mail_queue_frozen_bytes_total The total size of all frozen messages.
 # TYPE mail_queue_frozen_bytes_total gauge
-mail_queue_frozen_bytes_total ${fzvol:-0} $TS
+mail_queue_frozen_bytes_total ${fzvol:-0}
 " > ${DEST}.tmp
 mv -f ${DEST}{.tmp,}
 

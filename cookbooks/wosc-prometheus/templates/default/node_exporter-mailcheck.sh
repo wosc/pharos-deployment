@@ -1,7 +1,6 @@
 #!/bin/bash
 
 DEST=/srv/prometheus/node/mailcheck.prom
-TS=$(date +%s%N |cut -b1-13)
 
 /usr/local/mailcheck/bin/mail-check-roundtrip /srv/prometheus/mailcheck.conf
 if [ "$?" = "0" ]; then
@@ -19,8 +18,8 @@ fi
 
 echo "
 # TYPE mail_roundtrip_up gauge
-mail_roundtrip_up $MAILCHECK $TS
+mail_roundtrip_up $MAILCHECK
 # TYPE mail_caldav_roundtrip_up gauge
-mail_caldav_roundtrip_up $CALDAVCHECK $TS
+mail_caldav_roundtrip_up $CALDAVCHECK
 " > ${DEST}.tmp
 mv -f ${DEST}{.tmp,}

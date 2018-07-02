@@ -16,9 +16,6 @@ unit2val() {
     echo $v
 }
 
-# Timestamp is an int64 (milliseconds since epoch)
-TS="$(date +%s%N |cut -b1-13)"
-
 ES="$(/usr/sbin/eximstats -h0 -nr -ne -t0 /var/log/exim4/mainlog 2>/dev/null)"
 #Grand total summary
 #-------------------
@@ -50,37 +47,37 @@ TmpRejects_HOSTS="$(echo "$ES" |awk "/^  $Match /{print \$4}")"
 echo "
 # HELP mail_received_total The total number of messages received.
 # TYPE mail_received_total counter
-mail_received_total ${Received_MSG:-0} $TS
+mail_received_total ${Received_MSG:-0}
 # TYPE mail_received_bytes_total counter
-mail_received_bytes_total $(unit2val ${Received_VOL:-0}) $TS
+mail_received_bytes_total $(unit2val ${Received_VOL:-0})
 # TYPE mail_received_hosts_total counter
-mail_received_hosts_total ${Received_HOSTS:-0} $TS
+mail_received_hosts_total ${Received_HOSTS:-0}
 
 # HELP mail_delivered_total The total number of messages delivered.
 # TYPE mail_delivered_total counter
-mail_delivered_total ${Delivered_MSG:-0} $TS
+mail_delivered_total ${Delivered_MSG:-0}
 # TYPE mail_delivered_bytes_total counter
-mail_delivered_bytes_total $(unit2val ${Delivered_VOL:-0}) $TS
+mail_delivered_bytes_total $(unit2val ${Delivered_VOL:-0})
 # TYPE mail_delivered_addresses_total counter
-mail_delivered_addresses_total ${Delivered_ADDR:-0} $TS
+mail_delivered_addresses_total ${Delivered_ADDR:-0}
 # TYPE mail_delivered_hosts_total counter
-mail_delivered_hosts_total ${Delivered_HOSTS:-0} $TS
+mail_delivered_hosts_total ${Delivered_HOSTS:-0}
 
 # HELP mail_rejects_total The total number of messages rejected.
 # TYPE mail_rejects_total counter
-mail_rejects_total ${Rejects_MSG:-0} $TS
+mail_rejects_total ${Rejects_MSG:-0}
 # TYPE mail_rejects_hosts_total counter
-mail_rejects_hosts_total ${Rejects_HOSTS:-0} $TS
+mail_rejects_hosts_total ${Rejects_HOSTS:-0}
 
 # HELP mail_rejects_tmp_total The total number of messages rejected temporarily.
 # TYPE mail_rejects_tmp_total counter
-mail_rejects_tmp_total ${TmpRejects_MSG:-0} $TS
+mail_rejects_tmp_total ${TmpRejects_MSG:-0}
 # TYPE mail_rejects_tmp_hosts_total counter
-mail_rejects_tmp_hosts_total ${TmpRejects_HOSTS:-0} $TS
+mail_rejects_tmp_hosts_total ${TmpRejects_HOSTS:-0}
 
 # HELP mail_fatal_errors_total Number of lines in the paniclog file
 # TYPE mail_fatal_errors_total counter
-mail_fatal_errors_total $(wc -l < /var/log/exim4/paniclog) $TS
+mail_fatal_errors_total $(wc -l < /var/log/exim4/paniclog)
 " > ${DEST}.tmp
 mv -f ${DEST}{.tmp,}
 
