@@ -82,3 +82,6 @@ require_once(ABSPATH . 'wp-settings.php');
 
 /** wosc: bypass strange FTP business */
 define('FS_METHOD','direct');
+
+/** wosc: https://codex.wordpress.org/Function_Reference/is_ssl#Notes */
+$_SERVER['HTTPS'] = 'on';
