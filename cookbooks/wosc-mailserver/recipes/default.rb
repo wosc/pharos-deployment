@@ -60,20 +60,15 @@ package "clamav"
 package "clamav-daemon"
 service "clamav-daemon"
 
-group "Debian-exim" do
+group "clamav" do
   action :manage
   append true
-  members "clamav"
-end
-
-execute "sed -i -e 's/AllowSupplementaryGroups false/AllowSupplementaryGroups true/' /etc/clamav/clamd.conf" do
-  only_if "grep -q 'AllowSupplementaryGroups false' /etc/clamav/clamd.conf"
-  notifies :restart, "service[clamav-daemon]", :delayed
+  members "Debian-exim"
 end
 
 directory "/var/spool/exim4/scan" do
   owner "Debian-exim"
-  group "Debian-exim"
+  group "clamav"
   mode "0775"
 end
 
