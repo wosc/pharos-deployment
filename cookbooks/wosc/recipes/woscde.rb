@@ -23,6 +23,15 @@ cron "dailystrips" do
   user "wosc"
   mailto "wosc@wosc.de"
 end
+directory "/home/wosc/public_html/dailystrips" do
+  user "wosc"
+  group "wosc"
+end
+cookbook_file "/home/wosc/public_html/dailystrips/favicon.png" do
+  source "kevinandkell.png"
+  user "wosc"
+  group "wosc"
+end
 
 include_recipe "wosc-fastcgi::nginx"
 template "/etc/nginx/sites-available/wosc.de" do
