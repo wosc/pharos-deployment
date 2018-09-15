@@ -29,6 +29,13 @@ if node["grmusik"]["install_wordpress"]
     group "grshop"
     mode "0640"
   end
+
+  cookbook_file "/srv/grshop/lib/wp-content/plugins/wc-free-checkout-fields/wc-free-checkout-fields.php" do
+    source "wc-free-checkout-fields.php"
+    owner "grshop"
+    group "grshop"
+    mode "0640"
+  end
 end
 
 wosc_mysql_database "grshop"
