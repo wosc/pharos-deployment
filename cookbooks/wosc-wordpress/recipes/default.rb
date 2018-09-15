@@ -10,7 +10,7 @@ directory "/srv/grshop/tmp" do
   group "grshop"
 end
 
-VERSION = '4.9.4'
+VERSION = '4.9.8'
 
 if node["grmusik"]["install_wordpress"]
   ark "grshop" do
