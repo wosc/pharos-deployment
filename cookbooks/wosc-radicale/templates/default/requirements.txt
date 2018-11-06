@@ -1,7 +1,7 @@
 radicale == <%= @version %>
 
-python-dateutil == 2.6.1
+python-dateutil == 2.7.5
 six == 1.11.0
-vobject == 0.9.5
+vobject == 0.9.6.1
 
 waitress == 1.1.0
