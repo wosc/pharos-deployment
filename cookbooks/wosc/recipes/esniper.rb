@@ -5,7 +5,8 @@
   package name
 end
 
-VERSION = "848382f44579b3441dece67cbfe415e4ab64ff5d"
+
+VERSION = "69675c03e17bad51c41a07e1453d897eb8c401af"  # 2.35.0
 
 directory "/usr/local/esniper-1"
 
@@ -16,7 +17,7 @@ file "/usr/local/esniper-1/autogen.sh" do
 end
 
 # XXX The zip URL only exists after you've clicked on "download snapshot" at
-# https://sourceforge.net/p/esniper/git/ci/848382f44579b3441dece67cbfe415e4ab64ff5d/tree/
+# https://sourceforge.net/p/esniper/git/ci/#{VERSION}/tree/
 ark "esniper" do
   url "https://sourceforge.net/code-snapshots/git/e/es/esniper/git.git/esniper-git-#{VERSION}.zip"
   action :install_with_make
