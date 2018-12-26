@@ -1,5 +1,5 @@
 --- simp_le.py.orig	2018-03-27 11:58:19.042224808 +0200
-+++ /srv/letsencrypt/deployment/lib/python3.5/site-packages/simp_le.py	2018-03-27 11:58:40.198767998 +0200
++++ /srv/letsencrypt/deployment/lib/python3.6/site-packages/simp_le.py	2018-03-27 11:58:40.198767998 +0200
 @@ -1509,7 +1509,7 @@
  
  def setup_logging(verbose):
