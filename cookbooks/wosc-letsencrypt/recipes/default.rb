@@ -22,7 +22,7 @@ include_recipe "wosc-letsencrypt::items"
 # Install simp_le client <https://github.com/zenhack/simp_le>
 
 python_runtime "letsencrypt" do
-  version "3.5"
+  version "3.6"
   provider :system
 end
 
@@ -48,7 +48,7 @@ template "/usr/local/src/simple-logging.patch" do
   source "simple-logging.patch"
 end
 execute "patch -p0 < /usr/local/src/simple-logging.patch" do
-  not_if "grep -q 'wosc patched' /srv/letsencrypt/deployment/lib/python3.5/site-packages/simp_le.py"
+  not_if "grep -q 'wosc patched' /srv/letsencrypt/deployment/lib/python3.6/site-packages/simp_le.py"
 end
 
 

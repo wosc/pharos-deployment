@@ -31,7 +31,7 @@ end
 
 
 python_runtime "mailcheck" do
-  version "3.5"
+  version "3.6"
   provider :system
 end
 python_virtualenv "/usr/local/mailcheck" do
