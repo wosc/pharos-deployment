@@ -1,5 +1,5 @@
 package "ruby"
-package "ruby-mysql"
+package "ruby-mysql2"
 gem_package "xmlrpc"
 
 wosc_service_user "thyrida" do
