@@ -6,6 +6,6 @@ service "php7.2-fpm" do
 end
 
 execute "send php errors to nginx log" do
-  command "sed -i -e 's+;error_log = php_errors.log+error_log = /dev/stderr+' /etc/php/7.0/cgi/php.ini"
-  not_if "grep 'error_log = /dev/stderr' /etc/php/7.0/cgi/php.ini"
+  command "sed -i -e 's+;error_log = php_errors.log+error_log = /dev/stderr+' /etc/php/7.2/cgi/php.ini"
+  not_if "grep 'error_log = /dev/stderr' /etc/php/7.2/cgi/php.ini"
 end
