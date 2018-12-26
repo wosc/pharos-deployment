@@ -1,5 +1,6 @@
 package "ruby"
 package "ruby-mysql"
+gem_package "xmlrpc"
 
 wosc_service_user "thyrida" do
   shell "/bin/bash"
