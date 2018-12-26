@@ -1,4 +1,4 @@
-VERSION = "2.48.3-1ubuntu1"
+VERSION = "2.51.2-1"
 
 package "unison" do
   # Must match the version on the client laptop(s)!
