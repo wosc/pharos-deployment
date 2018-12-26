@@ -1,10 +1,10 @@
 include_recipe "wosc-fastcgi::php"
-package "php7.0-intl"
-package "php7.0-json"
-package "php7.0-mbstring"
-package "php7.0-mcrypt"
-package "php7.0-mysql"
-package "php7.0-xml"
+package "php7.2-intl"
+package "php7.2-json"
+package "php7.2-mbstring"
+package "php7.2-mcrypt"
+package "php7.2-mysql"
+package "php7.2-xml"
 
 wosc_service_user "roundcube" do
   shell "/bin/bash"

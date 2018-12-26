@@ -1,7 +1,7 @@
 include_recipe "wosc-fastcgi::php"
-package "php7.0-curl"
-package "php7.0-gd"
-package "php7.0-gettext"
+package "php7.2-curl"
+package "php7.2-gd"
+package "php7.2-gettext"
 
 
 wosc_service_user "shaarli"

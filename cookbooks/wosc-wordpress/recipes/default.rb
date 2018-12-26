@@ -1,5 +1,5 @@
 include_recipe "wosc-fastcgi::php"
-package "php7.0-mysql"
+package "php7.2-mysql"
 
 wosc_service_user "grshop" do
   shell "/bin/bash"

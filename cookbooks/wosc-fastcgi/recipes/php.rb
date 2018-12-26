@@ -1,7 +1,7 @@
-package "php7.0"
-package "php7.0-cgi"
+package "php7.2"
+package "php7.2-cgi"
 
-service "php7.0-fpm" do
+service "php7.2-fpm" do
   action [:stop, :disable]
 end
 
