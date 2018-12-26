@@ -18,7 +18,7 @@ unit2val() {
 
 MQ="$(mailq)"
 
-MQS="$(echo "$MQ" |/usr/sbin/exiqsumm |grep 'TOTAL$')"
+MQS="$(echo "$MQ" |/usr/sbin/exiqsumm 2>/dev/null |grep 'TOTAL$')"
 #Count  Volume  Oldest  Newest  Domain
 #-----  ------  ------  ------  ------
 #
