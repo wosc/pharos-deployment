@@ -50,7 +50,7 @@ SSLADDRESS=0
 # That's the SSL IMAP port we'll listen on.
 # Feel free to redefine MAXDAEMONS, TCPDOPTS, and MAXPERIP.
 
-SSLPIDFILE=/var/run/courier/imapd-ssl.pid
+SSLPIDFILE=/run/courier/imapd-ssl.pid
 
 ##NAME: SSLLOGGEROPTS:0
 #

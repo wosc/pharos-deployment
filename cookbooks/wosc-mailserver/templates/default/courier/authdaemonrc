@@ -57,7 +57,7 @@ daemons=5
 # authdaemonvar is here, but is not used directly by authdaemond.  It's
 # used by various configuration and build scripts, so don't touch it!
 
-authdaemonvar=/var/run/courier/authdaemon
+authdaemonvar=/run/courier/authdaemon
 
 ##NAME: DEBUG_LOGIN:0
 #

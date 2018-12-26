@@ -53,7 +53,7 @@ MYSQL_SOCKET		/var/run/mysqld/mysqld.sock
 # MYSQL_PORT can be used with MySQL version 3.22 or later to specify a port to
 # connect to.
 
-#MYSQL_PORT		0
+MYSQL_PORT		0
 
 ##NAME: MYSQL_OPT:0
 #
@@ -286,3 +286,8 @@ MYSQL_HOME_FIELD	mailbox_path
 #			WHERE	local_part='$(local_part)'		\
 #			AND	domain_name='$(domain)'
 #
+
+##NAME: MARKER:0
+#
+# Do not remove this section from this configuration file. This section
+# must be present at the end of this file.
