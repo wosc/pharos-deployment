@@ -2,7 +2,6 @@ include_recipe "wosc-fastcgi::php"
 package "php7.2-intl"
 package "php7.2-json"
 package "php7.2-mbstring"
-package "php7.2-mcrypt"
 package "php7.2-mysql"
 package "php7.2-xml"
 
