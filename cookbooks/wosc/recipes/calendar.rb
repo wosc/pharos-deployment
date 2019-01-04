@@ -47,3 +47,9 @@ cron "cal-thinkgingrock" do
   user "wosc"
   mailto "wosc@wosc.de"
 end
+cron "cal-haemera" do
+  command "curl --silent http://localhost:7078/ical/scheduled > #{caldav}/haemera.ics"
+  minute "*/5"
+  user "wosc"
+  mailto "wosc@wosc.de"
+end

@@ -7,6 +7,8 @@ DEPENDENCIES
     path: cookbooks/wosc-cgi
   wosc-fastcgi
     path: cookbooks/wosc-fastcgi
+  wosc-haemera
+    path: cookbooks/wosc-haemera
   wosc-letsencrypt
     path: cookbooks/wosc-letsencrypt
   wosc-mailserver
@@ -73,6 +75,11 @@ GRAPH
     wosc (>= 0.0.0)
     wosc-fastcgi (>= 0.0.0)
   wosc-fastcgi (0.1.0)
+  wosc-haemera (1.0.0)
+    poise-python (>= 0.0.0)
+    wosc (>= 0.0.0)
+    wosc-fastcgi (>= 0.0.0)
+    wosc-mysql (>= 0.0.0)
   wosc-letsencrypt (1.0.0)
     poise-python (>= 0.0.0)
     wosc (>= 0.0.0)
