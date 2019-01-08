@@ -9,10 +9,10 @@ end
 
 package "apt-transport-https"
 apt_repository "grafana" do
-  uri "https://packagecloud.io/grafana/stable/debian/"
-  distribution "jessie"
+  uri "https://packages.grafana.com/oss/deb"
+  distribution "stable"
   components ["main"]
-  key "https://packagecloud.io/gpg.key"
+  key "https://packages.grafana.com/gpg.key"
 end
 
 package "grafana"
