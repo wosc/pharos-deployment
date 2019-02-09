@@ -31,6 +31,13 @@ cron "archivemail-spam" do
   user "wosc"
   mailto "wosc@wosc.de"
 end
+cron "archivemail-spam-grmusik" do
+  command "archivemail --days=1 --delete --output-dir=/tmp --pwfile /home/grmusik/spam-cleanup.pass 'imaps://gregor@grmusik.de#mail.wosc.de/INBOX.Spam' > /dev/null"
+  minute "10"
+  hour "0"
+  user "grmusik"
+  mailto "wosc@wosc.de"
+end
 
 cron "notify reboot" do
   command "sleep 30; echo `date` | /usr/bin/mail -s 'pharos rebooted' wosc@localhost"
