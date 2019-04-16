@@ -6,7 +6,7 @@ package "php7.2-gettext"
 
 wosc_service_user "shaarli"
 
-VERSION = '0.10.2'
+VERSION = '0.10.3'
 
 directory "/srv/shaarli/public" do
   owner "shaarli"
@@ -24,9 +24,9 @@ ark "shaarli" do
 end
 
 ark "shaarli-material" do
-  url "https://github.com/kalvn/Shaarli-Material/archive/v0.10.2-patch.3.tar.gz"
+  url "https://github.com/kalvn/Shaarli-Material/releases/download/v0.10.3/shaarli-material.v0.10.3.tar.gz"
   action :cherry_pick
-  creates "Shaarli-Material-0.10.2-patch.3/material"
+  creates "material"
   path "/srv/shaarli/public/tpl"
   owner "shaarli"
   group "shaarli"

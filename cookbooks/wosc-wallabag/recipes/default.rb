@@ -12,7 +12,7 @@ wosc_service_user "wallabag" do
   shell "/bin/bash"
 end
 
-VERSION = '2.3.6'
+VERSION = '2.3.7'
 
 ark "wallabag" do
   url "http://static.wallabag.org/releases/wallabag-release-#{VERSION}.tar.gz"
