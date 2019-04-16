@@ -41,12 +41,6 @@ cron "cal-doodle" do
   mailto "wosc@wosc.de"
 end
 # Provides access to scheduled todos via my default caldav source
-cron "cal-thinkgingrock" do
-  command "/usr/local/ical/bin/python /home/wosc/bin/ical_filter_thinkingrock.py < /home/wosc/sync/plan/wosc.ics > #{caldav}/thinkingrock.ics; chmod g+w #{caldav}/thinkingrock.ics"
-  minute "*/5"
-  user "wosc"
-  mailto "wosc@wosc.de"
-end
 cron "cal-haemera" do
   command "curl --silent http://localhost:7078/ical/scheduled > #{caldav}/haemera.ics"
   minute "*/5"
