@@ -3,7 +3,7 @@ directory "/srv/prometheus/data/alerts" do
   group "prometheus"
 end
 
-VERSION = '0.16.2'
+VERSION = '0.17.0'
 
 ark "alertmanager" do
   url "https://github.com/prometheus/alertmanager/releases/download/v#{VERSION}/alertmanager-#{VERSION}.linux-amd64.tar.gz"

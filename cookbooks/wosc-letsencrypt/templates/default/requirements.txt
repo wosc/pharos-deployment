@@ -1,6 +1,6 @@
-simp-le-client == 0.13.0
+simp-le-client == 0.14.0
 
-acme==0.31.0
+acme==0.33.0
 asn1crypto==0.24.0
 certifi==2019.3.9
 cffi==1.12.2
