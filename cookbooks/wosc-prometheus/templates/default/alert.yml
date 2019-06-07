@@ -1,17 +1,25 @@
 route:
-  receiver: wosc
+  receiver: blackhole
   group_by: [alertname]
+  routes:
+  - receiver: pushover
+    match:
+      severity: page
+  - receiver: email
+    match:
+      severity: warning
 
 receivers:
-  - name: wosc
-    <% if node["prometheus"]["pushover_user_key"] %>
+  - name: blackhole
+
+  - name: email
+    email_configs:
+      - to: wosc@wosc.de
+        from: wosc+prometheus@wosc.de
+        smarthost: localhost:25
+
+  - name: pushover
     pushover_configs:
       - user_key: <%=node["prometheus"]["pushover_user_key"]%>
         token: <%=node["prometheus"]["pushover_api_key"]%>
         send_resolved: false
-    <% else %>
-    email_configs:
-      - to: wosc@wosc.de
-      - from: wosc+prometheus@wosc.de
-      - smarthost: localhost
-    <% end %>
