@@ -36,6 +36,6 @@ scrape_configs:
       - targets: ['localhost:7075']
 
   - job_name: 'ghvuln'
-    scrape_interval: 3600s
+    scrape_interval: 300s
     static_configs:
       - targets: ['localhost:9597']
