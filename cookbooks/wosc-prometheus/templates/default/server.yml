@@ -34,3 +34,8 @@ scrape_configs:
     metrics_path: '/metrics/uptimerobot'
     static_configs:
       - targets: ['localhost:7075']
+
+  - job_name: 'ghvuln'
+    scrape_interval: 3600s
+    static_configs:
+      - targets: ['localhost:9597']
