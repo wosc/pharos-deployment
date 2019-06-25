@@ -46,6 +46,11 @@ file "/etc/email-addresses" do
   content "wosc: wosc@wosc.de"
 end
 
+template "/etc/default/exim4" do
+  source "exim4.default"
+  notifies :restart, "service[exim4]"
+end
+
 template "/etc/exim4/exim4.conf" do
   source "exim4.conf"
   notifies :reload, "service[exim4]"
