@@ -18,7 +18,8 @@ for domain in */; do
     done
 
     ~/deployment/bin/simp_le --email $email $vhosts \
-        --reuse_key -f key.pem -f cert.pem -f fullchain.pem -f account_key.json
+        --reuse_key -f key.pem -f cert.pem -f fullchain.pem \
+        -f account_key.json -f account_reg.json
     updated=$?
     rm -rf ~/public/$domain/acme-challenge
 

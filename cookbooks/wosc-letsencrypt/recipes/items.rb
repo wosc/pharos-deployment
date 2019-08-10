@@ -27,6 +27,12 @@ end
     group "letsencrypt"
     mode "0600"
   end
+  cookbook_file "/srv/letsencrypt/data/#{domain}/account_reg.json" do
+    source "#{domain}.reg"
+    owner "letsencrypt"
+    group "letsencrypt"
+    mode "0600"
+  end
   cookbook_file "/srv/letsencrypt/data/#{domain}/key.pem" do
     source "#{domain}.key"
     owner "letsencrypt"
