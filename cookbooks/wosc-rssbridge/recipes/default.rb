@@ -26,6 +26,13 @@ file "/srv/rssbridge/public/whitelist.txt" do
   content "*"
 end
 
+template "/usr/local/src/rssbridge-ipv4.patch" do
+  source "ipv4.patch"
+end
+execute "patch -p0 < /usr/local/src/rssbridge-ipv4.patch" do
+  not_if "grep -q IPRESOLVE_V4 /srv/rssbridge/public/lib/contents.php"
+end
+
 
 include_recipe "wosc-fastcgi::supervisor"
 template "/etc/supervisor/conf.d/rssbridge.conf" do
