@@ -1,4 +1,4 @@
 default["nodejs"]["install_method"] = "binary"
-default["nodejs"]["version"] = "8.16.0"
+default["nodejs"]["version"] = "8.16.1"
 default["nodejs"]["binary"]["checksum"] = (
-  "b391450e0fead11f61f119ed26c713180cfe64b363cd945bac229130dfab64fa")
+  "8ef575b64edbb6c04e506d8c8e0c5f92b90f4752841892c5adbb3a1e02863f46")
