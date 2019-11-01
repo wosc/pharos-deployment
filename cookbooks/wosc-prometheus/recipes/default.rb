@@ -14,7 +14,7 @@ end
     end
 end
 
-VERSION = '2.12.0'
+VERSION = '2.13.1'
 NODE_VERSION = '0.18.1'
 
 ark "prometheus" do

@@ -18,7 +18,7 @@ group "adm" do  # to read nginx logs
   members "matomo"
 end
 
-VERSION = '3.11.0'
+VERSION = '3.12.0'
 
 ark "matomo" do
   url "http://builds.matomo.org/piwik-#{VERSION}.tar.gz"
