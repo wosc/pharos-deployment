@@ -7,6 +7,8 @@ $config['default_host'] = 'localhost';
 $config['default_port'] = 1143;
 $config['smtp_server'] = 'localhost';
 $config['smtp_port'] = 25;
+$config['smtp_user'] = '';
+$config['smtp_pass'] = '';
 
 $config['product_name'] = 'Roundcube Webmail';
 $config['support_url'] = '';
@@ -23,4 +25,4 @@ $config['plugins'] = array(
 );
 
 // skin name: folder from skins/
-$config['skin'] = 'larry';
+$config['skin'] = 'elastic';
