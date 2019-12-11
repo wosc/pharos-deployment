@@ -1,11 +1,11 @@
 #!/bin/bash
 
 if [ $# -lt 2 ]; then
-  echo 1>&2 "Usage: $0 service login password"
+  echo 1>&2 "Usage: $0 login password"
   exit 1
 fi
 
 socket="/var/run/courier/authdaemon/socket"
-line="$service\nlogin\n$1\n$2"
+line="service\nlogin\n$1\n$2"
 length=$(echo -e "$line" | wc -c)
 echo -e "AUTH $length\n$line" | socat $socket stdio
