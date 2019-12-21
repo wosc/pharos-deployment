@@ -31,6 +31,15 @@ template "/srv/roundcube/config/config.inc.php" do
   mode "0640"
 end
 
+ark "roudcube_login_info" do
+  url "https://github.com/marneu/login_info/archive/b4e8a299a3f10b5e81a753a84cc9fe51015b0035.zip"
+  action :put
+  path "/srv/roundcube/plugins"
+  name "login_info"
+  owner "roundcube"
+  group "roundcube"
+end
+
 wosc_mysql_database "roundcube"
 wosc_mysql_user "roundcube" do
   password node["roundcube"]["db_pass"]
