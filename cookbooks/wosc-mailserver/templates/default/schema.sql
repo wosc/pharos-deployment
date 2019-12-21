@@ -22,7 +22,7 @@ CREATE TABLE `mailboxes` (
   `local_part` varchar(50) NOT NULL,
   `dotted_address` varchar(255) default NULL,
   `login` varchar(255) NOT NULL,
-  `password` varchar(50) NOT NULL,
+  `password` varchar(255) NOT NULL,
   `forward` varchar(255) default NULL,
   `has_mailbox` tinyint(1) NOT NULL default '0',
   `has_vacation` tinyint(1) NOT NULL default '0',
