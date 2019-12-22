@@ -7,7 +7,7 @@ package "php7.2-xml"
 
 wosc_service_user "rssbridge"
 
-VERSION = '2019-09-12'
+VERSION = '2019-12-01'
 
 directory "/srv/rssbridge/public" do
   owner "rssbridge"
