@@ -14,6 +14,14 @@ ark "peerjs" do
   group "peerjs"
 end
 
+template "/srv/peerjs/ws-3.0.patch" do
+  source "ws-3.0.patch"
+end
+execute "patch -p0 < /srv/peerjs/ws-3.0.patch" do
+  not_if "grep -q 'wosc patched' /srv/peerjs/lib/server.js"
+end
+
+
 template "/srv/peerjs/package-lock.json" do
   source "package-lock.json"
   owner "peerjs"
