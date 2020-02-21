@@ -26,13 +26,13 @@ end
 caldav = "/srv/radicale/data/wosc@wosc.de"
 
 # Sends reminder email for upcoming birthdays
-cron "cal-remind" do
-  command "/usr/local/ical/bin/python /home/wosc/bin/icalremindmail.py < #{caldav}/geburtstage.ics"
-  hour "6"
-  minute "0"
-  user "wosc"
-  mailto "wosc@wosc.de"
-end
+# cron "cal-remind" do
+#   command "/usr/local/ical/bin/python /home/wosc/bin/icalremindmail.py < #{caldav}/geburtstage.ics"
+#   hour "6"
+#   minute "0"
+#   user "wosc"
+#   mailto "wosc@wosc.de"
+# end
 # Provides acces to my doodle participations via my default caldav source
 cron "cal-doodle" do
   command "curl --silent #{node['wosc']['doodle_ical']} | sed -e 's/@doodle.biz/doodle.biz/' > #{caldav}/doodle.ics"
