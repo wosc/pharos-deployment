@@ -6,7 +6,7 @@ package "php7.2-gettext"
 
 wosc_service_user "shaarli"
 
-VERSION = '0.10.4'
+VERSION = '0.11.0'
 
 directory "/srv/shaarli/public" do
   owner "shaarli"
