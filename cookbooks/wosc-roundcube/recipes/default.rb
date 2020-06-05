@@ -9,7 +9,7 @@ wosc_service_user "roundcube" do
   shell "/bin/bash"
 end
 
-VERSION = '1.4.4'
+VERSION = '1.4.5'
 
 ark "roundcube" do
   url "https://github.com/roundcube/roundcubemail/releases/download/#{VERSION}/roundcubemail-#{VERSION}-complete.tar.gz"
