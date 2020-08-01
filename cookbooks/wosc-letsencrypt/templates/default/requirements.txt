@@ -1,4 +1,4 @@
-simp-le-client == 0.18.0
+simp-le-client == 0.18.1
 
 acme==1.3.0
 asn1crypto==0.24.0
