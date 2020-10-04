@@ -1,0 +1,4 @@
+# ws.tabu == <%=@version%>
+-e git+https://github.com/wosc/tabu.git#egg=ws.tabu
+
+tornado==6.0.4
