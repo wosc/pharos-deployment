@@ -40,3 +40,13 @@ template "/srv/cgiserv/nginx.d/ddns.conf" do
   source "ddns/nginx.conf"
   notifies :reload, "service[nginx]", :delayed
 end
+
+
+# How to set up a Synology SRM Router to use this service as client:
+# - Enable default "admin" account and set a password
+# - Enable SSH service and allow in firewall
+# - `ssh root@THEROUTER` using the password of the default "admin" user
+# - Add this to the /etc.defaults/ddns_provider.conf file:
+# [wosc.de]
+#   modulepath=DynDNS
+#   queryurl=https://pharos.wosc.de/dns-update?hostname=__HOSTNAME__&myip=__
