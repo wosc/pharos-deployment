@@ -1,4 +1,4 @@
-name             "wosc-tabu"
+name             "wosc-roborally"
 version          "1.0.0"
 
 maintainer       "Wolfgang Schnerring"
