@@ -9,10 +9,10 @@ package "mongodb"
 # meteor build dist
 # scp dist/robometeor.tar.gz wosc.de:/srv/robometeor
 # tar xf /srv/robometeor/robometeor.tar.gz
-# cd programs/server && npm install
+# cd bundle/programs/server && npm install
 
 # replace in programs/web.browser/12345.js:
-# `Router.route("/` with `Router.router("/roborally/`
+# `Router.route('/` with `Router.router('/roborally/`
 # prefix with `/roborally`:
 # `/robots/`, `/tiles/`, `/finish.png`, `/start.png`, `/damage-token.png`, `/Power_Off.png`
 
