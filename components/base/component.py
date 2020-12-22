@@ -7,6 +7,7 @@ from batou_ext.file import Delete
 class BasePackages(Component):
 
     packages = [
+        'build-essential',
         'emacs-nox',
         'dnsutils',
         'htop',
