@@ -1,4 +1,4 @@
-from batou.component import Component
+from batou.component import Component, Attribute
 from batou.lib.file import File
 from batou_ext.apt import Package
 from batou_ext.cron import CronTab
@@ -7,7 +7,7 @@ from batou_ext.file import Delete
 
 class BasePackages(Component):
 
-    packages = [
+    packages = Attribute('literal', """[
         'build-essential',
         'emacs-nox',
         'dnsutils',
@@ -20,11 +20,14 @@ class BasePackages(Component):
         'screen',
         'unzip',
         'zip',
-    ]
+    ]""")
 
     def configure(self):
         for name in self.packages:
             self += Package(name)
+
+        # Allow accessing (mostly python) software installed by batou
+        self += File('/root', ensure='directory', mode=0o755)
 
 
 class CronAPT(Component):

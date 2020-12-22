@@ -14,16 +14,14 @@ class RSSPull(Component):
     def configure(self):
         self += VirtualEnv()
         self += Requirements('rsspull.txt')
-        self += Symlink(
-            '/usr/local/bin/rsspull', source=self.map('bin/rsspull'))
 
         self += CronJob(
-            '/usr/local/bin/rsspull',
+            self.map('bin/rsspull'),
             args='--confdir=/home/wosc/.dot/x11/rsspull',
             user='wosc',
             timing='0 6 * * *')
         self += CronJob(
-            '/usr/local/bin/rsspull',
+            self.map('bin/rsspull'),
             args='--confdir=/home/wosc/.dot/x11/rsspull-kolumbus',
             user='wosc',
             timing='0 6 * * *')
