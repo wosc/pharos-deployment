@@ -7,6 +7,7 @@ from batou_ext.apt import Package
 from batou_ext.cron import CronJob
 from batou_ext.patch import Patch
 from batou_ext.python import VirtualEnv, Requirements
+import batou.lib.python
 
 
 class RSSPull(Component):
@@ -158,3 +159,14 @@ Package: unison\nPin: version {{component.version}}\nPin-Priority: 999
 
         self += File('/usr/local/bin/ssh-accept-unison', is_template=False,
                      mode=0o755)
+
+
+class YoutubeDL(Component):
+
+    version = '2020.12.14'
+
+    def configure(self):
+        self += VirtualEnv()
+        self._ += batou.lib.python.Package(
+            'youtube-dl', version=self.version, check_package_is_module=False)
+        self += Symlink('/usr/local/bin/yt', source=self.map('bin/youtube-tl'))
