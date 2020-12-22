@@ -13,10 +13,31 @@ import batou.lib.python
 class Backup(Component):
 
     def configure(self):
-        self += File('/root/.ssh', ensure='directory')
         # Used by rsnapshot from laptop
+        self += File('/root/.ssh', ensure='directory')
         self += File('/root/.ssh/authorized_keys', source='nautis.pub',
                      is_template=False, mode=0o600)
+
+        # Hourly calendar backup
+        self += Package('rsnapshot')
+        self += File('/srv/radicale/backup', ensure='directory',
+                     owner='radicale', group='radicale')
+        self += File('/srv/radicale/backup/wosc.conf',
+                     source='rsnapshot-calendar.conf')
+        self += CronJob(
+            'rsnapshot', args='-c /srv/radicale/backup/wosc.conf hourly',
+            user='radicale', timing='0 * * * *')
+        self += CronJob(
+            'rsnapshot', args='-c /srv/radicale/backup/wosc.conf daily',
+            user='radicale', timing='15 0 * * *')
+
+        # Provides access to scheduled todos via my default caldav source
+        # XXX This doesn't really belong here, but not worth extracting.
+        self += CronJob(
+            'curl --silent http://localhost:7078/ical/scheduled > '
+            '/srv/radicale/data/wosc@wosc.de/haemera.ics',
+            user='wosc',
+            timing='*/5 * * * *')
 
 
 class RSSPull(Component):
