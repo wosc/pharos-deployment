@@ -25,7 +25,6 @@ $ git clone /home/git/dot .dot
 $ .dot/shell/update-symlinks
 $ ln -s ~/.dot/x11/github-notifier.cfg /home/wosc/gitmail
 $ ln -s ~/.dot/x11/dailystrips.defs .dailystrips.defs
-$ echo MYPASS > ~/.archivemail-wosc.de
 
 # apt install python3-venv
 # sudo echo 'wosc ALL=(ALL) NOPASSWD:ALL' > /etc/sudoers.d/batou

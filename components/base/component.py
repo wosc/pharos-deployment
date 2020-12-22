@@ -1,6 +1,7 @@
 from batou.component import Component
 from batou.lib.file import File
 from batou_ext.apt import Package
+from batou_ext.cron import CronTab
 from batou_ext.file import Delete
 
 
