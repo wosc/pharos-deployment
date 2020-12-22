@@ -1,0 +1,2 @@
+batou==2.2.2
+-e./batou_ext

@@ -26,7 +26,10 @@ $ .dot/shell/update-symlinks
 $ ln -s ~/.dot/x11/github-notifier.cfg /home/wosc/gitmail
 $ ln -s ~/.dot/x11/dailystrips.defs .dailystrips.defs
 $ echo MYPASS > ~/.archivemail-wosc.de
-- setup and run chef as described in Makefile
+
+# apt install python3-venv
+# sudo echo 'wosc ALL=(ALL) NOPASSWD:ALL' > /etc/sudoers.d/batou
+$ ./batou deploy production
 (cold run ca. 30 minutes, no-op ca. 2 minutes)
 ```
 
