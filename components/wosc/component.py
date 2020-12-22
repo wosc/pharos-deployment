@@ -10,6 +10,15 @@ from batou_ext.python import VirtualEnv, Requirements
 import batou.lib.python
 
 
+class Backup(Component):
+
+    def configure(self):
+        self += File('/root/.ssh', ensure='directory')
+        # Used by rsnapshot from laptop
+        self += File('/root/.ssh/authorized_keys', source='nautis.pub',
+                     is_template=False, mode=0o600)
+
+
 class RSSPull(Component):
 
     def configure(self):
