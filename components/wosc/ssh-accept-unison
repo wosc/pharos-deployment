@@ -1,0 +1,13 @@
+#!/bin/sh
+
+case "$SSH_ORIGINAL_COMMAND" in
+    rsync*)
+        $SSH_ORIGINAL_COMMAND
+    ;;
+    unison*)
+        $SSH_ORIGINAL_COMMAND
+    ;;
+    *)
+        echo "command '$SSH_ORIGINAL_COMMAND' rejected by authorized_keys"
+    ;;
+esac
