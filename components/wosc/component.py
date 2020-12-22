@@ -121,3 +121,17 @@ class Fetchmail(Component):
             args='-f /home/wosc/.dot/mail/fetchmailrc-pharos',
             user='wosc',
             timing='@reboot')
+
+
+class Twifeed(Component):
+
+    def configure(self):
+        self += VirtualEnv()
+        self += Requirements('twifeed.txt')
+
+        # Install ws.twifeed manually from sdist, as it contains oauth secrets.
+
+        self += CronJob(
+            self.map('bin/twitter-notify'),
+            user='wosc',
+            timing='0 * * * *')
