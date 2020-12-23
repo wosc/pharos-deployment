@@ -21,6 +21,7 @@ class BasePackages(Component):
         'jq',
         'mc',
         'mosh',
+        'python3-dev',
         'rsync',
         'screen',
         'unzip',
@@ -46,9 +47,15 @@ class CronAPT(Component):
 
 class MySQL(Component):
 
+    packages = [
+        'mysql-server-5.7',
+        'mysql-client-5.7',
+        'libmysqlclient-dev',
+    ]
+
     def configure(self):
-        self += Package('mysql-server-5.7')
-        self += Package('mysql-client-5.7')
+        for name in self.packages:
+            self += Package(name)
 
         for name in ['backup', 'restore']:
             self += File('/usr/local/bin/mysql-%s' % name,
