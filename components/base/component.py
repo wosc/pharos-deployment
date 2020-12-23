@@ -3,6 +3,7 @@ from batou.lib.file import File, Symlink
 from batou_ext.apt import Package
 from batou_ext.file import Delete
 from batou_ext.patch import Patch
+from batou_ext.user import User, GroupMember
 
 from batou_ext.cron import CronTab
 from batou_ext.nginx import Nginx
@@ -34,6 +35,9 @@ class BasePackages(Component):
 
         # Allow accessing (mostly python) software installed by batou
         self += File('/root', ensure='directory', mode=0o755)
+
+        self += User('wosc', home='/home/wosc')
+        self += GroupMember('sudo', user='wosc')
 
 
 class CronAPT(Component):
