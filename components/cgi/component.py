@@ -7,6 +7,39 @@ from batou_ext.apache import CGI
 from batou_ext.apache import CGIServer
 
 
+class DDNS(Component):
+
+    # How to set up a Synology SRM Router to use this service as client:
+    # - Enable default "admin" account and set a password
+    # - Enable SSH service and allow in firewall
+    # - `ssh root@THEROUTER` using the password of the default "admin" user
+    # - Add this to the /etc.defaults/ddns_provider.conf file:
+    # [wosc.de]
+    #   modulepath=DynDNS
+    #   queryurl=https://pharos.wosc.de/dns-update?hostname=__HOSTNAME__&myip=__
+
+    username = ''
+    password = ''
+    hostnames = ''
+
+    def configure(self):
+        self += VirtualEnv(path='/srv/cgiserv/ddns')
+        self._ += Requirements(source='ddns/requirements.txt')
+
+        self += File(
+            '/srv/cgiserv/ddns/config',
+            owner='cgiserv', group='cgiserv', mode=0o640,
+            source='ddns/ddns.conf')
+
+        self += File('/srv/cgiserv/apache.d/ddns.conf',
+                     source='ddns/apache.conf', is_template=False)
+        self += CGI(self._)
+
+        self += File('/srv/cgiserv/nginx.d/ddns.conf',
+                     source='ddns/nginx.conf', is_template=False)
+        self += VHost(self._)
+
+
 class UptimeRobot(Component):
 
     api_key = ''
