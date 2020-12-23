@@ -37,13 +37,14 @@ class Program(Component):
 
     command = None
     user = 'root'
+    environ = None
 
     autorestart = 'true'
     redirect_stderr = 'true'
     stdout_logfile = '/var/log/supervisor/%(program_name)s.log'
 
     option_names = [
-        'command', 'user',
+        'command', 'user', 'environ',
         'autorestart', 'redirect_stderr', 'stdout_logfile',
     ]
 
@@ -65,6 +66,8 @@ class Program(Component):
         for key in self.option_names:
             value = getattr(self, key)
             if value:
+                if key == 'environ':
+                    key = 'environment'
                 yield key, value
 
     def ctl(self, args, **kw):
