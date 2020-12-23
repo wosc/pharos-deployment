@@ -1,7 +1,8 @@
 from batou.component import Component
-from batou.lib.file import File
+from batou.lib.file import File, Symlink
 from batou_ext.apt import Package
 from batou_ext.file import Delete
+import os.path
 import pkg_resources
 
 
@@ -29,11 +30,19 @@ class Nginx(Component):
 class VHost(Component):
 
     namevar = 'dependencies'
+    site_enable = False
 
     def configure(self):
         self.require_one('nginx', host=self.host)
         if not isinstance(self.dependencies, (list, tuple)):
             self.dependencies = [self.dependencies]
+
+        if self.site_enable:
+            config = self.dependencies[0]
+            self += Symlink(
+                '/etc/nginx/sites-enabled/%s' % os.path.basename(config.path),
+                source=config.path)
+            self.dependencies.append(self._)
 
     def verify(self):
         for dependency in self.dependencies:
