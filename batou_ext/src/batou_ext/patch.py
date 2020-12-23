@@ -12,6 +12,7 @@ class Patch(Component):
     # inline
     source = ''
     target = ''
+    check_source_removed = False  # useful when only removing comments
 
     # separate file
     file = ''
@@ -28,7 +29,10 @@ class Patch(Component):
             self.file = self._
 
     def verify(self):
-        if self.target not in open(self.path).read():
+        file = open(self.path).read()
+        if self.check_source_removed and self.source in file:
+            raise UpdateNeeded()
+        elif self.target not in file:
             raise UpdateNeeded()
 
     def update(self):

@@ -68,7 +68,7 @@ class MySQL(Component):
                         source='/usr/local/bin/mysql-backup')
 
 
-class PHP(Component):
+class PHPBase(Component):
 
     def configure(self):
         self += Package('php7.2')

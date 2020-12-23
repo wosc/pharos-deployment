@@ -13,7 +13,7 @@ class Delete(Component):
         self.path = self.map(self.path)
 
     def verify(self):
-        if os.path.isfile(self.path):
+        if os.path.exists(self.path):
             raise UpdateNeeded()
 
     def update(self):

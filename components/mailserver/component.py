@@ -5,6 +5,7 @@ from batou.lib.file import File, Symlink
 from batou_ext.apt import Package
 from batou_ext.mysql import ServiceDatabase
 from batou_ext.patch import Patch
+from batou_ext.systemd import Service
 from batou_ext.user import GroupMember
 import os.path
 import pwd
@@ -52,7 +53,7 @@ class Exim(Component):
                 self.db_name,
                 username=self.db_username, password=self.db_password,
                 schema=schema.path)
-            self += Systemd('exim4', action='restart', deps=schema)
+            self += Service('exim4', action='restart', deps=schema)
 
         self += DisableDebconf()
 
@@ -70,9 +71,9 @@ class Exim(Component):
 
         self += File('/etc/default/exim4', source='exim4.default',
                      is_template=False)
-        self += Systemd('exim4', action='restart', deps=self._)
+        self += Service('exim4', action='restart', deps=self._)
         self += File('/etc/exim4/exim4.conf')
-        self += Systemd('exim4', action='reload', deps=self._)
+        self += Service('exim4', action='reload', deps=self._)
 
         self += File('/var/mail', ensure='directory', group='Debian-exim')
 
@@ -136,10 +137,10 @@ class SpamAssassin(Component):
         self += Patch(
             '/etc/spamassassin/v310.pre',
             source='#loadplugin Mail::SpamAssassin::Plugin::DCC',
-            target='loadplugin Mail::SpamAssassin::Plugin::DCC  # wosc patched'
-        )
+            target='loadplugin Mail::SpamAssassin::Plugin::DCC',
+            check_source_removed=True)
         deps.append(self._)
-        self += Systemd('spamassassin', action='restart', deps=deps)
+        self += Service('spamassassin', action='restart', deps=deps)
 
         self += File('/etc/spamassassin/pyzor', ensure='directory')
         self += File('/etc/spamassassin/pyzor/servers',
@@ -191,11 +192,11 @@ class Courier(Component):
             '/etc/courier/authmysqlrc', source='courier/authmysqlrc',
             owner='daemon', group='daemon', mode=0o660)
         deps.append(self._)
-        self += Systemd('courier-authdaemon', action='restart', deps=deps)
+        self += Service('courier-authdaemon', action='restart', deps=deps)
 
         self += File('/etc/courier/imapd-ssl', source='courier/imapd-ssl',
                      is_template=False)
-        self += Systemd('courier-imap-ssl', action='restart', deps=self._)
+        self += Service('courier-imap-ssl', action='restart', deps=self._)
 
         self += Package('socat')
         self += File('/usr/local/bin/authdaemon-test', mode=0o755,
@@ -213,28 +214,6 @@ class DisableDebconf(Component):
 
     def update(self):
         self.cmd('update-exim4.conf')
-
-
-class Systemd(Component):
-
-    namevar = 'service'
-    action = 'reload'
-    deps = ()
-
-    def configure(self):
-        if not isinstance(self.deps, (list, tuple)):
-            self.deps = [self.deps]
-
-    def verify(self):
-        for dependency in self.deps:
-            dependency.assert_no_changes()
-
-    def update(self):
-        self.cmd('systemctl %s %s' % (self.action, self.service))
-
-    @property
-    def namevar_for_breadcrumb(self):
-        return '%s %s' % (self.action, self.service)
 
 
 class MLMMJ(Component):
