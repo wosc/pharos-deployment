@@ -1,5 +1,5 @@
 from batou.component import Component, Attribute
-from batou.lib.file import File
+from batou.lib.file import File, Symlink
 from batou_ext.apt import Package
 from batou_ext.file import Delete
 from batou_ext.patch import Patch
@@ -42,6 +42,19 @@ class CronAPT(Component):
         self += Package('cron-apt')
         self += File(
             '/etc/cron-apt/config', source='cron-apt.conf', is_template=False)
+
+
+class MySQL(Component):
+
+    def configure(self):
+        self += Package('mysql-server-5.7')
+        self += Package('mysql-client-5.7')
+
+        for name in ['backup', 'restore']:
+            self += File('/usr/local/bin/mysql-%s' % name,
+                         is_template=False, mode=0o755)
+        self += Symlink('/etc/cron.daily/mysql-backup',
+                        source='/usr/local/bin/mysql-backup')
 
 
 class PHP(Component):
