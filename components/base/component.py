@@ -1,8 +1,10 @@
 from batou.component import Component, Attribute
 from batou.lib.file import File
 from batou_ext.apt import Package
-from batou_ext.cron import CronTab
 from batou_ext.file import Delete
+
+from batou_ext.cron import CronTab
+from batou_ext.supervisor import Supervisor
 
 
 class BasePackages(Component):
