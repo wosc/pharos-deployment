@@ -15,6 +15,7 @@ class BasePackages(Component):
         'build-essential',
         'emacs-nox',
         'dnsutils',
+        'git',
         'htop',
         'httpie',
         'jq',
