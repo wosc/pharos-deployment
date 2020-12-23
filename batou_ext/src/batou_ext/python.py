@@ -7,6 +7,7 @@ import batou.lib.python
 class VirtualEnv(batou.lib.python.VirtualEnv):
 
     version = '3.6'
+    path = None
 
     bootstrap_versions = {
         'pip': '20.1.1',
@@ -20,6 +21,8 @@ class VirtualEnv(batou.lib.python.VirtualEnv):
         super().__init__(namevar=namevar, **kw)
 
     def configure(self):
+        if self.path:
+            self.workdir = self.map(self.path)
         super().configure()
         for package, version in self.bootstrap_versions.items():
             self += Package(package, version=version)
@@ -32,6 +35,11 @@ class Requirements(Component):
     success_marker = '.batou.pip.success'
 
     def configure(self):
+        if not isinstance(self.parent, VirtualEnv):
+            raise TypeError('Requirements must be added to a VirtualEnv')
+        if self.parent.path:
+            self.workdir = self.map(self.parent.path)
+
         self += File(self.filename)
         self.requirements = self._.path
         self.dependencies = [self.requirements]
