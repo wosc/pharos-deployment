@@ -32,7 +32,13 @@ class Requirements(Component):
 
     namevar = 'filename'
     filename = 'requirements.txt'
+    source = None
     success_marker = '.batou.pip.success'
+
+    def __init__(self, namevar=None, **kw):
+        if namevar is None:
+            namevar = self.filename
+        super().__init__(namevar=namevar, **kw)
 
     def configure(self):
         if not isinstance(self.parent, VirtualEnv):
@@ -40,7 +46,7 @@ class Requirements(Component):
         if self.parent.path:
             self.workdir = self.map(self.parent.path)
 
-        self += File(self.filename)
+        self += File(self.filename, source=self.source)
         self.requirements = self._.path
         self.dependencies = [self.requirements]
 
