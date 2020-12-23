@@ -7,6 +7,7 @@ from batou_ext.apt import Package
 from batou_ext.cron import CronJob
 from batou_ext.patch import Patch
 from batou_ext.python import VirtualEnv, Requirements
+from batou_ext.user import GroupMember
 import batou.lib.python
 
 
@@ -57,7 +58,8 @@ class RSSPull(Component):
             user='wosc',
             timing='0 6 * * *')
 
-        # TODO: Add wosc to group Debian-exim
+        # Allow writing directly to Maildir
+        self += GroupMember('Debian-exim', user='wosc')
 
 
 class ESniper(Component):
