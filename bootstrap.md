@@ -4,9 +4,6 @@
 # passwd   # (for root)
 # dpkg-reconfigure locales
 set default en_GB.utf8
-# visudo
-  Defaults timestamp_timeout=30
-  Defaults:%sudo rootpw
 # adduser wosc
 # adduser wosc sudo
 # hostname pharos
