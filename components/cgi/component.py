@@ -1,8 +1,8 @@
 from batou.component import Component
 from batou.lib.file import File
+from batou_ext.apache import CGI
 from batou_ext.nginx import VHost
 from batou_ext.python import VirtualEnv, Requirements
-from batou_ext.apache import CGI
 
 from batou_ext.apache import CGIServer
 

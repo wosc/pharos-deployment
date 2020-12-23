@@ -2,6 +2,7 @@ from batou.component import Component, Attribute
 from batou.lib.file import File
 from batou_ext.apt import Package
 from batou_ext.file import Delete
+from batou_ext.patch import Patch
 
 from batou_ext.cron import CronTab
 from batou_ext.nginx import Nginx
@@ -40,3 +41,15 @@ class CronAPT(Component):
         self += Package('cron-apt')
         self += File(
             '/etc/cron-apt/config', source='cron-apt.conf', is_template=False)
+
+
+class PHP(Component):
+
+    def configure(self):
+        self += Package('php7.2')
+        self += Package('php7.2-cgi')
+        # Send php errors to nginx log.
+        self += Patch(
+            '/etc/php/7.2/cgi/php.ini',
+            source=';error_log = php_errors.log',
+            target='error_log = /dev/stderr')
