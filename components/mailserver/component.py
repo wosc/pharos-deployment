@@ -1,10 +1,11 @@
 from batou import UpdateNeeded
 from batou.component import Component
+from batou.lib.cmmi import Build
 from batou.lib.file import File, Symlink
 from batou_ext.apt import Package
 from batou_ext.mysql import ServiceDatabase
-from batou_ext.user import GroupMember
 from batou_ext.patch import Patch
+from batou_ext.user import GroupMember
 import os.path
 import pwd
 
@@ -234,3 +235,20 @@ class Systemd(Component):
     @property
     def namevar_for_breadcrumb(self):
         return '%s %s' % (self.action, self.service)
+
+
+class MLMMJ(Component):
+
+    def configure(self):
+        self += Package('mlmmj')
+
+        self += Package('bison')
+        self += Build(
+            'http://www.hypermail-project.org/hypermail-2.3.0.tar.gz',
+            checksum='sha256:619938b0cf54eae786f36ef237f106ef7bff7a5c69904ca32afd8d47bf1605d1',
+            prefix='/usr/local')
+
+        self += File(
+            '/usr/local/bin/mlmmj-update-archives', mode=0o755,
+            source='mlmmj/update-archives.sh', is_template=False)
+        self += File('/etc/cron.d/mlmmj', source='mlmmj/cron')

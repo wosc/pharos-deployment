@@ -1,0 +1,4 @@
+# from deb package
+0 */2 * * * root /usr/bin/test -x /usr/bin/mlmmj-maintd && /usr/bin/mlmmj-maintd -F -d /var/spool/mlmmj
+# wosc
+5 */2 * * * root /usr/local/bin/mlmmj-update-archives
