@@ -7,7 +7,9 @@ from batou_ext.nginx import VHost
 from batou_ext.python import VirtualEnv, Requirements
 from batou_ext.supervisor import Program
 from batou_ext.user import User, GroupMember
+from glob import glob
 import batou.lib.mysql
+import os
 
 
 class DownloadBinary(Component):
@@ -250,3 +252,35 @@ class Prom_Mysql(Component):
             environ='DATA_SOURCE_NAME="prometheus:%s@(localhost:3306)/"' % (
                 self.db_password),
             user='prometheus', dependencies=[self._])
+
+
+class Prom_Nginx(Component):
+
+    version = '1.2.0'
+    url = (
+        'https://github.com/martin-helmich/prometheus-nginxlog-exporter'
+        '/releases/download/v{version}/prometheus-nginxlog-exporter')
+    checksum = 'sha256:ef9ea0acaac70c1e9e15408375fb0440bf01cfd744e0b8f3e57c8526dc405f01'
+
+    def configure(self):
+        # Allow reading accesslogs
+        self += GroupMember('adm', user='prometheus')
+        self += Download(
+            self.url.format(version=self.version), checksum=self.checksum)
+        self.download = self._
+        self += Symlink(
+            '/srv/prometheus/bin/nginx_exporter', source=self._.target)
+
+        self.logfiles = glob('/var/log/nginx/*-access.log')
+        self += File('/srv/prometheus/nginx.yml')
+        self += Program(
+            'prometheus-nginx',
+            command='/srv/prometheus/bin/nginx_exporter '
+            '-config-file /srv/prometheus/nginx.yml',
+            user='prometheus', dependencies=[self._])
+
+    def verify(self):
+        self.download.assert_no_changes()
+
+    def update(self):
+        os.chmod(self.download.target, 0o755)
