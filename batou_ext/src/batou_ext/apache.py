@@ -1,6 +1,7 @@
 from batou.component import Component
 from batou.lib.file import File
 from batou_ext.apt import Package
+from batou_ext.nginx import VHost
 from batou_ext.supervisor import Program
 from batou_ext.user import User
 import pkg_resources
@@ -28,6 +29,10 @@ class CGIServer(Component):
                     '-f /srv/cgiserv/apache.conf -k start -X',
             user='cgiserv',
             dependencies=[self._])
+
+        self += File(
+            '/srv/cgiserv/nginx.conf', source='cgi.conf', is_template=False)
+        self += VHost(self._)
 
     def verify(self):
         self.assert_no_subcomponent_changes()
