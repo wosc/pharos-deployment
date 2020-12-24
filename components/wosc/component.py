@@ -5,6 +5,7 @@ from batou.lib.download import Download
 from batou.lib.file import File, Symlink
 from batou_ext.apt import Package
 from batou_ext.cron import CronJob
+from batou_ext.nginx import VHost
 from batou_ext.patch import Patch
 from batou_ext.python import VirtualEnv, Requirements
 from batou_ext.user import GroupMember
@@ -39,6 +40,21 @@ class Backup(Component):
             '/srv/radicale/data/wosc@wosc.de/haemera.ics',
             user='wosc',
             timing='*/5 * * * *')
+
+
+class Controverse(Component):
+
+    def configure(self):
+        self += File('/home/controverse', ensure='directory',
+                     owner='wosc', group='wosc')
+
+        self += File('/etc/nginx/sites-available/controverse.wosc.de',
+                     source='controverse.conf', is_template=False)
+        self += VHost(self._, site_enable=True)
+
+        self += File(
+            '/etc/exim4/domains/controverse.wosc.de',
+            content='mail: "|/usr/bin/mlmmj-recieve -L /var/spool/mlmmj/controverse/"')
 
 
 class RSSPull(Component):
