@@ -45,7 +45,7 @@ class RSSPull(Component):
 
     def configure(self):
         self += VirtualEnv()
-        self._ += Requirements('rsspull.txt')
+        self._ += Requirements(source='rsspull.txt')
 
         self += CronJob(
             self.map('bin/rsspull'),
@@ -160,7 +160,7 @@ class Twifeed(Component):
 
     def configure(self):
         self += VirtualEnv()
-        self._ += Requirements('twifeed.txt')
+        self._ += Requirements(source='twifeed.txt')
 
         # Install ws.twifeed manually from sdist, as it contains oauth secrets.
 

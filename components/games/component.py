@@ -12,7 +12,7 @@ class Tabu(Component):
         self += User('tabu')
 
         self += VirtualEnv(path='/srv/tabu/deployment')
-        self._ += Requirements('tabu.txt')
+        self._ += Requirements(source='tabu.txt')
 
         self += Program(
             'tabu',
