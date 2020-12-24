@@ -110,4 +110,47 @@ class Prom_Push(Component):
             'prometheus-node',
             command='/srv/prometheus/bin/pushgateway',
             user='prometheus', dependencies=[self._])
-            user='prometheus', dependencies=[download])
+
+
+class Prom_Alert(Component):
+
+    version = '0.21.0'
+    url = (
+        'https://github.com/prometheus/alertmanager/releases/download/'
+        'v{version}/alertmanager-{version}.linux-amd64.tar.gz')
+    checksum = 'sha256:9ccd863937436fd6bfe650e22521a7f2e6a727540988eef515dde208f9aef232'
+
+    pushover_user_key = None
+    pushover_api_key = None
+
+    def configure(self):
+        self += File('/srv/prometheus/data/alerts', ensure='directory',
+                     owner='prometheus', group='prometheus')
+
+        self += DownloadBinary(
+            self.url.format(version=self.version), checksum=self.checksum,
+            names=['alertmanager', 'amtool'])
+        self += Program(
+            'prometheus-alert',
+            command='/srv/prometheus/bin/alertmanager '
+            '--config.file=/srv/prometheus/alert.yml '
+            '--storage.path=/srv/prometheus/data/alerts '
+            '--cluster.listen-address="127.0.0.1:9094" '
+            '--cluster.advertise-address="127.0.0.1:19094" '
+            '--web.listen-address="127.0.0.1:9093" '
+            '--web.external-url=https://pharos.wosc.de/prometheus-alert/ '
+            '--web.route-prefix=/',
+            user='prometheus', dependencies=[self._])
+
+        self += File('/srv/prometheus/alert.yml')
+        self.config = self._
+
+        self += File(
+            '/srv/prometheus/bin/send-alert',
+            source='send-alert.sh', is_template=False, mode=0o755)
+
+    def verify(self):
+        self.config.assert_no_changes()
+
+    def update(self):
+        self.cmd('kill -HUP $(supervisorctl pid prometheus-alert)')
