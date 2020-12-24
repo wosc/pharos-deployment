@@ -2,6 +2,7 @@ from batou.component import Component, Attribute
 from batou.lib.file import File, Symlink
 from batou_ext.apt import Package
 from batou_ext.file import Delete
+from batou_ext.nginx import VHost
 from batou_ext.patch import Patch
 from batou_ext.user import User, GroupMember
 
@@ -38,6 +39,8 @@ class BasePackages(Component):
 
         self += User('wosc', home='/home/wosc')
         self += GroupMember('sudo', user='wosc')
+
+        self += File('/etc/motd', is_template=False)
 
 
 class CronAPT(Component):
@@ -78,3 +81,11 @@ class PHPBase(Component):
             '/etc/php/7.2/cgi/php.ini',
             source=';error_log = php_errors.log',
             target='error_log = /dev/stderr')
+
+
+class Pharos(Component):
+
+    def configure(self):
+        self += File('/etc/nginx/sites-available/pharos.wosc.de',
+                     source='pharos.conf', is_template=False)
+        self += VHost(self._, site_enable=True)
