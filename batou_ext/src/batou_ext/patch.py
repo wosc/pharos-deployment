@@ -1,6 +1,5 @@
 from batou import UpdateNeeded
 from batou.component import Component, Attribute
-from batou.lib.file import File
 import re
 
 
@@ -24,10 +23,6 @@ class Patch(Component):
         if not self.target:
             raise ValueError('Target text is required')
 
-        if self.file:
-            self += File(self.file, is_template=False)
-            self.file = self._
-
     def verify(self):
         file = open(self.path).read()
         if self.check_source_removed and self.source in file:
@@ -44,4 +39,4 @@ class Patch(Component):
             with open(self.path, 'w') as f:
                 f.write(contents)
         else:
-            self.cmd('patch -d/ -p%s < %s' % (self.strip, self.file.path))
+            self.cmd('patch -d/ -p%s < %s' % (self.strip, self.file))

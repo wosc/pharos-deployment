@@ -9,6 +9,7 @@ from batou_ext.nginx import VHost
 from batou_ext.patch import Patch
 from batou_ext.python import VirtualEnv, Requirements
 from batou_ext.user import GroupMember
+from crypt import crypt
 import batou.lib.python
 
 
@@ -55,6 +56,43 @@ class Controverse(Component):
         self += File(
             '/etc/exim4/domains/controverse.wosc.de',
             content='mail: "|/usr/bin/mlmmj-recieve -L /var/spool/mlmmj/controverse/"')
+
+
+class Dailystrips(Component):
+
+    ui_password = None
+
+    def configure(self):
+        self += Package('dailystrips')
+        self += Patch(
+            '/usr/bin/dailystrips',
+            target='altpattern',
+            file=self.defdir + '/dailystrips-altpattern.patch', strip=0)
+
+        self += File(
+            '/home/wosc/bin/dailycomics.sh', is_template=False, mode=0o755)
+        self += CronJob(
+            command=self._.path,
+            user='wosc',
+            timing='15 5 * * * ')
+
+        self += File('/home/wosc/public_html/dailystrips', ensure='directory',
+                     owner='wosc', group='wosc')
+        self += File(
+            '/home/wosc/public_html/dailystrips/favicon.png',
+            source='kevinandkell.png', is_template=False,
+            owner='wosc', group='wosc')
+        self += File(
+            '/home/wosc/public_html/dailystrips/.htpasswd',
+            content=crypt(self.ui_password, 'hX'))
+
+
+class WoscDe(Component):
+
+    def configure(self):
+        self += File('/etc/nginx/sites-available/wosc.de',
+                     source='wosc.de.conf', is_template=False)
+        self += VHost(self._, site_enable=True)
 
 
 class RSSPull(Component):
