@@ -4,8 +4,9 @@ from batou.lib.download import Download
 from batou.lib.file import File, Symlink
 from batou_ext.cron import CronJob
 from batou_ext.nginx import VHost
+from batou_ext.python import VirtualEnv, Requirements
 from batou_ext.supervisor import Program
-from batou_ext.user import User
+from batou_ext.user import User, GroupMember
 
 
 class DownloadBinary(Component):
@@ -53,13 +54,14 @@ class Prometheus(Component):
             user='prometheus', dependencies=[self._])
 
         self += File('/srv/prometheus/server.yml', is_template=False)
-        self.config = self._
+        self.config = [self._] + self.require('prom:rule', host=self.host)
 
         self += File('/srv/prometheus/nginx.conf', is_template=False)
         self += VHost(self._)
 
     def verify(self):
-        self.config.assert_no_changes()
+        for dep in self.config:
+            dep.assert_no_changes()
 
     def update(self):
         self.cmd('kill -HUP $(supervisorctl pid prometheus)')
@@ -154,3 +156,47 @@ class Prom_Alert(Component):
 
     def update(self):
         self.cmd('kill -HUP $(supervisorctl pid prometheus-alert)')
+
+
+class Prom_Exim(Component):
+
+    email_password = None
+
+    def configure(self):
+        # Allow running `mailq`
+        self += GroupMember('Debian-exim', user='prometheus')
+        self += File('/srv/prometheus/bin/node_exporter-mailq',
+                     source='mailq.sh', is_template=False, mode=0o755)
+        self += CronJob(
+            '/srv/prometheus/bin/node_exporter-mailq',
+            user='prometheus',
+            timing='* * * * *')
+
+        # Allow reading exim mainlog
+        self += GroupMember('adm', user='prometheus')
+        self += File('/srv/prometheus/bin/node_exporter-eximstats',
+                     source='eximstats.sh', is_template=False, mode=0o755)
+        self += CronJob(
+            '/srv/prometheus/bin/node_exporter-eximstats',
+            user='prometheus',
+            timing='*/5 * * * *')
+
+        self += VirtualEnv()
+        self._ += Requirements(source='mailcheck.txt')
+
+        self += File('/srv/prometheus/mailcheck.conf',
+                     owner='prometheus', group='prometheus', mode=0o640)
+        self += File('/srv/prometheus/caldavcheck.conf',
+                     owner='prometheus', group='prometheus', mode=0o640)
+
+        self += File('/srv/prometheus/bin/node_exporter-mailcheck',
+                     source='mailcheck.sh', is_template=False, mode=0o755)
+        self += CronJob(
+            '/srv/prometheus/bin/node_exporter-mailcheck',
+            user='prometheus',
+            timing='*/5 * * * *')
+
+        self += File(
+            '/srv/prometheus/conf.d/alert-mailcheck.yml', is_template=False)
+        self.provide('prom:rule', self._)
+        self.provide('prom:rule', self._)
