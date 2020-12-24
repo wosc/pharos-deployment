@@ -79,6 +79,9 @@ class Prom_Node(Component):
     checksum = 'sha256:3369b76cd2b0ba678b6d618deab320e565c3d93ccb5c2a0d5db51a53857768ae'
 
     def configure(self):
+        # Allow acessing supervisor control socket
+        self += GroupMember('supervisor', user='prometheus')
+
         self += DownloadBinary(
             self.url.format(version=self.version), checksum=self.checksum,
             names=['node_exporter'])
@@ -86,6 +89,8 @@ class Prom_Node(Component):
             'prometheus-node',
             command='/srv/prometheus/bin/node_exporter '
             '--collector.textfile.directory=/srv/prometheus/node '
+            '--collector.supervisord '
+            '--collector.supervisord.url=unix:///var/run/supervisor.sock '
             '--web.listen-address="127.0.0.1:9100"',
             user='prometheus', dependencies=[self._])
 
