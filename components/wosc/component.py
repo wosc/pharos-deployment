@@ -8,7 +8,7 @@ from batou_ext.cron import CronJob
 from batou_ext.nginx import VHost
 from batou_ext.patch import Patch
 from batou_ext.python import VirtualEnv, Requirements
-from batou_ext.user import GroupMember
+from batou_ext.user import User, GroupMember
 from crypt import crypt
 import batou.lib.python
 
@@ -92,6 +92,17 @@ class WoscDe(Component):
     def configure(self):
         self += File('/etc/nginx/sites-available/wosc.de',
                      source='wosc.de.conf', is_template=False)
+        self += VHost(self._, site_enable=True)
+
+
+class GRmusik(Component):
+
+    def configure(self):
+        self += User(
+            'grmusik', home='/home/grmusik',
+            shell='/usr/lib/openssh/sftp-server')
+        self += File('/etc/nginx/sites-available/grmusik.de',
+                     source='grmusik.de.conf', is_template=False)
         self += VHost(self._, site_enable=True)
 
 
