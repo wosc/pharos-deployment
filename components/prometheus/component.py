@@ -7,6 +7,7 @@ from batou_ext.nginx import VHost
 from batou_ext.python import VirtualEnv, Requirements
 from batou_ext.supervisor import Program
 from batou_ext.user import User, GroupMember
+import batou.lib.mysql
 
 
 class DownloadBinary(Component):
@@ -221,3 +222,31 @@ class Prom_Github(Component):
         self += File(
             '/srv/prometheus/conf.d/alert-github.yml', is_template=False)
         self.provide('prom:rule', self._)
+
+
+class Prom_Mysql(Component):
+
+    version = '0.12.1'
+    url = (
+        'https://github.com/prometheus/mysqld_exporter/releases/download/'
+        'v{version}/mysqld_exporter-{version}.linux-amd64.tar.gz')
+    checksum = 'sha256:133b0c281e5c6f8a34076b69ade64ab6cac7298507d35b96808234c4aa26b351'
+
+    db_password = None
+
+    def configure(self):
+        self += batou.lib.mysql.User('prometheus', password=self.db_password)
+        self += batou.lib.mysql.Command(admin_password=None, statement=(
+            "GRANT PROCESS, REPLICATION CLIENT, SELECT ON *.* "
+            "TO 'prometheus'@'localhost';"))
+
+        self += DownloadBinary(
+            self.url.format(version=self.version), checksum=self.checksum,
+            names=['mysqld_exporter'])
+        self += Program(
+            'prometheus-mysql',
+            command='/srv/prometheus/bin/mysqld_exporter '
+            '--web.listen-address="127.0.0.1:9104"',
+            environ='DATA_SOURCE_NAME="prometheus:%s@(localhost:3306)/"' % (
+                self.db_password),
+            user='prometheus', dependencies=[self._])
