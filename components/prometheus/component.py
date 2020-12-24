@@ -199,4 +199,25 @@ class Prom_Exim(Component):
         self += File(
             '/srv/prometheus/conf.d/alert-mailcheck.yml', is_template=False)
         self.provide('prom:rule', self._)
+
+
+class Prom_Github(Component):
+
+    api_key = None
+    owner = 'wosc'
+
+    def configure(self):
+        self += VirtualEnv()
+        self._ += Requirements(source='github.txt')
+
+        self += Program(
+            'prometheus-github',
+            command=self.map('bin/github_vulnerability_exporter') +
+            ' --host=127.0.0.1 --port=9597 --ttl=3590',
+            environ='GITHUB_AUTHTOKEN="%s", GITHUB_OWNER="%s"' % (
+                self.api_key, self.owner),
+            user='prometheus', dependencies=[])
+
+        self += File(
+            '/srv/prometheus/conf.d/alert-github.yml', is_template=False)
         self.provide('prom:rule', self._)

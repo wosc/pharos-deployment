@@ -1,0 +1,9 @@
+groups:
+- name: ghvuln
+  rules:
+  - alert: vulnerability_found
+    expr: github_vulnerability_alerts{status="active"} > 0
+    labels:
+      severity: warning
+    annotations:
+      summary: Found ${value} vulnerabilities in ${labels.repository}
