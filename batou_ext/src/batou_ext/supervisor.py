@@ -78,6 +78,7 @@ class Program(Component):
         return 'RUNNING' in out
 
     def verify(self):
+        self.assert_no_subcomponent_changes()
         for dependency in self.dependencies:
             dependency.assert_no_changes()
         running = self.is_running()
