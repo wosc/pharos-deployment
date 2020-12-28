@@ -13,11 +13,12 @@ class Package(Component):
     options = ''
 
     def verify(self):
+        installed = '(none)'
         output, _ = self.cmd('LANG=C apt-cache policy %s' % self.name)
         for line in output.splitlines():
             if 'Installed:' in line:
+                installed = line.split()[-1]
                 break
-        installed = line.split()[-1]
         if self.version:
             if installed != self.version:
                 raise UpdateNeeded()
