@@ -1,6 +1,0 @@
-production:
-  adapter: mysql
-  database: <%=node["mailserver"]["db_name"]%>
-  username: <%=node["mailserver"]["db_user"]%>
-  password: <%=node["mailserver"]["db_pass"]%>
-  socket: /var/run/mysqld/mysqld.sock

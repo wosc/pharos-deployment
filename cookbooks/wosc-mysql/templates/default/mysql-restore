@@ -1,7 +1,0 @@
-#!/bin/bash
-
-for i in *.sql; do
-    db=$(basename $i)
-    echo "Importing $db"
-    mysql $db < $db.sql
-done

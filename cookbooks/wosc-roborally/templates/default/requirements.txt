@@ -1,4 +1,0 @@
-# ws.roborally == <%=@version%>
--e git+https://github.com/wosc/roborally.git#egg=ws.roborally
-
-tornado==6.0.4

@@ -1,8 +1,0 @@
-ws.prometheus_uptimerobot == 1.0.1
-prometheus_client == 0.1.1
-
-requests==2.21.0
-certifi==2019.3.9
-chardet == 3.0.4
-idna==2.8
-urllib3==1.24.2
