@@ -1,3 +1,17 @@
+# Unlock encrypted repository
+
+```
+apt install git libssl-dev
+wget https://www.agwa.name/projects/git-crypt/downloads/git-crypt-0.6.0.tar.gz
+tar xf git-cryp-0.6.tar.gz
+cd git-crypt
+make && make install
+
+git clone git@github.com:wosc/pharos-deployment.git pharos
+cd pharos
+git crypt unlock
+```
+
 # Bootstrap a new server
 
 ```
