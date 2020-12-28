@@ -18,3 +18,12 @@ class Extract(batou.lib.archive.Extract):
             filename = os.path.join(*filename.split(os.path.sep)[self.strip:])
             filename = os.path.join(self.target, filename)
             shutil.chown(filename, self.owner, self.group)
+
+
+def get_names_from_archive(self):
+    result = original(self)
+    return [x for x in result if os.path.sep in x]
+
+
+original = batou.lib.archive.Untar.get_names_from_archive
+batou.lib.archive.Untar.get_names_from_archive = get_names_from_archive
