@@ -1,6 +1,5 @@
 parameters:
   database_driver: pdo_mysql
-  database_driver_class: null
   database_host: 127.0.0.1
   database_port: null
   database_name: wallabag
@@ -17,8 +16,11 @@ parameters:
 
   mailer_transport: smtp
   mailer_host: 127.0.0.1
+  mailer_port: false
+  mailer_encryption: null
   mailer_user: null
   mailer_password: null
+  mailer_auth_mode: null
   from_email: no-reply@wallabag.org
 
   locale: en
@@ -31,6 +33,10 @@ parameters:
 
   fosuser_registration: false
   fosuser_confirmation: false
+  # how long the access token should live in seconds for the API
+  fos_oauth_server_access_token_lifetime: 3600
+  # how long the refresh token should life in seconds for the API
+  fos_oauth_server_refresh_token_lifetime: 1209600
 
   rss_limit: 50
 
@@ -46,6 +52,8 @@ parameters:
   redis_port: 6379
   redis_path: null
   redis_password: null
+
+  sentry_dsn: null
 
 framework:
   assets:

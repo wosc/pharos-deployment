@@ -13,9 +13,11 @@ from batou_ext.user import User, GroupMember
 
 class Matomo(Component):
 
-    version = '4.0.4'
-    url = 'http://builds.matomo.org/piwik-{version}.tar.gz'
-    checksum = 'sha256:d4c1fc3487604d4a51247b1b5cbf84b2e2e855660f9874636aa3d673985bb3c3'
+    version = '4.1.0'
+    url = 'http://builds.matomo.org/matomo-{version}.tar.gz'
+    # Since server sends `content-encoding` header, requests insists on already
+    # unzipping. Thus, have to take the checksum from the .tar, not the .tar.gz!
+    checksum = 'sha256:3ccc7f55bb3042a84c38564e3001b26d06f7a793827702bd45772b3bfafbc213'
 
     packages = [
         'php7.4-cli',
@@ -52,7 +54,8 @@ class Matomo(Component):
         self += Setup()
 
         self += Download(
-            self.url.format(version=self.version), checksum=self.checksum)
+            self.url.format(version=self.version), checksum=self.checksum,
+            requests_kwargs={'headers': {'accept-encoding': '', 'accept': ''}})
         self += Extract(
             self._.target, target='/srv/matomo', strip=1,
             owner='matomo', group='matomo')
