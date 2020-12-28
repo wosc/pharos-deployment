@@ -8,6 +8,7 @@ from batou_ext.user import User, GroupMember
 
 from batou_ext.cron import CronTab
 from batou_ext.nginx import Nginx
+from batou_ext.nodejs import NodeJS
 from batou_ext.supervisor import Supervisor
 
 

@@ -38,13 +38,14 @@ class Program(Component):
     command = None
     user = 'root'
     environ = None
+    directory = None
 
     autorestart = 'true'
     redirect_stderr = 'true'
     stdout_logfile = '/var/log/supervisor/%(program_name)s.log'
 
     option_names = [
-        'command', 'user', 'environ',
+        'command', 'user', 'environ', 'directory',
         'autorestart', 'redirect_stderr', 'stdout_logfile',
     ]
 
