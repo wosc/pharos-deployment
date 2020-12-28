@@ -23,11 +23,11 @@ class Wallabag(Component):
         'php7.2-bcmath',
         'php7.2-curl',
         'php7.2-gd',
-        'php7.2-gettext',
         'php7.2-mbstring',
         'php7.2-mysql',
         'php7.2-tidy',
         'php7.2-xml',
+        'php-php-gettext',
     ]
 
     db_password = None

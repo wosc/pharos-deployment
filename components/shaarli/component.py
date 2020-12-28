@@ -24,7 +24,7 @@ class Shaarli(Component):
     packages = [
         'php7.2-curl',
         'php7.2-gd',
-        'php7.2-gettext',
+        'php-php-gettext',
     ]
 
     def configure(self):
