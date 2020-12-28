@@ -26,9 +26,6 @@ class Radicale(Component):
         self += Patch(
             courier_py, source='sock.send(line)',
             target='sock.send(line.encode("utf-8")')
-        self += Patch(
-            courier_py, source='except Exception:',
-            target='except Exception as exception')
 
         # Allow access to authdaemon
         self += GroupMember('courier', user='radicale')
