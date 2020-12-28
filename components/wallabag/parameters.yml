@@ -1,0 +1,52 @@
+parameters:
+  database_driver: pdo_mysql
+  database_driver_class: null
+  database_host: 127.0.0.1
+  database_port: null
+  database_name: wallabag
+  database_user: wallabag
+  database_password: {{component.db_password}}
+  # For SQLite, database_path should be "%kernel.project_dir%/data/db/wallabag.sqlite"
+  database_path: null
+  database_table_prefix: wallabag_
+  database_socket: null
+  # with PostgreSQL and SQLite, you must set "utf8"
+  database_charset: utf8mb4
+
+  domain_name: 'https://pharos.wosc.de'
+
+  mailer_transport: smtp
+  mailer_host: 127.0.0.1
+  mailer_user: null
+  mailer_password: null
+  from_email: no-reply@wallabag.org
+
+  locale: en
+
+  # A secret key that's used to generate certain security-related tokens
+  secret: {{component.csrf_secret}}
+
+  twofactor_auth: false
+  twofactor_sender: no-reply@wallabag.org
+
+  fosuser_registration: false
+  fosuser_confirmation: false
+
+  rss_limit: 50
+
+  # We're not using these
+  rabbitmq_host: localhost
+  rabbitmq_port: 5672
+  rabbitmq_user: guest
+  rabbitmq_password: guest
+  rabbitmq_prefetch_count: 10
+
+  redis_scheme: tcp
+  redis_host: localhost
+  redis_port: 6379
+  redis_path: null
+  redis_password: null
+
+framework:
+  assets:
+    base_urls: 'https://pharos.wosc.de/reader'
