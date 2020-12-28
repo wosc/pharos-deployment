@@ -2,14 +2,14 @@
 
 DEST=/srv/prometheus/node/mailcheck.prom
 
-/usr/local/mailcheck/bin/mail-check-roundtrip /srv/prometheus/mailcheck.conf
+/srv/prometheus/bin/mail-check-roundtrip /srv/prometheus/mailcheck.conf
 if [ "$?" = "0" ]; then
     MAILCHECK=1
 else
     MAILCHECK=0
 fi
 
-/usr/local/mailcheck/bin/caldav-check-roundtrip /srv/prometheus/caldavcheck.conf
+/srv/prometheus/bin/caldav-check-roundtrip /srv/prometheus/caldavcheck.conf
 if [ "$?" = "0" ]; then
     CALDAVCHECK=1
 else

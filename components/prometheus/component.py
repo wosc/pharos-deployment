@@ -192,10 +192,12 @@ class Prom_Exim(Component):
         self += VirtualEnv()
         self._ += Requirements(source='mailcheck.txt')
 
-        self += File('/srv/prometheus/mailcheck.conf',
-                     owner='prometheus', group='prometheus', mode=0o640)
-        self += File('/srv/prometheus/caldavcheck.conf',
-                     owner='prometheus', group='prometheus', mode=0o640)
+        for name in ['mail', 'caldav']:
+            self += Symlink(
+                '/srv/prometheus/bin/%s-check-roundtrip' % name,
+                source=self.map('bin/%s-check-roundtrip' % name))
+            self += File('/srv/prometheus/%scheck.conf' % name,
+                         owner='prometheus', group='prometheus', mode=0o640)
 
         self += File('/srv/prometheus/bin/node_exporter-mailcheck',
                      source='mailcheck.sh', is_template=False, mode=0o755)
