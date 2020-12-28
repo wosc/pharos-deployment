@@ -1,0 +1,26 @@
+{
+    "document_root": "/srv/matomo",
+    "login": "root",
+    "password": "{{component.ui_password}}",
+    "email": "wosc@wosc.de",
+    "base_domain": "pharos.wosc.de",
+    "site_name": "wosc.de",
+    "site_url": "http://wosc.de",
+    "geo_provider": "geoip_pecl",
+    "database": {
+        "host": "localhost",
+        "adapter": "Pdo\\Mysql",
+        "username": "matomo",
+        "password": "{{component.db_password}}",
+        "dbname": "matomo",
+        "tables_prefix": ""
+    },
+    "extras": {
+        "General": {
+            "enable_auto_update": 0,
+            "proxy_client_headers[]": "HTTP_X_FORWARDED_FOR",
+            "proxy_host_headers[]": "HTTP_X_FORWARDED_HOST",
+            "assume_secure_protocol": 1
+        }
+    }
+}
