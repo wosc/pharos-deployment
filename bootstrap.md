@@ -16,6 +16,7 @@ git crypt unlock
 
 ```
 # passwd   # (for root)
+# sed -i -e "s/^mesg n.*$/tty -s \&\& mesg n/" /root/.profile
 # dpkg-reconfigure locales
 set default en_GB.utf8
 # adduser wosc
