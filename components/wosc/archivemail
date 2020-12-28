@@ -1557,7 +1557,7 @@ def parse_imap_url(url):
     password = None
     try: 
         if options.pwfile: 
-            username, url = split_qstr(url, '@')
+            username, url = split_qstr(url, '#')  # wosc patched
         else: 
             try:
                 username, url = split_qstr(url, ':')

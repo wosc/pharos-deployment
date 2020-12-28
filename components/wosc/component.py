@@ -158,23 +158,21 @@ class ArchiveMail(Component):
     password_grmusik = ''
 
     def configure(self):
-        # self += Package('archivemail')
-        self += Patch(
-            '/usr/bin/archivemail', file='archivemail-username.patch',
-            target='wosc patched')
+        self += File(
+            '/usr/local/bin/archivemail', mode=0o755, is_template=False)
 
         self += File(
             '/home/wosc/.archivemail-wosc.de', content=self.password_wosc,
             sensitive_data=True, owner='wosc', group='wosc', mode=0o600)
         self += CronJob(
-            'archivemail',
+            '/usr/local/bin/archivemail',
             args="--days=14 --delete --output-dir=/tmp "
             "--pwfile /home/wosc/.archivemail-wosc.de "
             "'imaps://wosc@wosc.de#mail.wosc.de/INBOX.copy' > /dev/null",
             user='wosc',
             timing='10 0 * * *')
         self += CronJob(
-            'archivemail',
+            '/usr/local/bin/archivemail',
             args="--days=7 --delete --output-dir=/tmp "
             "--pwfile /home/wosc/.archivemail-wosc.de "
             "'imaps://wosc@wosc.de#mail.wosc.de/INBOX.Spam' > /dev/null",
@@ -185,7 +183,7 @@ class ArchiveMail(Component):
             '/home/grmusik/spam-cleanup.pass', content=self.password_grmusik,
             sensitive_data=True, owner='grmusik', group='grmusik', mode=0o600)
         self += CronJob(
-            'archivemail',
+            '/usr/local/bin/archivemail',
             args="--days=1 --delete --output-dir=/tmp "
             "--pwfile /home/grmusik/spam-cleanup.pass "
             "'imaps://gregor@grmusik.de#mail.wosc.de/INBOX.Spam' > /dev/null",
