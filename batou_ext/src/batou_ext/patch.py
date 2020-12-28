@@ -1,5 +1,6 @@
 from batou import UpdateNeeded
 from batou.component import Component, Attribute
+import os.path
 import re
 
 
@@ -24,6 +25,8 @@ class Patch(Component):
             raise ValueError('Target text is required')
 
     def verify(self):
+        if not os.path.exists(self.path):
+            return
         file = open(self.path).read()
         if self.check_source_removed and self.source in file:
             raise UpdateNeeded()
