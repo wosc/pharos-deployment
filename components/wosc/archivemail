@@ -74,8 +74,6 @@ import locale
 from_re = re.compile(r'^From ', re.MULTILINE)
 imapsize_re = re.compile(r'^(?P<msn>[0-9]+) \(RFC822\.SIZE (?P<size>[0-9]+)\)')
 
-userencoding = locale.getpreferredencoding()
-
 ############## class definitions ###############
 
 class ArchivemailException(Exception):
@@ -1348,6 +1346,7 @@ def _archive_imap(mailbox_name):
             vprint("imap filter: '%s'" % imap_filter)
             vprint("searching messages matching criteria")
             result, response = imap_srv.search(None, imap_filter)
+            response = [x.decode('ascii') for x in response if x is not None]
             if result != 'OK': unexpected_error("imap search failed; server says '%s'" %
                 response[0])
             if response[0] is not None:
@@ -1363,13 +1362,14 @@ def _archive_imap(mailbox_name):
         if total_msg_count > 0 and not options.quiet:
             vprint("fetching size of messages...")
             result, response = imap_srv.fetch('1:*', '(RFC822.SIZE)')
+            response = [x.decode('ascii') for x in response if x is not None]
             if result != 'OK': unexpected_error("Failed to fetch message sizes; "
                 "server says '%s'" % response[0])
             # response is a list with entries like '1016 (RFC822.SIZE 3118)',
             # where the first number is the message sequence number, the second is
             # the size.
-            for x in response:
-                m = imapsize_re.match(x)
+            for r in response:
+                m = imapsize_re.match(r)
                 msn, msg_size = m.group('msn'), int(m.group('size'))
                 stats.another_message(msg_size)
                 if msn in message_list:
@@ -1383,10 +1383,12 @@ def _archive_imap(mailbox_name):
                     # Fetching message flags and body together always finds \Seen
                     # set.  To check \Seen, we must fetch the flags first.
                     result, response = imap_srv.fetch(msn, '(FLAGS)')
+                    response = [x.decode('ascii') for x in response if x is not None]
                     if result != 'OK': unexpected_error("Failed to fetch message "
                             "flags; server says '%s'" % response[0])
                     msg_flags = imaplib.ParseFlags(response[0])
                     result, response = imap_srv.fetch(msn, '(RFC822)')
+                    response = [x.decode('ascii') for x in response if x is not None]
                     if result != 'OK': unexpected_error("Failed to fetch message; "
                         "server says '%s'" % response[0])
                     msg_str = response[0][1].replace("\r\n", os.linesep)
@@ -1407,6 +1409,7 @@ def _archive_imap(mailbox_name):
                     result, response = imap_srv.store( \
                         ','.join(message_list[i:i+max_delete]),
                         '+FLAGS.SILENT', '\\Deleted')
+                    response = [x.decode('ascii') for x in response if x is not None]
                     if result != 'OK': unexpected_error("Error while deleting "
                         "messages; server says '%s'" % response[0])
         vprint("Closing mailbox.")
@@ -1593,6 +1596,7 @@ def imap_getdelim(imap_server):
         # Some buggy IMAP servers do not respond well to LIST "" ""
         # Work around them.
         result, response = imap_server.list(pattern='%')
+    response = [x.decode('ascii') for x in response if x is not None]
     if result != 'OK': unexpected_error("Error listing directory; "
         "server says '%s'" % response[0])
 
@@ -1613,6 +1617,7 @@ def imap_get_namespace(srv):
     """Return the IMAP namespace prefixes and hierarchy delimiters."""
     assert 'NAMESPACE' in srv.capabilities
     result, response = srv.namespace()
+    response = [x.decode('ascii') for x in response if x is not None]
     if result != 'OK': 
         unexpected_error("Cannot retrieve IMAP namespace; server says: '%s'" 
             % response[0])
@@ -1640,8 +1645,9 @@ def imap_smart_select(srv, mailbox):
         vprint("examining imap folder '%s' read-only" % mailbox)
     else:
         vprint("selecting imap folder '%s'" % mailbox)
-    imap_mailbox = mod_utf7_encode(mailbox.decode(userencoding))
+    imap_mailbox = mod_utf7_encode(mailbox)
     result, response = srv.select(imap_quote(imap_mailbox), roflag)
+    response = [x.decode('ascii') for x in response if x is not None]
     if result != 'OK':
         unexpected_error("selecting '%s' failed; server says: '%s'." \
                 % (mailbox, response[0]))
@@ -1650,7 +1656,7 @@ def imap_smart_select(srv, mailbox):
         # As to the following indices: IMAP4.response(key) returns 
         # a tuple (key, ['<all_items>']) if the key is found, (key, [None])
         # otherwise.  Imaplib just *loves* to nest trivial lists!  
-        permflags = srv.response("PERMANENTFLAGS")[1][0]
+        permflags = srv.response("PERMANENTFLAGS")[1][0].decode('ascii')
         if permflags: 
             permflags = permflags.strip('()').lower().split()
             if not '\\deleted' in permflags: 
@@ -1669,8 +1675,9 @@ def imap_find_mailboxes(srv, mailbox):
             vprint("Looking for mailboxes matching '%s'..." % curbox)
         else:
             vprint("Looking for mailbox '%s'..." % curbox)
-        curbox = mod_utf7_encode(curbox.decode(userencoding))
+        curbox = mod_utf7_encode(curbox)
         result, response = srv.list(pattern=imap_quote(curbox))
+        response = [x.decode('ascii') for x in response if x is not None]
         if result != 'OK': 
             unexpected_error("LIST command failed; " \
                 "server says: '%s'" % response[0])
@@ -1705,7 +1712,6 @@ def imap_find_mailboxes(srv, mailbox):
             vprint("Mailbox name '%s' returned by server doesn't look like "
                    "modified UTF-7" % name)
             name = name.decode('utf-8')
-        name = name.encode(userencoding)
         if '\\noselect' in attrs.lower().split():
             vprint("skipping not selectable mailbox '%s'" % name)
             continue
