@@ -39,4 +39,5 @@ class Patch(Component):
             with open(self.path, 'w') as f:
                 f.write(contents)
         else:
-            self.cmd('patch -d/ -p%s < %s' % (self.strip, self.file))
+            self.cmd('patch -d/ -p%s < %s/%s' % (
+                self.strip, self.parent.defdir, self.file))
