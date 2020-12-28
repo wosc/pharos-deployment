@@ -263,4 +263,4 @@ class YoutubeDL(Component):
         self += VirtualEnv()
         self._ += batou.lib.python.Package(
             'youtube-dl', version=self.version, check_package_is_module=False)
-        self += Symlink('/usr/local/bin/yt', source=self.map('bin/youtube-tl'))
+        self += Symlink('/usr/local/bin/yt', source=self.map('bin/youtube-dl'))
