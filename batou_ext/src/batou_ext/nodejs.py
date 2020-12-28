@@ -8,6 +8,7 @@ class NodeJS(Component):
 
     def configure(self):
         distro, _ = self.cmd('lsb_release -s -c')
+        distro = distro.strip()
         self += Package('apt-transport-https')
         self += AptRepository(
             'nodesource',

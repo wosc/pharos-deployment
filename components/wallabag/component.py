@@ -38,7 +38,7 @@ class Wallabag(Component):
         for name in self.packages:
             self += Package(name)
 
-        self += ServiceDatabase('wallabag')
+        self += ServiceDatabase('wallabag', password=self.db_password)
         self += Schema()
         self += AdminUser(password=self.ui_password)
 

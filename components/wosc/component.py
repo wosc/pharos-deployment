@@ -2,7 +2,7 @@ from batou.component import Component
 from batou.lib.archive import Extract
 from batou.lib.cmmi import Configure, Make
 from batou.lib.download import Download
-from batou.lib.file import File, Symlink
+from batou.lib.file import File, Symlink, BinaryFile
 from batou_ext.apt import Package
 from batou_ext.cron import CronJob
 from batou_ext.nginx import VHost
@@ -72,19 +72,18 @@ class Dailystrips(Component):
         self += File(
             '/home/wosc/bin/dailycomics.sh', is_template=False, mode=0o755)
         self += CronJob(
-            command=self._.path,
+            self._.path,
             user='wosc',
             timing='15 5 * * * ')
 
         self += File('/home/wosc/public_html/dailystrips', ensure='directory',
                      owner='wosc', group='wosc')
-        self += File(
+        self += BinaryFile(
             '/home/wosc/public_html/dailystrips/favicon.png',
-            source='kevinandkell.png', is_template=False,
-            owner='wosc', group='wosc')
+            source='kevinandkell.png', owner='wosc', group='wosc')
         self += File(
             '/home/wosc/public_html/dailystrips/.htpasswd',
-            content=crypt(self.ui_password, 'hX'))
+            content=crypt(self.ui_password, 'hX'), sensitive_data=True)
 
 
 class WoscDe(Component):
@@ -183,7 +182,7 @@ class ArchiveMail(Component):
             timing='10 0 * * *')
 
         self += File(
-            '/home/grmusik/spam-cleanup.pass', content=self.password_wosc,
+            '/home/grmusik/spam-cleanup.pass', content=self.password_grmusik,
             sensitive_data=True, owner='grmusik', group='grmusik', mode=0o600)
         self += CronJob(
             'archivemail',

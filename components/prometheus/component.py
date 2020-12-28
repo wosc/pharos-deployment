@@ -243,9 +243,9 @@ class Prom_Mysql(Component):
 
     def configure(self):
         self += batou.lib.mysql.User('prometheus', password=self.db_password)
-        self += batou.lib.mysql.Command(admin_password=None, statement=(
+        self += batou.lib.mysql.Command(
             "GRANT PROCESS, REPLICATION CLIENT, SELECT ON *.* "
-            "TO 'prometheus'@'localhost';"))
+            "TO 'prometheus'@'localhost';", admin_password=None)
 
         self += DownloadBinary(
             self.url.format(version=self.version), checksum=self.checksum,

@@ -22,7 +22,7 @@ class Grafana(Component):
         self += Package('grafana')
 
         self += File('/etc/grafana/grafana.ini')
-        self += Service('grafana-server', deps=self._)
+        self += Service('grafana-server', action='restart', deps=self._)
 
         self += File(
             '/srv/prometheus/grafana-nginx.conf',

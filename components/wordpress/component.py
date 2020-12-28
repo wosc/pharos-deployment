@@ -64,14 +64,14 @@ class Wordpress(Component):
         self += File(
             '/srv/grshop/nginx.conf',
             source='nginx.conf', is_template=False)
-        self += VHost(self._, site_enable=True)
+        self += VHost(self._)
 
         self += AdminUser(password=self.ui_password)
 
 
 class AdminUser(Component):
 
-    username = 'root'
+    username = 'wosc'
     email = 'gregor@grmusik.de'
     password = None
 

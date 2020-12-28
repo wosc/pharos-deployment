@@ -1,4 +1,5 @@
-radicale == {{component.version}}
+# XXX Version 2.x removes the "ics-file" storage backend
+radicale == 1.1.6
 
 python-dateutil == 2.8.0
 six == 1.12.0

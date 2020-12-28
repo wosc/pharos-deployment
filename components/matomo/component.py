@@ -15,7 +15,7 @@ class Matomo(Component):
 
     version = '4.0.4'
     url = 'http://builds.matomo.org/piwik-{version}.tar.gz'
-    checksum = 'sha256:b8758bf8e0dc677427300110e545b33000e3aca2f301901b90f616e5ee1d3045'
+    checksum = 'sha256:d4c1fc3487604d4a51247b1b5cbf84b2e2e855660f9874636aa3d673985bb3c3'
 
     packages = [
         'php7.2-cli',
@@ -45,7 +45,7 @@ class Matomo(Component):
         self += User('matomo')
         # Allow reading accesslogs
         self += GroupMember('adm', user='matomo')
-        self += ServiceDatabase('matomo')
+        self += ServiceDatabase('matomo', password=self.db_password)
 
         self += File('/srv/matomo/setup/install.json',
                      owner='matomo', group='matomo', mode=0o640)

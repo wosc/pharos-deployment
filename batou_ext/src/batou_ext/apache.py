@@ -31,7 +31,8 @@ class CGIServer(Component):
             dependencies=[self._])
 
         self += File(
-            '/srv/cgiserv/nginx.conf', source='cgi.conf', is_template=False)
+            '/srv/cgiserv/nginx.conf',
+            source=here + 'cgi.conf', is_template=False)
         self += VHost(self._)
 
     def verify(self):

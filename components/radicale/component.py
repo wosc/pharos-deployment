@@ -9,8 +9,6 @@ from batou_ext.user import User, GroupMember
 
 class Radicale(Component):
 
-    version = '1.1.6'  # XXX Version 2.x removes the "ics-file" storage backend
-
     def configure(self):
         self += User('radicale')
         self += File('/srv/radicale/data', ensure='directory',
