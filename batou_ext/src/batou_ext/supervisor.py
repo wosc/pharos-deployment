@@ -35,6 +35,7 @@ class Program(Component):
 
     namevar = 'name'
 
+    typ = 'program'
     command = None
     user = 'root'
     environ = None
@@ -95,6 +96,7 @@ class Program(Component):
 
 class PHP(Program):
 
+    typ = 'fcgi-program'
     command = '/usr/bin/php-cgi -d error_log=/dev/stderr'
     params = None
 
