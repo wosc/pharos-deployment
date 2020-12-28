@@ -38,14 +38,14 @@ class Shaarli(Component):
             self.url.format(version=self.version), checksum=self.checksum)
         self += Extract(
             self._.target, target='/srv/shaarli/public', strip=1,
-            owner='shaarli', group='shaarli', create_target_dir=False)
+            owner='shaarli', group='shaarli')
 
         self += Download(
             self.material.format(version=self.version),
             checksum=self.material_checksum)
         self += Extract(
             self._.target, target='/srv/shaarli/public/tpl', strip=0,
-            owner='shaarli', group='shaarli', create_target_dir=False)
+            owner='shaarli', group='shaarli')
 
         # Shaarli has no cli installer or usable config file, so you'll be
         # prompted through the web to set a user/password. Then log in, go to

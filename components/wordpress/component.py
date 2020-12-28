@@ -42,7 +42,7 @@ class Wordpress(Component):
             self.url.format(version=self.version), checksum=self.checksum)
         self += Extract(
             self._.target, target='/srv/grshop/lib', strip=1,
-            owner='grshop', group='grshop', create_target_dir=False)
+            owner='grshop', group='grshop')
 
         self += File(
             '/srv/grshop/lib/wp-config.php',

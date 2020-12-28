@@ -55,7 +55,7 @@ class Matomo(Component):
             self.url.format(version=self.version), checksum=self.checksum)
         self += Extract(
             self._.target, target='/srv/matomo', strip=1,
-            owner='matomo', group='matomo', create_target_dir=False)
+            owner='matomo', group='matomo')
 
         self += PHP('matomo', user='matomo')
 
@@ -96,7 +96,7 @@ class Setup(Component):
         self += Download(self.url, checksum=self.checksum)
         self += Extract(
             self._.target, target='/srv/matomo/setup', strip=1,
-            owner='matomo', group='matomo', create_target_dir=False)
+            owner='matomo', group='matomo')
 
     def verify(self):
         out, _ = self.cmd('echo "show tables" | mysql -uroot matomo')

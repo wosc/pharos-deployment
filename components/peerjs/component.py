@@ -21,7 +21,7 @@ class PeerJS(Component):
             self.url.format(version=self.version), checksum=self.checksum)
         self += Extract(
             self._.target, target='/srv/peerjs', strip=1,
-            owner='peerjs', group='peerjs', create_target_dir=False)
+            owner='peerjs', group='peerjs')
 
         self += Patch(
             '/srv/peerjs/lib/server.js',

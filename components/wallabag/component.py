@@ -47,7 +47,7 @@ class Wallabag(Component):
             self.url.format(version=self.version), checksum=self.checksum)
         self += Extract(
             self._.target, target='/srv/wallabag', strip=1,
-            owner='wallabag', group='wallabag', create_target_dir=False)
+            owner='wallabag', group='wallabag')
 
         self += Patch(
             '/srv/wallabag/app/config/routing.yml',

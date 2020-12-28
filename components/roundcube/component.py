@@ -38,7 +38,7 @@ class Roundcube(Component):
             self.url.format(version=self.version), checksum=self.checksum)
         self += Extract(
             self._.target, target='/srv/roundcube', strip=1,
-            owner='roundcube', group='roundcube', create_target_dir=False)
+            owner='roundcube', group='roundcube')
         self += Delete('/srv/roundcube/installer')
 
         self += File(
