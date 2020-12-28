@@ -41,11 +41,10 @@ class InstallCrontab(Component):
 
     def verify(self):
         try:
-            current, _ = self.cmd(
-                'crontab -u %s -l' % self.user, encoding=None)
+            current, _ = self.cmd('crontab -u %s -l' % self.user)
         except Exception:
             current = ''
-        current = ignore_comments(current)
+        current = ignore_comments(current.encode('utf-8'))
         new = ignore_comments(self.crontab.content)
         if new != current:
             raise UpdateNeeded()
