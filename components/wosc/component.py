@@ -158,7 +158,7 @@ class ArchiveMail(Component):
     password_grmusik = ''
 
     def configure(self):
-        self += Package('archivemail')
+        # self += Package('archivemail')
         self += Patch(
             '/usr/bin/archivemail', file='archivemail-username.patch',
             target='wosc patched')

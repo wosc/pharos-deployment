@@ -20,14 +20,13 @@ class Wallabag(Component):
     checksum = 'sha256:58f319ee41828fcc4fd00a14c4ac7c16b2179a47af21e257a15938311d1426eb'
 
     packages = [
-        'php7.2-bcmath',
-        'php7.2-curl',
-        'php7.2-gd',
-        'php7.2-mbstring',
-        'php7.2-mysql',
-        'php7.2-tidy',
-        'php7.2-xml',
-        'php-php-gettext',
+        'php7.4-bcmath',
+        'php7.4-curl',
+        'php7.4-gd',
+        'php7.4-mbstring',
+        'php7.4-mysql',
+        'php7.4-tidy',
+        'php7.4-xml',
     ]
 
     db_password = None

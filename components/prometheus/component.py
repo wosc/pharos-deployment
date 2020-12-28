@@ -9,6 +9,7 @@ from batou_ext.supervisor import Program
 from batou_ext.user import User, GroupMember
 from glob import glob
 import batou.lib.mysql
+import batou_ext.mysql
 import os
 
 
@@ -244,7 +245,7 @@ class Prom_Mysql(Component):
     db_password = None
 
     def configure(self):
-        self += batou.lib.mysql.User('prometheus', password=self.db_password)
+        self += batou_ext.mysql.User('prometheus', password=self.db_password)
         self += batou.lib.mysql.Command(
             "GRANT PROCESS, REPLICATION CLIENT, SELECT ON *.* "
             "TO 'prometheus'@'localhost';", admin_password=None)

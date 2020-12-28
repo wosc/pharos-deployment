@@ -6,7 +6,7 @@ import batou.lib.python
 
 class VirtualEnv(batou.lib.python.VirtualEnv):
 
-    version = '3.6'
+    version = '3.8'
     path = None
 
     bootstrap_versions = {

@@ -25,6 +25,7 @@ class BasePackages(Component):
         'mc',
         'mosh',
         'python3-dev',
+        'python-is-python3',
         'rsync',
         'screen',
         'unzip',
@@ -56,8 +57,8 @@ class CronAPT(Component):
 class MySQL(Component):
 
     packages = [
-        'mysql-server-5.7',
-        'mysql-client-5.7',
+        'mysql-server-8.0',
+        'mysql-client-8.0',
         'libmysqlclient-dev',
     ]
 
@@ -74,12 +75,14 @@ class MySQL(Component):
 
 class PHPBase(Component):
 
+    version = '7.4'
+
     def configure(self):
-        self += Package('php7.2')
-        self += Package('php7.2-cgi')
+        self += Package('php%s' % self.version)
+        self += Package('php%s-cgi' % self.version)
         # Send php errors to nginx log.
         self += Patch(
-            '/etc/php/7.2/cgi/php.ini',
+            '/etc/php/%s/cgi/php.ini' % self.version,
             source=';error_log = php_errors.log',
             target='error_log = /dev/stderr')
 

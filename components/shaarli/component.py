@@ -22,9 +22,8 @@ class Shaarli(Component):
     material_checksum = 'sha256:b0fa6116b47fb335f13e6561dbb6446d25a558256d0cd59c067d401d411a5c7a'
 
     packages = [
-        'php7.2-curl',
-        'php7.2-gd',
-        'php-php-gettext',
+        'php7.4-curl',
+        'php7.4-gd',
     ]
 
     def configure(self):

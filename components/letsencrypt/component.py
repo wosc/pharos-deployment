@@ -9,7 +9,7 @@ import os.path
 
 class LetsEncrypt(Component):
 
-    daemons = ['www-data', 'Debian-exim']
+    daemons = ['courier', 'Debian-exim', 'www-data']
     domains = [
         'grmusik.de',
         'wosc.de',
