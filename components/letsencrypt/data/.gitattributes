@@ -1,0 +1,3 @@
+*.account filter=git-crypt diff=git-crypt
+*.key filter=git-crypt diff=git-crypt
+*.reg filter=git-crypt diff=git-crypt
