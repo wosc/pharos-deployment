@@ -83,7 +83,8 @@ class Dailystrips(Component):
             source='kevinandkell.png', owner='wosc', group='wosc')
         self += File(
             '/home/wosc/public_html/dailystrips/.htpasswd',
-            content=crypt(self.ui_password, 'hX'), sensitive_data=True)
+            content='wosc:' + crypt(self.ui_password, 'hX'),
+            sensitive_data=True)
 
 
 class WoscDe(Component):
