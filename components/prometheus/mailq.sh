@@ -7,11 +7,11 @@ unit2val() {
     v=$(echo $1|tr -d '[A-Za-z]')
     u=$(echo $1|tr -d '[., 0-9]')
     case $u in
-        K|KB|KiB|Ko|Kio) v=$(python -c "print int(round($v*1024))");;
-        M|MB|MiB|Mo|Mio) v=$(python -c "print int(round($v*1024**2))");;
-        G|GB|GiB|Go|Gio) v=$(python -c "print int(round($v*1024**3))");;
-        T|TB|TiB|To|Tio) v=$(python -c "print int(round($v*1024**4))");;
-        P|PB|PiB|Po|Pio) v=$(python -c "print int(round($v*1024**5))");;
+        K|KB|KiB|Ko|Kio) v=$(python -c "print(int(round($v*1024)))");;
+        M|MB|MiB|Mo|Mio) v=$(python -c "print(int(round($v*1024**2)))");;
+        G|GB|GiB|Go|Gio) v=$(python -c "print(int(round($v*1024**3)))");;
+        T|TB|TiB|To|Tio) v=$(python -c "print(int(round($v*1024**4)))");;
+        P|PB|PiB|Po|Pio) v=$(python -c "print(int(round($v*1024**5)))");;
     esac
     echo $v
 }
