@@ -13,7 +13,7 @@ Vagrant.configure('2') do |config|
     default.vm.hostname = 'batou-pharos'
 
     default.vm.provider 'lxc'
-    default.vm.box = 'zeitonline/bionic64-lxc'
+    default.vm.box = 'wschnerring/focal64-lxc'
 
     # default.vm.network "forwarded_port", guest: 80, host: 80
 
