@@ -10,12 +10,13 @@ from batou_ext.user import User
 
 class Shaarli(Component):
 
-    version = '0.12.0'
+    version = '0.12.1'
     url = (
         'https://github.com/shaarli/Shaarli/releases/download'
         '/v{version}/shaarli-v{version}-full.tar.gz')
-    checksum = 'sha256:f8d6e5d31d4657dfd0085b037804023a58d9e22152dea82b1ddb11fd1b1debd6'
+    checksum = 'sha256:f614e9baddbb5ea72b2158bbfa586b5761d17918be9a97a7bd28d7255276fc0b'
 
+    material_version = '0.12.0'
     material = (
         'https://github.com/kalvn/Shaarli-Material/releases/download'
         '/v{version}/shaarli-material.v{version}.tar.gz')
@@ -43,7 +44,7 @@ class Shaarli(Component):
             owner='shaarli', group='shaarli')
 
         self += Download(
-            self.material.format(version=self.version),
+            self.material.format(version=self.material_version),
             checksum=self.material_checksum)
         self += Extract(
             self._.target, target='/srv/shaarli/public/tpl', strip=0,
