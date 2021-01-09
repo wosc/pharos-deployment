@@ -15,7 +15,7 @@ Vagrant.configure('2') do |config|
     default.vm.provider 'lxc'
     default.vm.box = 'wschnerring/focal64-lxc'
 
-    # default.vm.network "forwarded_port", guest: 80, host: 80
+    default.vm.network "forwarded_port", guest: 80, host: 8080
 
     # https://superuser.com/questions/1160025 continued for batou
     default.vm.provision 'shell', inline: 'sed -i -e "s/^mesg n.*$/tty -s \&\& mesg n/" /root/.profile'
