@@ -23,7 +23,9 @@ class Shaarli(Component):
 
     packages = [
         'php7.4-curl',
+        'php7.4-mbstring',
         'php7.4-gd',
+        'php7.4-xml',
     ]
 
     def configure(self):
