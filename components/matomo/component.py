@@ -82,10 +82,10 @@ class Matomo(Component):
         self += File(
             '/etc/sudoers.d/matomo-geoip',
             content='matomo ALL=(root) NOPASSWD: /usr/sbin/update-geoip-database\n')
-        self += CronJob(
-            'sudo update-geoip-database',
-            user='matomo',
-            timing='45 4 15 * *')
+        # self += CronJob(
+        #     'sudo update-geoip-database',
+        #     user='matomo',
+        #     timing='45 4 15 * *')
 
 
 class Setup(Component):
