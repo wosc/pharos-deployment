@@ -13,11 +13,11 @@ from batou_ext.user import User, GroupMember
 
 class Matomo(Component):
 
-    version = '4.1.0'
+    version = '4.1.1'
     url = 'http://builds.matomo.org/matomo-{version}.tar.gz'
     # Since server sends `content-encoding` header, requests insists on already
     # unzipping. Thus, have to take the checksum from the .tar, not the .tar.gz!
-    checksum = 'sha256:3ccc7f55bb3042a84c38564e3001b26d06f7a793827702bd45772b3bfafbc213'
+    checksum = 'sha256:f7b16c44b55989e99a09f4c706a326963127fcb1e340b1abbc34a3aaeb5cb80b'
 
     packages = [
         'php7.4-cli',
