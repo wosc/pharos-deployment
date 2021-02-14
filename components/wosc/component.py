@@ -61,6 +61,7 @@ class Controverse(Component):
 class Dailystrips(Component):
 
     ui_password = None
+    cookie_secret = None
 
     def configure(self):
         self += Package('dailystrips')
@@ -91,7 +92,7 @@ class WoscDe(Component):
 
     def configure(self):
         self += File('/etc/nginx/sites-available/wosc.de',
-                     source='wosc.de.conf', is_template=False)
+                     source='wosc.de.conf')
         self += VHost(self._, site_enable=True)
 
 
