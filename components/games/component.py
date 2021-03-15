@@ -1,5 +1,6 @@
 from batou.component import Component
 from batou.lib.file import File
+from batou.lib.git import Clone
 from batou_ext.apt import Package
 from batou_ext.nginx import VHost
 from batou_ext.python import VirtualEnv, Requirements
@@ -56,3 +57,53 @@ class Roborally(Component):
             '/srv/robometeor/nginx.conf', source='roborally.conf',
             is_template=False)
         self += VHost(self._)
+
+
+class Seanopoly(Component):
+
+    def configure(self):
+        self += User('seanopoly')
+
+        self += Clone(
+            'https://github.com/wosc/monopoly', branch='master',
+            target='/srv/seanopoly/app')
+        app = self._.target + '/game'
+        self += NPM(app)
+        self += NPM(
+            app + '/client', commands=['install --no-save', 'run build'])
+
+        # The app wants to write logs here.
+        self += File(app + '/static', ensure='directory',
+                     owner='seanopoly', group='seanopoly')
+
+        self += Program(
+            'seanopoly',
+            command='node %s/server/server.js' % app,
+            directory=app,
+            environ='HTTP=true, BIND=127.0.0.1, PORT=7083, VHOST_PATH=/seanopoly',
+            user='seanopoly')
+
+        self += File(
+            '/srv/seanopoly/nginx.conf', source='seanopoly.conf',
+            is_template=False)
+        self += VHost(self._)
+
+
+class NPM(Component):
+
+    namevar = 'target'
+    commands = ['install --no-save']
+
+    def configure(self):
+        self.success_marker = '%s/.batou.npm.success' % self.target
+
+    def verify(self):
+        self.assert_file_is_current(self.success_marker, [
+            self.target + '/package.json',
+            self.target + '/package-lock.json'])
+
+    def update(self):
+        with self.chdir(self.target):
+            for command in self.commands:
+                self.cmd('npm %s' % command)
+        self.touch(self.success_marker)
