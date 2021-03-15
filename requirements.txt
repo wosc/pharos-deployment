@@ -1,2 +1,2 @@
-batou==2.2.3
+batou==2.2.4
 -e./batou_ext
