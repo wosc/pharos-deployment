@@ -67,10 +67,12 @@ class Seanopoly(Component):
         self += Clone(
             'https://github.com/wosc/monopoly', branch='master',
             target='/srv/seanopoly/app')
-        app = self._.target + '/game'
+        git = self._
+        app = git.target + '/game'
         self += NPM(app)
         self += NPM(
-            app + '/client', commands=['install --no-save', 'run build'])
+            app + '/client', commands=['install --no-save', 'run build'],
+            dependencies=git)
 
         # The app wants to write logs here.
         self += File(app + '/static', ensure='directory',
@@ -93,14 +95,19 @@ class NPM(Component):
 
     namevar = 'target'
     commands = ['install --no-save']
+    dependencies = ()
 
     def configure(self):
         self.success_marker = '%s/.batou.npm.success' % self.target
+        if not isinstance(self.dependencies, (list, tuple)):
+            self.dependencies = [self.dependencies]
 
     def verify(self):
         self.assert_file_is_current(self.success_marker, [
             self.target + '/package.json',
             self.target + '/package-lock.json'])
+        for dependency in self.dependencies:
+            dependency.assert_no_changes()
 
     def update(self):
         with self.chdir(self.target):
