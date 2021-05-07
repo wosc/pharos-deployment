@@ -35,8 +35,7 @@ class Roborally(Component):
 
         # meteor build dist
         # scp dist/robometeor.tar.gz wosc.de:/srv/robometeor
-        # tar xf /srv/robometeor/robometeor.tar.gz
-        # cd bundle/programs/server && npm install
+        # rm -rf /srv/robometeor/bundle/*; tar xfC robometeor.tar.gz /srv/robometeor/; npm install --prefix /srv/robometeor/bundle/programs/server; sudo sv restart robometeor
 
         # replace in programs/web.browser/12345.js:
         # `Router.route('/` with `Router.router('/roborally/`
