@@ -2,7 +2,7 @@ ws.ddns == 1.2.0
 gocept.logging == 0.8.1
 lxml == 4.6.3
 
-requests==2.21.0
+requests==2.25.1
 certifi==2019.3.9
 chardet == 3.0.4
 idna==2.8
