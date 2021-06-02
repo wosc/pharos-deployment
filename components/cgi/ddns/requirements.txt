@@ -9,7 +9,7 @@ idna==2.8
 urllib3==1.26.5
 
 Flask == 1.0.2
-Jinja2 == 2.11.3
+Jinja2 == 3.0.1
 MarkupSafe == 1.1.1
 Werkzeug == 0.15.5
 click == 7.0
