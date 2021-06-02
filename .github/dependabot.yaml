@@ -1,0 +1,30 @@
+version: 2
+updates:
+- package-ecosystem: "pip"
+  directory: "/components/cgi/ddns"
+  schedule:
+    interval: "weekly"
+- package-ecosystem: "pip"
+  directory: "/components/cgi/nginxdbauth"
+  schedule:
+    interval: "weekly"
+- package-ecosystem: "pip"
+  directory: "/components/cgi/uptimerobot"
+  schedule:
+    interval: "weekly"
+- package-ecosystem: "pip"
+  directory: "/components/haemera"
+  schedule:
+    interval: "weekly"
+- package-ecosystem: "pip"
+  directory: "/components/letsencrypt"
+  schedule:
+    interval: "weekly"
+- package-ecosystem: "pip"
+  directory: "/components/radicale"
+  schedule:
+    interval: "weekly"
+- package-ecosystem: "pip"
+  directory: "/components/thyrida"
+  schedule:
+    interval: "weekly"
