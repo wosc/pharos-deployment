@@ -29,11 +29,11 @@ class DownloadBinary(Component):
 
 class Prometheus(Component):
 
-    version = '2.26.0'
+    version = '2.27.1'
     url = (
         'https://github.com/prometheus/prometheus/releases/download/'
         'v{version}/prometheus-{version}.linux-amd64.tar.gz')
-    checksum = 'sha256:8dd6786c338dc62728e8891c13b62eda66c7f28a01398869f2b3712895b441b9'
+    checksum = 'sha256:ce637d0167d5e6d2561f3bd37e1c58fe8601e13e4e1ea745653c068f6e1317ae'
 
     def configure(self):
         self.url = self.url.format(version=self.version)
@@ -107,11 +107,11 @@ class Prom_Node(Component):
 
 class Prom_Push(Component):
 
-    version = '1.3.1'
+    version = '1.4.1'
     url = (
         'https://github.com/prometheus/pushgateway/releases/download/'
         'v{version}/pushgateway-{version}.linux-amd64.tar.gz')
-    checksum = 'sha256:374055d60648961f4defe0f08c392f8bc0c9c17856a0e9ec34a063e35a6dec48'
+    checksum = 'sha256:593e17b1064d642cf737d1c46db5e492f5c71aa30449e88374a7a54e04d26490'
 
     def configure(self):
         self += DownloadBinary(
@@ -125,11 +125,11 @@ class Prom_Push(Component):
 
 class Prom_Alert(Component):
 
-    version = '0.21.0'
+    version = '0.22.2'
     url = (
         'https://github.com/prometheus/alertmanager/releases/download/'
         'v{version}/alertmanager-{version}.linux-amd64.tar.gz')
-    checksum = 'sha256:9ccd863937436fd6bfe650e22521a7f2e6a727540988eef515dde208f9aef232'
+    checksum = 'sha256:9c3b1cce9c74f5cecb07ec4a636111ca52696c0a088dbaecf338594d6e55cd1a'
 
     pushover_user_key = None
     pushover_api_key = None
@@ -236,11 +236,11 @@ class Prom_Github(Component):
 
 class Prom_Mysql(Component):
 
-    version = '0.12.1'
+    version = '0.13.0'
     url = (
         'https://github.com/prometheus/mysqld_exporter/releases/download/'
         'v{version}/mysqld_exporter-{version}.linux-amd64.tar.gz')
-    checksum = 'sha256:133b0c281e5c6f8a34076b69ade64ab6cac7298507d35b96808234c4aa26b351'
+    checksum = 'sha256:626584c5d1c0cf09982302763e69db24fabe5dc736e7b694a3f8fdfee3d8d9a2'
 
     db_password = None
 
