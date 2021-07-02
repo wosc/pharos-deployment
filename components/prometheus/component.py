@@ -29,11 +29,11 @@ class DownloadBinary(Component):
 
 class Prometheus(Component):
 
-    version = '2.27.1'
+    version = '2.28.1'
     url = (
         'https://github.com/prometheus/prometheus/releases/download/'
         'v{version}/prometheus-{version}.linux-amd64.tar.gz')
-    checksum = 'sha256:ce637d0167d5e6d2561f3bd37e1c58fe8601e13e4e1ea745653c068f6e1317ae'
+    checksum = 'sha256:91dd91e13f30fe520e01175ca1027dd09a458d4421a584ba557ba88b38803f27'
 
     def configure(self):
         self.url = self.url.format(version=self.version)
