@@ -1,4 +1,4 @@
-ws.mailcheck == 1.0.3
+ws.mailcheck == 1.0.4
 
 ws.caldavcheck == 1.0.1
 
