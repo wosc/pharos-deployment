@@ -119,11 +119,6 @@ class RSSPull(Component):
             args='--confdir=/home/wosc/.dot/x11/rsspull',
             user='wosc',
             timing='0 6 * * *')
-        self += CronJob(
-            self.map('bin/rsspull'),
-            args='--confdir=/home/wosc/.dot/x11/rsspull-kolumbus',
-            user='wosc',
-            timing='0 6 * * *')
 
         # Allow writing directly to Maildir
         self += GroupMember('Debian-exim', user='wosc')
