@@ -43,10 +43,10 @@ CREATE TABLE `schema_info` (
 CREATE TABLE `users` (
   `id` int(11) NOT NULL auto_increment,
   `login` varchar(40) NOT NULL,
-  `password` varchar(40) NOT NULL,
+  `password` varchar(255) NOT NULL,
   `role` varchar(255) NOT NULL default 'mail',
   PRIMARY KEY  (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
 
 INSERT INTO schema_info (version) VALUES (4);
-INSERT INTO users (login, password, role) VALUES ('root', ENCRYPT('{{component.thyrida_root_password}}', 'as'), 'root');
+INSERT INTO users (login, password, role) VALUES ('root', '{{component.thyrida_root_password}}', 'root');

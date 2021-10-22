@@ -19,6 +19,9 @@ class Mailserver(Component):
     thyrida_root_password = None
 
     def configure(self):
+        # XXX
+        # pwd_context = passlib.context.CryptContext(schemes=['bcrypt'])
+        # self.thyrida_root_password = pwd_context.hash(self.thyrida_root_password)
         self += Exim(
             db_name=self.db_name,
             db_username=self.db_username,
