@@ -11,7 +11,7 @@ six==1.16.0
 vobject==0.9.6.1
 
 hupper==1.6.1
-Jinja2==2.11.3
+Jinja2==3.0.2
 MarkupSafe==1.1.1
 PasteDeploy==2.0.1
 plaster==1.0
@@ -19,7 +19,7 @@ plaster-pastedeploy==0.7
 pyramid==1.10.4
 pyramid-jinja2==2.8
 pyramid-tm==2.2.1
-pytzdata==2018.7
+pytzdata==2020.1
 translationstring==1.4
 venusian==3.0.0
 WebOb==1.8.5
