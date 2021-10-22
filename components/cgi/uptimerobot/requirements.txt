@@ -1,4 +1,4 @@
-ws.prometheus_uptimerobot == 1.0.1
+ws.prometheus_uptimerobot == 1.2.0
 prometheus_client == 0.11.0
 
 requests==2.26.0
