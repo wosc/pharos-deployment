@@ -19,7 +19,7 @@ plaster-pastedeploy==0.7
 pyramid==1.10.4
 pyramid-jinja2==2.8
 pyramid-tm==2.2.1
-pytzdata==2018.7
+pytzdata==2020.1
 translationstring==1.4
 venusian==3.0.0
 WebOb==1.8.5
