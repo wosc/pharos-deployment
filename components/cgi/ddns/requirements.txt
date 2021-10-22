@@ -6,7 +6,7 @@ requests==2.25.1
 certifi==2019.3.9
 chardet == 4.0.0
 idna==2.8
-urllib3==1.26.5
+urllib3==1.26.7
 
 Flask == 1.0.2
 Jinja2 == 2.11.3
