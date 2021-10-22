@@ -16,7 +16,7 @@ MarkupSafe==2.0.1
 PasteDeploy==2.0.1
 plaster==1.0
 plaster-pastedeploy==0.7
-pyramid==1.10.4
+pyramid==2.0
 pyramid-jinja2==2.8
 pyramid-tm==2.2.1
 pytzdata==2020.1
