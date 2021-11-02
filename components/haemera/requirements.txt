@@ -2,7 +2,7 @@
 
 SQLAlchemy==1.4.26
 greenlet==1.1.2
-transaction==2.4.0
+transaction==3.0.1
 zope.sqlalchemy==1.6
 mysqlclient==2.0.3
 
