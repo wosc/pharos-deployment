@@ -16,7 +16,7 @@ class DDNS(Component):
     # - Add this to the /etc.defaults/ddns_provider.conf file:
     # [wosc.de]
     #   modulepath=DynDNS
-    #   queryurl=https://pharos.wosc.de/dns-update?hostname=__HOSTNAME__&myip=__
+    #   queryurl=https://pharos.wosc.de/dns-update?hostname=__HOSTNAME__&myip=__MYIP__
 
     username = ''
     password = ''
