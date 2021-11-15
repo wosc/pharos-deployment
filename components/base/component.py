@@ -46,6 +46,9 @@ class BasePackages(Component):
         self += GroupMember('sudo', user='wosc')
 
         self += File('/etc/motd', is_template=False)
+        self += File(
+            '/etc/ssh/sshd_config.d/cyberduck.conf', source='ssh.conf',
+            is_template=False)
 
 
 class CronAPT(Component):
