@@ -4,7 +4,7 @@ SQLAlchemy==1.4.27
 greenlet==1.1.2
 transaction==3.0.1
 zope.sqlalchemy==1.6
-mysqlclient==2.0.3
+mysqlclient==2.1.0
 
 hupper==1.10.3
 Jinja2==3.0.3
