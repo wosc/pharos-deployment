@@ -1,5 +1,5 @@
 ws.prometheus_uptimerobot == 1.2.0
-prometheus_client == 0.12.0
+prometheus_client == 0.13.1
 
 requests==2.27.1
 certifi==2021.10.8
