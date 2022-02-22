@@ -8,7 +8,7 @@ charset-normalizer==2.0.12
 idna==3.3
 urllib3==1.26.8
 
-Flask == 2.0.2
+Flask == 2.0.3
 Jinja2 == 3.0.3
 MarkupSafe == 2.1.0
 Werkzeug == 2.0.3
