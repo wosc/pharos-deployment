@@ -29,11 +29,11 @@ class DownloadBinary(Component):
 
 class Prometheus(Component):
 
-    version = '2.32.1'
+    version = '2.34.0'
     url = (
         'https://github.com/prometheus/prometheus/releases/download/'
         'v{version}/prometheus-{version}.linux-amd64.tar.gz')
-    checksum = 'sha256:f08e96d73330a9ee7e6922a9f5b72ea188988a083bbfa9932359339fcf504a74'
+    checksum = 'sha256:9ec560940bf53361dd9d3a867d51ceb96f3854ae12f5e532b7d3f60c27f364d0'
 
     def configure(self):
         self.url = self.url.format(version=self.version)
@@ -125,11 +125,11 @@ class Prom_Push(Component):
 
 class Prom_Alert(Component):
 
-    version = '0.23.0'
+    version = '0.24.0'
     url = (
         'https://github.com/prometheus/alertmanager/releases/download/'
         'v{version}/alertmanager-{version}.linux-amd64.tar.gz')
-    checksum = 'sha256:77793c4d9bb92be98f7525f8bc50cb8adb8c5de2e944d5500e90ab13918771fc'
+    checksum = 'sha256:6fa982232ae7be5524f5b3cd4e90b7c6a75086368200c917644eaa3e806555dc'
 
     pushover_user_key = None
     pushover_api_key = None
@@ -236,11 +236,11 @@ class Prom_Github(Component):
 
 class Prom_Mysql(Component):
 
-    version = '0.13.0'
+    version = '0.14.0'
     url = (
         'https://github.com/prometheus/mysqld_exporter/releases/download/'
         'v{version}/mysqld_exporter-{version}.linux-amd64.tar.gz')
-    checksum = 'sha256:626584c5d1c0cf09982302763e69db24fabe5dc736e7b694a3f8fdfee3d8d9a2'
+    checksum = 'sha256:c17402137a4e9745f593127f162c1003298910cb8aa7d05bee3384738de094ae'
 
     db_password = None
 
