@@ -2,7 +2,7 @@ simp-le-client == 0.19.1
 
 acme==1.27.0
 asn1crypto==1.5.1
-certifi==2021.10.8
+certifi==2022.5.18.1
 cffi==1.15.0
 charset-normalizer==2.0.12
 cryptography==37.0.2
