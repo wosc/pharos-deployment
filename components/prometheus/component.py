@@ -29,11 +29,11 @@ class DownloadBinary(Component):
 
 class Prometheus(Component):
 
-    version = '2.35.0'
+    version = '2.36.0'
     url = (
         'https://github.com/prometheus/prometheus/releases/download/'
         'v{version}/prometheus-{version}.linux-amd64.tar.gz')
-    checksum = 'sha256:e4546960688d1c85530ec3a93e109d15b540f3251e1f4736d0d9735e1e857faf'
+    checksum = 'sha256:8ce279468d3a94f54e208027f7db237145119ac3ece2e6011efe795de87ccc04'
 
     def configure(self):
         self.url = self.url.format(version=self.version)
@@ -107,11 +107,11 @@ class Prom_Node(Component):
 
 class Prom_Push(Component):
 
-    version = '1.4.2'
+    version = '1.4.3'
     url = (
         'https://github.com/prometheus/pushgateway/releases/download/'
         'v{version}/pushgateway-{version}.linux-amd64.tar.gz')
-    checksum = 'sha256:d41df97d93a7564bf8207a8884452eb220d2124d3853682c879907c96b525a6f'
+    checksum = 'sha256:a8aa4bc0612b44c700454357fd4b23d687ff727f5fdc32e1fd9d48b9ce9a9301'
 
     def configure(self):
         self += DownloadBinary(
