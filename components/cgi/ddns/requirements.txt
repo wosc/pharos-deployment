@@ -1,6 +1,6 @@
 ws.ddns == 1.2.0
 gocept.logging == 0.8.1
-lxml == 4.8.0
+lxml == 4.9.0
 
 requests==2.27.1
 certifi==2022.5.18.1
