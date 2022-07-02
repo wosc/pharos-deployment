@@ -13,11 +13,11 @@ from batou_ext.user import User
 
 class Wallabag(Component):
 
-    version = '2.5.0'
+    version = '2.5.1'
     url = (
         'https://github.com/wallabag/wallabag/releases/download/{version}'
         '/wallabag-{version}.tar.gz')
-    checksum = 'sha256:7c4ff86d5c08990d37c2b7ddaf1e8096e94edb15353361c8692386a5301bd361'
+    checksum = 'sha256:beeae3588e5287f4853edc5de5c1da6b0ede75c03336e6ff76e84e505f96b219'
 
     packages = [
         'php7.4-bcmath',
