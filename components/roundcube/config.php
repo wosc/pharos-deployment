@@ -3,10 +3,8 @@ $config = array();
 
 $config['db_dsnw'] = 'mysql://roundcube:{{component.db_password}}@localhost/roundcube';
 
-$config['default_host'] = 'localhost';
-$config['default_port'] = 1143;
-$config['smtp_server'] = 'localhost';
-$config['smtp_port'] = 25;
+$config['imap_host'] = 'localhost:1143';
+$config['smtp_host'] = 'localhost:25';
 $config['smtp_user'] = '';
 $config['smtp_pass'] = '';
 
