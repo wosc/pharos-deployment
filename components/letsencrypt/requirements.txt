@@ -9,7 +9,7 @@ cryptography==37.0.4
 idna==2.7
 josepy==1.13.0
 mock==4.0.3
-pbr==5.9.0
+pbr==5.10.0
 pycparser==2.21
 pyOpenSSL==22.0.0
 pyRFC3339==1.1
