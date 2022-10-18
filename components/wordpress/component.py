@@ -39,11 +39,11 @@ class Wordpress(Component):
         self += File('/srv/grshop/tmp', ensure='directory',
                      owner='grshop', group='grshop')
 
-        self += Download(
-            self.url.format(version=self.version), checksum=self.checksum)
-        self += Extract(
-            self._.target, target='/srv/grshop/lib', strip=1,
-            owner='grshop', group='grshop')
+        # self += Download(
+        #     self.url.format(version=self.version), checksum=self.checksum)
+        # self += Extract(
+        #     self._.target, target='/srv/grshop/lib', strip=1,
+        #     owner='grshop', group='grshop')
 
         self += File(
             '/srv/grshop/lib/wp-config.php',
