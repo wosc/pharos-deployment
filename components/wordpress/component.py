@@ -4,6 +4,7 @@ from batou.lib.download import Download
 from batou.lib.file import File
 from batou_ext.apt import Package
 from batou_ext.archive import Extract
+from batou_ext.cron import CronJob
 from batou_ext.mysql import ServiceDatabase
 from batou_ext.nginx import VHost
 from batou_ext.supervisor import PHP
@@ -67,6 +68,15 @@ class Wordpress(Component):
         self += VHost(self._)
 
         self += AdminUser(password=self.ui_password)
+
+        self += File('/srv/grshop/wp-cron.sh', mode=0o755,
+                     owner='grshop', group='grshop')
+        self += CronJob(
+            '/srv/grshop/wp-cron.sh',
+            user='grshop',
+            timing='* * * * *',
+            logger='grshop')
+
 
 
 class AdminUser(Component):

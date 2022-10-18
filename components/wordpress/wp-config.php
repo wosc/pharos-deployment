@@ -85,3 +85,6 @@ define('FS_METHOD','direct');
 
 /** wosc: https://codex.wordpress.org/Function_Reference/is_ssl#Notes */
 $_SERVER['HTTPS'] = 'on';
+
+/** wosc: we run wp-cron via the system cron, not on every page load */
+define('DISABLE_WP_CRON', true);
