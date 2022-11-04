@@ -16,7 +16,7 @@ receivers:
     email_configs:
       - to: wosc@wosc.de
         from: wosc+prometheus@wosc.de
-        smarthost: localhost:25
+        smarthost: mail.wosc.de:25
 
   - name: pushover
     pushover_configs:
