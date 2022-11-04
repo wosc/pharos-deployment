@@ -8,5 +8,5 @@ Werkzeug == 2.0.2
 click == 8.0.3
 itsdangerous == 2.0.1
 
-flask_wtf == 0.15.1
+flask_wtf == 1.0.1
 wtforms == 2.3.3
