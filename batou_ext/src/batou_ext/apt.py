@@ -60,30 +60,9 @@ class AptKey(Component):
     name = None
 
     def configure(self):
-        self.key = self.map(self.name) + '.pub'
-        self += Download(self.url, target=self.key)
-
-    def verify(self):
-        # Adapted from <https://github.com/chef-cookbooks/apt/blob/v5.0.0
-        #   /providers/repository.rb#L112-L121>
-        installed = self.fingerprints(self.cmd('apt-key finger')[0])
-        new = self.fingerprints(self.cmd(
-            'gpg --with-subkey-fingerprint %s' % self.key)[0])
-        if new - installed:
-            raise UpdateNeeded()
-
-    def update(self):
-        self.cmd('apt-key add %s' % self.key)
-
-    KEY = re.compile('^ +([0-9A-F ]+)$')  # scary gpg output parsing
-
-    def fingerprints(self, text):
-        result = set()
-        for line in text.splitlines():
-            match = self.KEY.search(line)
-            if match:
-                result.add(match.group(1).replace(' ', ''))
-        return result
+        self.key = self.map(self.name) + '.asc'
+        self += Download(
+            self.url, target='/etc/apt/trusted.gpg.d/%s.asc' % self.name)
 
 
 class Download(Component):
