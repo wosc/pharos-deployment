@@ -277,7 +277,7 @@ TLS_CERTFILE=/srv/letsencrypt/data/mail.wosc.de/courier.pem
 # to PEER or REQUIREPEER).
 #
 
-TLS_TRUSTCERTS=/etc/ssl/certs
+TLS_TRUSTCERTS=/etc/ssl/certs/ca-certificates.crt
 
 ##NAME: TLS_VERIFYPEER:0
 #
