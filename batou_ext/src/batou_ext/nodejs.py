@@ -4,7 +4,7 @@ from batou_ext.apt import AptRepository, Package
 
 class NodeJS(Component):
 
-    version = '12'
+    version = '18'
 
     def configure(self):
         distro, _ = self.cmd('lsb_release -s -c')
