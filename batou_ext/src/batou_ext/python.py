@@ -6,13 +6,13 @@ import batou.lib.python
 
 class VirtualEnv(batou.lib.python.VirtualEnv):
 
-    version = '3.8'
+    version = '3.10'
     path = None
 
     bootstrap_versions = {
-        'pip': '20.1.1',
-        'setuptools': '47.3.1',
-        'wheel': '0.34.2',
+        'pip': '22.3',
+        'setuptools': '65.5.0',
+        'wheel': '0.37.1',
     }
 
     def __init__(self, namevar=None, **kw):
