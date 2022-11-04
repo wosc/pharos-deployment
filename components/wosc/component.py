@@ -67,7 +67,7 @@ class Dailystrips(Component):
         self += Patch(
             '/usr/bin/dailystrips',
             target='altpattern',
-            file=self.defdir + '/dailystrips-altpattern.patch', strip=0)
+            file='dailystrips-altpattern.patch', strip=0)
 
         self += File(
             '/home/wosc/bin/dailycomics.sh', is_template=False, mode=0o755)
