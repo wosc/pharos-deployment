@@ -1,6 +1,10 @@
 version: 2
 updates:
 - package-ecosystem: "pip"
+  directory: "/components/cgi"
+  schedule:
+    interval: "weekly"
+- package-ecosystem: "pip"
   directory: "/components/cgi/ddns"
   schedule:
     interval: "weekly"
@@ -21,10 +25,18 @@ updates:
   schedule:
     interval: "weekly"
 - package-ecosystem: "pip"
+  directory: "/components/prometheus"
+  schedule:
+    interval: "weekly"
+- package-ecosystem: "pip"
   directory: "/components/radicale"
   schedule:
     interval: "weekly"
 - package-ecosystem: "pip"
   directory: "/components/thyrida"
+  schedule:
+    interval: "weekly"
+- package-ecosystem: "pip"
+  directory: "/components/wosc"
   schedule:
     interval: "weekly"
