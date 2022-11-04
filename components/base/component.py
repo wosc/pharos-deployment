@@ -81,7 +81,7 @@ class MySQL(Component):
 
 class PHPBase(Component):
 
-    version = '7.4'
+    version = '8.1'
 
     def configure(self):
         self += Package('php%s' % self.version)
