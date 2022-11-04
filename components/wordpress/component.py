@@ -9,6 +9,7 @@ from batou_ext.mysql import ServiceDatabase
 from batou_ext.nginx import VHost
 from batou_ext.supervisor import PHP
 from batou_ext.user import User
+import os
 import requests
 
 
@@ -78,7 +79,6 @@ class Wordpress(Component):
             logger='grshop')
 
 
-
 class AdminUser(Component):
 
     username = 'wosc'
@@ -106,3 +106,22 @@ class AdminUser(Component):
                 'admin_password2': self.password,
                 'pw_weak': '1',
             }, verify=False)
+
+
+class WordpressCLI(Component):
+
+    version = '2.7.1'
+    url = 'https://github.com/wp-cli/wp-cli/releases/download/v{version}/wp-cli-{version}.phar'
+    checksum = 'sha256:bbf096bccc6b1f3f1437e75e3254f0dcda879e924bbea403dff3cfb251d4e468'
+
+    def configure(self):
+        self += Download(
+            self.url.format(version=self.version), checksum=self.checksum,
+            target='/usr/local/bin/wp')
+        self.download = self._
+
+    def verify(self):
+        self.download.assert_no_changes()
+
+    def update(self):
+        os.chmod(self.download.target, 0o755)
