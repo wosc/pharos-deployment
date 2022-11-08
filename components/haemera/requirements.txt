@@ -1,7 +1,7 @@
 -e git+https://github.com/wosc/haemera.git#egg=ws.haemera
 
 SQLAlchemy==1.4.42
-greenlet==2.0.0.post0
+greenlet==2.0.1
 transaction==3.0.1
 zope.sqlalchemy==1.6
 mysqlclient==2.1.1
