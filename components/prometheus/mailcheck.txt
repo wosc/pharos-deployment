@@ -5,7 +5,7 @@ ws.caldavcheck == 1.0.1
 caldav==0.10.0
 certifi==2022.9.24
 charset-normalizer==2.1.1
-icalendar==5.0.1
+icalendar==5.0.2
 idna==3.4
 lxml==4.9.1
 python-dateutil==2.8.2
