@@ -1,6 +1,6 @@
 -e git+https://github.com/wosc/thyrida.git#egg=ws.thyrida
 
-SQLAlchemy==1.4.43
+SQLAlchemy==1.4.44
 greenlet==2.0.1
 transaction==3.0.1
 zope.sqlalchemy==1.6
