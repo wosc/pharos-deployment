@@ -9,7 +9,7 @@ importlib-metadata==5.0.0
 itsdangerous == 2.1.2
 zipp == 3.10.0
 
-SQLAlchemy==1.4.43
+SQLAlchemy==1.4.44
 greenlet==2.0.1
 mysqlclient == 2.1.1
 
