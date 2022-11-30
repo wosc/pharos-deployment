@@ -1,7 +1,7 @@
 from batou.component import Component
 from batou.lib.file import File
 from batou.lib.git import Clone
-from batou_ext.apt import Package
+from batou_ext.apt import AptRepository, Package
 from batou_ext.nginx import VHost
 from batou_ext.python import VirtualEnv, Requirements
 from batou_ext.supervisor import Program
@@ -30,7 +30,15 @@ class Tabu(Component):
 class Roborally(Component):
 
     def configure(self):
-        self += Package('mongodb')
+        distro, _ = self.cmd('lsb_release -s -c')
+        distro = distro.strip()
+        self += Package('apt-transport-https')
+        self += AptRepository(
+            'mongodb',
+            line='deb https://repo.mongodb.org/apt/ubuntu %s/mongodb-org/6.0 multiverse' % distro,
+            key='https://www.mongodb.org/static/pgp/server-6.0.asc')
+
+        self += Package('mongodb-org')
         self += User('robometeor')
 
         # meteor build dist
