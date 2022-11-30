@@ -4,7 +4,7 @@ from batou_ext.apt import AptRepository, Package
 
 class NodeJS(Component):
 
-    version = '18'
+    version = '14'  # see https://docs.meteor.com/install.html
 
     def configure(self):
         distro, _ = self.cmd('lsb_release -s -c')
