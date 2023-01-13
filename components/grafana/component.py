@@ -17,8 +17,8 @@ class Grafana(Component):
         self += Package('apt-transport-https')
         self += AptRepository(
             'grafana',
-            line='deb https://packages.grafana.com/oss/deb stable main',
-            key='https://packages.grafana.com/gpg.key')
+            line='deb https://apt.grafana.com/ stable main',
+            key='https://apt.grafana.com/gpg.key')
         self += Package('grafana')
 
         self += File('/etc/grafana/grafana.ini')
