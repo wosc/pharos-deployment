@@ -16,6 +16,6 @@ requests==2.28.1
 six==1.16.0
 tzdata==2022.7
 tzlocal==4.2
-urllib3==1.26.13
+urllib3==1.26.14
 vobject==0.9.6.1
 x-wr-timezone==0.0.5
