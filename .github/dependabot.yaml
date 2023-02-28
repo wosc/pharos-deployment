@@ -1,15 +1,15 @@
 version: 2
 updates:
 - package-ecosystem: "pip"
-  directory: "/components/cgi"
-  schedule:
-    interval: "weekly"
-- package-ecosystem: "pip"
   directory: "/components/cgi/ddns"
   schedule:
     interval: "weekly"
 - package-ecosystem: "pip"
   directory: "/components/cgi/nginxdbauth"
+  schedule:
+    interval: "weekly"
+- package-ecosystem: "pip"
+  directory: "/components/cgi/passwd"
   schedule:
     interval: "weekly"
 - package-ecosystem: "pip"

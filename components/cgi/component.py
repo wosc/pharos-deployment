@@ -80,7 +80,7 @@ class WebPasswd(Component):
 
     def configure(self):
         self += VirtualEnv(path='/srv/cgiserv/passwd')
-        self._ += Requirements(source='passwd.txt')
+        self._ += Requirements(source='passwd/requirements.txt')
 
         self += File(
             '/etc/sudoers.d/webpasswd',
