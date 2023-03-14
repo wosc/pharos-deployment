@@ -2,7 +2,7 @@ ws.mailcheck == 1.0.4
 
 ws.caldavcheck == 1.0.1
 
-caldav==1.2.0
+caldav==1.2.1
 certifi==2022.12.7
 charset-normalizer==3.1.0
 icalendar==5.0.4
