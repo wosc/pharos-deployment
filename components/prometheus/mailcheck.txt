@@ -1,6 +1,6 @@
 ws.mailcheck == 1.0.4
 
-ws.caldavcheck == 1.0.1
+ws.caldavcheck == 1.0.2
 
 caldav==1.2.1
 certifi==2022.12.7
