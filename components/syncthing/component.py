@@ -9,10 +9,6 @@ from batou_ext.supervisor import Program
 # Disable: Local discovery, Global discovery, Relaying
 # Add device pharos, set address to `tcp://pharos.wosc.de:22000`
 
-# Access Server UI via `ssh -NL 8385:localhost:8384 wosc.de` on localhost:8385
-# Share Folder with new client
-
-
 class Syncthing(Component):
 
     private_key = None
@@ -30,9 +26,14 @@ class Syncthing(Component):
                      content=self.private_key.replace(r'\n', '\n'),
                      is_template=False, mode=0o600)
 
+        # Manually add <user> and <password> to <gui> in sync/config/config.xml
+        # passlib.context.CryptContext(schemes=['bcrypt']).hash('mypassword')
+
         self += Program(
             'syncthing',
             command='syncthing serve --home=/home/wosc/sync/config',
             environ='HOME=/home/wosc, STNORESTART=1',
             directory='/home/wosc',
             user='wosc')
+
+        self += File('/home/wosc/sync/nginx.conf')
