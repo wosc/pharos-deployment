@@ -1,5 +1,6 @@
 ws.webpasswd == 2.1.0
 python-pam==2.0.2
+six==1.16.0
 
 Flask==2.2.3
 Jinja2==3.1.2
