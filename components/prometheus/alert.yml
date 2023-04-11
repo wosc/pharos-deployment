@@ -14,9 +14,10 @@ receivers:
 
   - name: email
     email_configs:
-      - to: wosc@wosc.de
-        from: wosc+prometheus@wosc.de
+      - to: Wolfgang Schnerring <wosc@wosc.de>
+        from: Pharos Prometheus <wosc+prometheus@wosc.de>
         smarthost: mail.wosc.de:25
+        hello: pharos.wosc.de
 
   - name: pushover
     pushover_configs:
