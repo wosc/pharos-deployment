@@ -1,7 +1,9 @@
 from batou.component import Component
 from batou.lib.file import File
 from batou_ext.apt import Package
+from batou_ext.cron import CronJob
 from batou_ext.supervisor import Program
+from batou_ext.user import GroupMember
 
 
 # On clients:
@@ -37,3 +39,22 @@ class Syncthing(Component):
             user='wosc')
 
         self += File('/home/wosc/sync/nginx.conf')
+
+
+class Prom_Syncthing(Component):
+
+    def configure(self):
+        # Allow writing to node exporter textfile directory
+        self += GroupMember('prometheus', user='wosc')
+
+        self += File('/srv/prometheus/bin/node_exporter-syncthing',
+                     source='check_conflict.sh', is_template=False, mode=0o755)
+        self += CronJob(
+            '/srv/prometheus/bin/node_exporter-syncthing',
+            user='wosc',
+            timing='7 * * * *')
+
+        self += File(
+            '/srv/prometheus/conf.d/alert-syncthing.yml',
+            source='alert.yml', is_template=False)
+        self.provide('prom:rule', self._)

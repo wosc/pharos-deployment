@@ -1,0 +1,9 @@
+groups:
+- name: syncthing
+  rules:
+  - alert: conflict_found
+    expr: syncthing_conflicts_total > 0
+    labels:
+      severity: warning
+    annotations:
+      summary: Found ${value} conflicted files

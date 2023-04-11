@@ -39,9 +39,12 @@ class Prometheus(Component):
         self.url = self.url.format(version=self.version)
 
         self += User('prometheus')
-        for name in ['bin', 'conf.d', 'data', 'node']:
+        for name in ['bin', 'conf.d', 'data']:
             self += File('/srv/prometheus/%s' % name, ensure='directory',
                          owner='prometheus', group='prometheus')
+
+        self += File('/srv/prometheus/node', ensure='directory',
+                     owner='prometheus', group='prometheus', mode=0o775)
 
         self += DownloadBinary(
             self.url.format(version=self.version), checksum=self.checksum,
