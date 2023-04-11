@@ -1,5 +1,5 @@
 from batou.component import Component
-from batou.lib.file import File, Directory
+from batou.lib.file import File
 from batou_ext.apt import Package
 from batou_ext.supervisor import Program
 
@@ -20,16 +20,19 @@ class Syncthing(Component):
     def configure(self):
         self += Package('syncthing')
 
-        self += Directory('/home/wosc/.config/syncthing')
-        self += File('/home/wosc/.config/syncthing/cert.pem',
-                     source='cert.pem', is_template=False)
-        self += File('/home/wosc/.config/syncthing/key.pem',
+        for name in ['sync', 'sync/config', 'tmp']:
+            self += File(
+                '/home/wosc/%s' % name,
+                ensure='directory', owner='wosc', group='wosc')
+
+        self += File('/home/wosc/sync/config/cert.pem', is_template=False)
+        self += File('/home/wosc/sync/config/key.pem',
                      content=self.private_key.replace(r'\n', '\n'),
                      is_template=False, mode=0o600)
 
         self += Program(
             'syncthing',
-            command='syncthing serve --home=/home/wosc/.config/syncthing',
+            command='syncthing serve --home=/home/wosc/sync/config',
             environ='HOME=/home/wosc, STNORESTART=1',
             directory='/home/wosc',
             user='wosc')
