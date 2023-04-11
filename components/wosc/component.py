@@ -230,27 +230,12 @@ class Twifeed(Component):
             timing='0 * * * *')
 
 
-class Unison(Component):
-
-    # Must match the version on the client laptop(s)!
-    version = '2.51.2-1'
+class SSHAuthorizedKeys(Component):
 
     def configure(self):
-        self += Package('unison', version=self.version)
-
-        self += File('/etc/apt/preferences.d/unison', content=self.expand("""\
-Package: unison\nPin: version {{component.version}}\nPin-Priority: 999
-"""))
-
-        for name in ['.ssh', 'sync', 'tmp']:
-            self += File(
-                '/home/wosc/%s' % name,
-                ensure='directory', owner='wosc', group='wosc')
+        self += File('/home/wosc/.ssh', ensure='directory', owner='wosc', group='wosc')
         self += File('/home/wosc/.ssh/authorized_keys', is_template=False,
                      owner='wosc', group='wosc', mode=0o600)
-
-        self += File('/usr/local/bin/ssh-accept-unison', is_template=False,
-                     mode=0o755)
 
 
 class YoutubeDL(Component):
