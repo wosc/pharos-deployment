@@ -123,6 +123,14 @@ class RSSPull(Component):
         # Allow writing directly to Maildir
         self += GroupMember('Debian-exim', user='wosc')
 
+        self += File('logrotate.conf', source='rsspull-logrotate.conf')
+        self += CronJob(
+            '/usr/sbin/logrotate',
+            args=('-s /home/wosc/.dot/x11/rsspull/log.rotate %s/logrotate.conf'
+                  % self.workdir),
+            user='wosc',
+            timing='0 7 * * *')
+
 
 class ESniper(Component):
 
