@@ -41,6 +41,10 @@ updates:
   schedule:
     interval: "weekly"
 - package-ecosystem: "pip"
-  directory: "/components/wosc"
+  directory: "/components/wosc/rsspull"
+  schedule:
+    interval: "weekly"
+- package-ecosystem: "pip"
+  directory: "/components/wosc/twifeed"
   schedule:
     interval: "weekly"
