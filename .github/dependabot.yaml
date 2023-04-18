@@ -25,7 +25,11 @@ updates:
   schedule:
     interval: "weekly"
 - package-ecosystem: "pip"
-  directory: "/components/prometheus"
+  directory: "/components/prometheus/github"
+  schedule:
+    interval: "weekly"
+- package-ecosystem: "pip"
+  directory: "/components/prometheus/mailcheck"
   schedule:
     interval: "weekly"
 - package-ecosystem: "pip"

@@ -194,7 +194,7 @@ class Prom_Exim(Component):
             timing='*/5 * * * *')
 
         self += VirtualEnv()
-        self._ += Requirements(source='mailcheck.txt')
+        self._ += Requirements(source='mailcheck/requirements.txt')
 
         for name in ['mail', 'caldav']:
             self += Symlink(
@@ -222,7 +222,7 @@ class Prom_Github(Component):
 
     def configure(self):
         self += VirtualEnv()
-        self._ += Requirements(source='github.txt')
+        self._ += Requirements(source='github/requirements.txt')
 
         self += Program(
             'prometheus-github',
