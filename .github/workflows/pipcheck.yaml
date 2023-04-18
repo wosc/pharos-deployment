@@ -1,0 +1,41 @@
+name: pip check
+
+on:
+  pull_request:
+
+jobs:
+  main:
+    runs-on: "ubuntu-22.04"
+    permissions:
+      contents: read
+
+    strategy:
+      fail-fast: false
+      matrix:
+        directory:
+        - cgi/ddns
+        - cgi/nginxdbauth
+        - cgi/passwd
+        - cgi/uptimerobot
+        - haemera
+        - letsencrypt
+        - prometheus/github
+        - prometheus/mailcheck
+        - radicale
+        - thyrida
+        - wosc/rsspull
+        - wosc/twifeed
+
+    steps:
+    - uses: actions/checkout@v3
+    - uses: actions/setup-python@v4
+      with:
+        python-version: "3.10"
+
+    - name: pip check
+      run: |
+        cd components/${{matrix.directory}}
+        python -m venv .venv
+        .venv/bin/pip install wheel
+        .venv/bin/pip install --no-deps -r requirements.txt
+        .venv/bin/pip check
