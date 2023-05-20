@@ -224,20 +224,6 @@ class Fetchmail(Component):
             timing='@reboot')
 
 
-class Twifeed(Component):
-
-    def configure(self):
-        self += VirtualEnv()
-        self._ += Requirements(source='twifeed/requirements.txt')
-
-        # Install ws.twifeed manually from sdist, as it contains oauth secrets.
-
-        self += CronJob(
-            self.map('bin/twitter-notify'),
-            user='wosc',
-            timing='0 * * * *')
-
-
 class SSHAuthorizedKeys(Component):
 
     def configure(self):
