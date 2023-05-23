@@ -24,7 +24,6 @@ jobs:
         - radicale
         - thyrida
         - wosc/rsspull
-        - wosc/twifeed
 
     steps:
     - uses: actions/checkout@v3
