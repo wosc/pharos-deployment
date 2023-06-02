@@ -5,7 +5,7 @@ asn1crypto==1.5.1
 certifi==2023.5.7
 cffi==1.15.1
 charset-normalizer==3.1.0
-cryptography==40.0.2
+cryptography==41.0.0
 idna==2.7
 josepy==1.13.0
 mock==5.0.2
