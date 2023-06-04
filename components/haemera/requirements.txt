@@ -4,7 +4,7 @@ SQLAlchemy==2.0.15
 greenlet==2.0.2
 typing-extensions==4.5.0
 transaction==3.1.0
-zope.sqlalchemy==2.0
+zope.sqlalchemy==3.0
 mysqlclient==2.1.1
 
 pendulum==2.1.2
