@@ -30,7 +30,7 @@ waitress==2.1.2
 zope.component==6.0
 zope.deferredimport==4.4
 zope.deprecation==5.0
-zope.event==4.6
+zope.event==5.0
 zope.hookable==5.4
 zope.interface==6.0
 zope.proxy==5.0.0
