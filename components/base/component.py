@@ -66,6 +66,7 @@ class MySQL(Component):
         'mysql-server-8.0',
         'mysql-client-8.0',
         'libmysqlclient-dev',
+        'pkg-config',  # for python package `mysqlclient`
     ]
 
     def configure(self):
