@@ -28,7 +28,7 @@ venusian==3.0.0
 WebOb==1.8.7
 waitress==2.1.2
 zope.component==6.0
-zope.deferredimport==4.4
+zope.deferredimport==5.0
 zope.deprecation==5.0
 zope.event==5.0
 zope.hookable==5.4
