@@ -13,11 +13,14 @@ from batou_ext.user import User
 
 class Wallabag(Component):
 
-    version = '2.5.4'
+    version = '2.6.1'
     url = (
         'https://github.com/wallabag/wallabag/releases/download/{version}'
         '/wallabag-{version}.tar.gz')
-    checksum = 'sha256:c953105e3181f18bf592541a1c46c318c6663ad00d4687052676b02a7d74c618'
+    checksum = 'sha256:7efb39adfa9ac0393817d96ae4432ed420d501aaba7b4116138fca2a40593ced'
+
+    # php bin/console --env=prod doctrine:migrations:migrate --no-interaction
+    # php bin/console --env=prod cache:clear
 
     packages = [
         'php8.1-bcmath',
