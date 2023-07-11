@@ -4,7 +4,7 @@ ws.caldavcheck == 1.0.2
 
 caldav==1.2.1
 certifi==2023.5.7
-charset-normalizer==3.1.0
+charset-normalizer==3.2.0
 icalendar==5.0.7
 idna==3.4
 lxml==4.9.3
