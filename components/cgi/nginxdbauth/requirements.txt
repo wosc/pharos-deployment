@@ -8,7 +8,7 @@ blinker == 1.6.2
 click == 8.1.5
 importlib-metadata==6.8.0
 itsdangerous == 2.1.2
-zipp == 3.16.0
+zipp == 3.16.2
 
 SQLAlchemy==2.0.18
 greenlet==2.0.2
