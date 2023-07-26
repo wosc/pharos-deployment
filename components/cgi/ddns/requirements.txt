@@ -1,5 +1,5 @@
 ws.ddns == 1.4.0
-gocept.logging == 0.8.1
+gocept.logging == 1.0
 lxml == 4.9.3
 
 requests==2.31.0
