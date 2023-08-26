@@ -19,7 +19,7 @@ PasteDeploy==3.0.1
 packaging==23.1
 plaster==1.1.2
 plaster-pastedeploy==1.0.1
-pyramid==2.0.1
+pyramid==2.0.2
 pyramid-jinja2==2.10
 pyramid-tm==2.5
 pytzdata==2020.1
