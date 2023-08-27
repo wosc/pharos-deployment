@@ -29,11 +29,11 @@ class DownloadBinary(Component):
 
 class Prometheus(Component):
 
-    version = '2.45.0'
+    version = '2.46.0'
     url = (
         'https://github.com/prometheus/prometheus/releases/download/'
         'v{version}/prometheus-{version}.linux-amd64.tar.gz')
-    checksum = 'sha256:1c7f489a3cc919c1ed0df2ae673a280309dc4a3eaa6ee3411e7d1f4bdec4d4c5'
+    checksum = 'sha256:d2177ea21a6f60046f9510c828d4f8969628cfd35686780b3898917ef9c268b9'
 
     def configure(self):
         self.url = self.url.format(version=self.version)
@@ -76,11 +76,11 @@ class Prometheus(Component):
 
 class Prom_Node(Component):
 
-    version = '1.6.0'
+    version = '1.6.1'
     url = (
         'https://github.com/prometheus/node_exporter/releases/download/'
         'v{version}/node_exporter-{version}.linux-amd64.tar.gz')
-    checksum = 'sha256:0b3573f8a7cb5b5f587df68eb28c3eb7c463f57d4b93e62c7586cb6dc481e515'
+    checksum = 'sha256:ecc41b3b4d53f7b9c16a370419a25a133e48c09dfc49499d63bcc0c5e0cf3d01'
 
     def configure(self):
         # Allow acessing supervisor control socket
@@ -128,11 +128,11 @@ class Prom_Push(Component):
 
 class Prom_Alert(Component):
 
-    version = '0.25.0'
+    version = '0.26.0'
     url = (
         'https://github.com/prometheus/alertmanager/releases/download/'
         'v{version}/alertmanager-{version}.linux-amd64.tar.gz')
-    checksum = 'sha256:206cf787c01921574ca171220bb9b48b043c3ad6e744017030fed586eb48e04b'
+    checksum = 'sha256:abd73e2ee6bf67d3888699660abbecba7b076bf1f9459a3a8999d493b149ffa6'
 
     pushover_user_key = None
     pushover_api_key = None
