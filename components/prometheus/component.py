@@ -29,11 +29,11 @@ class DownloadBinary(Component):
 
 class Prometheus(Component):
 
-    version = '2.46.0'
+    version = '2.47.0'
     url = (
         'https://github.com/prometheus/prometheus/releases/download/'
         'v{version}/prometheus-{version}.linux-amd64.tar.gz')
-    checksum = 'sha256:d2177ea21a6f60046f9510c828d4f8969628cfd35686780b3898917ef9c268b9'
+    checksum = 'sha256:277ad9f110ded8e326bc885848952941e839fa38dd3237e36415f0fa35a04424'
 
     def configure(self):
         self.url = self.url.format(version=self.version)
@@ -110,11 +110,11 @@ class Prom_Node(Component):
 
 class Prom_Push(Component):
 
-    version = '1.5.1'
+    version = '1.6.2'
     url = (
         'https://github.com/prometheus/pushgateway/releases/download/'
         'v{version}/pushgateway-{version}.linux-amd64.tar.gz')
-    checksum = 'sha256:3c1fb80e0e777fb98a9171c888adf9553bfab5a0b58af730ae108ac0970ec2a4'
+    checksum = 'sha256:1622ef23cb7f9120ee29e3469d0d4ea513118e53e7a713c129f65ee93ffb0cd1'
 
     def configure(self):
         self += DownloadBinary(
@@ -239,11 +239,11 @@ class Prom_Github(Component):
 
 class Prom_Mysql(Component):
 
-    version = '0.14.0'
+    version = '0.15.0'
     url = (
         'https://github.com/prometheus/mysqld_exporter/releases/download/'
         'v{version}/mysqld_exporter-{version}.linux-amd64.tar.gz')
-    checksum = 'sha256:c17402137a4e9745f593127f162c1003298910cb8aa7d05bee3384738de094ae'
+    checksum = 'sha256:3973db1c46b0323a957a43916b759ee71ddab9096958ce78401fdff894b0dc51'
 
     db_password = None
 
@@ -259,9 +259,9 @@ class Prom_Mysql(Component):
         self += Program(
             'prometheus-mysql',
             command='/srv/prometheus/bin/mysqld_exporter '
-            '--web.listen-address="127.0.0.1:9104"',
-            environ='DATA_SOURCE_NAME="prometheus:%s@(localhost:3306)/"' % (
-                self.db_password),
+            '--web.listen-address="127.0.0.1:9104" '
+            '--mysqld.address=localhost:3306 --mysqld.username=prometheus',
+            environ='MYSQLD_EXPORTER_PASSWORD=%s' % self.db_password,
             user='prometheus', dependencies=[self._])
 
 
