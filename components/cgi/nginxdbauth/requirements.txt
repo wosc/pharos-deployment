@@ -17,6 +17,6 @@ mysqlclient == 2.2.0
 
 passlib==1.7.4
 bcrypt==4.0.1
-cffi==1.15.1
+cffi==1.16.0
 pycparser==2.21
 six==1.16.0
