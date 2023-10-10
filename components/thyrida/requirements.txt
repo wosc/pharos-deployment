@@ -28,6 +28,6 @@ zope.deprecation==5.0
 zope.event==5.0
 zope.hookable==5.4
 zope.interface==6.1
-zope.proxy==5.0.0
+zope.proxy==5.1
 
 WTForms==3.0.1
