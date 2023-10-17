@@ -30,4 +30,4 @@ zope.hookable==6.0
 zope.interface==6.1
 zope.proxy==5.1
 
-WTForms==3.0.1
+WTForms==3.1.0
