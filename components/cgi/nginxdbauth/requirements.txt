@@ -11,7 +11,7 @@ itsdangerous == 2.1.2
 zipp == 3.17.0
 
 SQLAlchemy==2.0.22
-greenlet==3.0.0
+greenlet==3.0.1
 typing-extensions==4.8.0
 mysqlclient == 2.2.0
 
