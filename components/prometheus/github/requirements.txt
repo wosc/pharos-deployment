@@ -1,6 +1,6 @@
 github_vulnerability_exporter==1.5.2
 
-certifi==2023.7.22
+certifi==2023.11.17
 charset-normalizer==3.3.2
 idna==3.4
 prometheus-client==0.18.0
