@@ -2,7 +2,7 @@
 
 SQLAlchemy==2.0.23
 greenlet==3.0.1
-typing-extensions==4.8.0
+typing-extensions==4.9.0
 transaction==4.0
 zope.sqlalchemy==3.1
 mysqlclient==2.2.0
