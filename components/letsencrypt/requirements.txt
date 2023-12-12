@@ -1,6 +1,6 @@
 simp-le-client == 0.20.0
 
-acme==2.7.4
+acme==2.8.0
 asn1crypto==1.5.1
 certifi==2023.11.17
 cffi==1.16.0
