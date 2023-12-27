@@ -13,11 +13,11 @@ from batou_ext.user import User, GroupMember
 
 class Matomo(Component):
 
-    version = '4.15.1'
+    version = '5.0.0'
     url = 'http://builds.matomo.org/matomo-{version}.tar.gz'
     # Since server sends `content-encoding` header, requests insists on already
     # unzipping. Thus, have to take the checksum from the .tar, not the .tar.gz!
-    checksum = 'sha256:cd397fe3e6e04563f7cbe869cbc25cb61f0b1548f8b45245ae4a2f46ba861f61'
+    checksum = 'sha256:477d306e64cd4ad8f660e86e896aad8bd6ded7574f4490011acc3a13731bfe85'
 
     packages = [
         'php8.1-cli',
@@ -90,10 +90,11 @@ class Matomo(Component):
 
 class Setup(Component):
 
+    # https://github.com/nebev/piwik-cli-setup/pull/12
     url = (
-        'https://github.com/nebev/piwik-cli-setup/archive/'
-        '63fcf3c428ccc1731f94875ac19a11a1640cd63c.tar.gz')
-    checksum = 'sha256:916ab06f5880d4568b69ecf47195227f920071133ecdb1aa8fa975abb94e7b20'
+        'https://github.com/jlebonzec/piwik-cli-setup/archive/'
+        '85b13e8012e44cd0d6d66078b632222a7e4105df.tar.gz')
+    checksum = 'sha256:9749aa4c15ffbb77041865c95d8b4f8ef537fbc3a16c0df4e9ef967c3194b049'
 
     def configure(self):
         self += Download(self.url, checksum=self.checksum)

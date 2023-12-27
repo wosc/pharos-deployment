@@ -29,11 +29,11 @@ class DownloadBinary(Component):
 
 class Prometheus(Component):
 
-    version = '2.47.2'
+    version = '2.48.1'
     url = (
         'https://github.com/prometheus/prometheus/releases/download/'
         'v{version}/prometheus-{version}.linux-amd64.tar.gz')
-    checksum = 'sha256:6f48cd8d748cbb8e61d0cee825b63e80d8de370dc8ca19ff6eb0326f45f6e525'
+    checksum = 'sha256:5d58b52ccfeff25700bc8d14ecc1235cbf112a05041e3b2f6900d16b44856f6f'
 
     def configure(self):
         self.url = self.url.format(version=self.version)
@@ -76,11 +76,11 @@ class Prometheus(Component):
 
 class Prom_Node(Component):
 
-    version = '1.6.1'
+    version = '1.7.0'
     url = (
         'https://github.com/prometheus/node_exporter/releases/download/'
         'v{version}/node_exporter-{version}.linux-amd64.tar.gz')
-    checksum = 'sha256:ecc41b3b4d53f7b9c16a370419a25a133e48c09dfc49499d63bcc0c5e0cf3d01'
+    checksum = 'sha256:a550cd5c05f760b7934a2d0afad66d2e92e681482f5f57a917465b1fba3b02a6'
 
     def configure(self):
         # Allow acessing supervisor control socket
@@ -239,11 +239,11 @@ class Prom_Github(Component):
 
 class Prom_Mysql(Component):
 
-    version = '0.15.0'
+    version = '0.15.1'
     url = (
         'https://github.com/prometheus/mysqld_exporter/releases/download/'
         'v{version}/mysqld_exporter-{version}.linux-amd64.tar.gz')
-    checksum = 'sha256:3973db1c46b0323a957a43916b759ee71ddab9096958ce78401fdff894b0dc51'
+    checksum = 'sha256:85ea5bc68e1b9f466c1df10ff016652dd210371d42245e012b876265e89ae29d'
 
     db_password = None
 
