@@ -14,7 +14,7 @@ time-machine==2.13.0
 tzdata==2023.4
 vobject==0.9.6.1
 
-hupper==1.12
+hupper==1.12.1
 Jinja2==3.1.3
 MarkupSafe==2.1.4
 PasteDeploy==3.1.0
