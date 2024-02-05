@@ -5,7 +5,7 @@ greenlet==3.0.3
 typing-extensions==4.9.0
 transaction==4.0
 zope.sqlalchemy==3.1
-mysqlclient==2.2.1
+mysqlclient==2.2.3
 
 pendulum==3.0.0
 python-dateutil==2.8.2
