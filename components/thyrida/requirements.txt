@@ -15,7 +15,7 @@ packaging==23.2
 plaster==1.1.2
 plaster-pastedeploy==1.0.1
 pyramid==2.0.2
-pyramid-jinja2==2.10
+pyramid-jinja2==2.10.1
 pyramid-tm==2.5
 pytzdata==2020.1
 translationstring==1.4
