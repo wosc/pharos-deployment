@@ -4,43 +4,54 @@ updates:
   directory: "/components/cgi/ddns"
   schedule:
     interval: "weekly"
+    day: "friday"
 - package-ecosystem: "pip"
   directory: "/components/cgi/nginxdbauth"
   schedule:
     interval: "weekly"
+    day: "friday"
 - package-ecosystem: "pip"
   directory: "/components/cgi/passwd"
   schedule:
     interval: "weekly"
+    day: "friday"
 - package-ecosystem: "pip"
   directory: "/components/cgi/uptimerobot"
   schedule:
     interval: "weekly"
+    day: "friday"
 - package-ecosystem: "pip"
   directory: "/components/haemera"
   schedule:
     interval: "weekly"
+    day: "friday"
 - package-ecosystem: "pip"
   directory: "/components/letsencrypt"
   schedule:
     interval: "weekly"
+    day: "friday"
 - package-ecosystem: "pip"
   directory: "/components/prometheus/github"
   schedule:
     interval: "weekly"
+    day: "friday"
 - package-ecosystem: "pip"
   directory: "/components/prometheus/mailcheck"
   schedule:
     interval: "weekly"
+    day: "friday"
 - package-ecosystem: "pip"
   directory: "/components/radicale"
   schedule:
     interval: "weekly"
+    day: "friday"
 - package-ecosystem: "pip"
   directory: "/components/thyrida"
   schedule:
     interval: "weekly"
+    day: "friday"
 - package-ecosystem: "pip"
   directory: "/components/wosc/rsspull"
   schedule:
     interval: "weekly"
+    day: "friday"
