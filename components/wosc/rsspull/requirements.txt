@@ -7,4 +7,4 @@ html2text==2020.1.16
 idna==3.6
 requests==2.31.0
 sgmllib3k==1.0.0
-urllib3==2.2.0
+urllib3==2.2.1
