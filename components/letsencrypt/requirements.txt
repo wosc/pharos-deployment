@@ -10,7 +10,7 @@ idna==2.7
 josepy==1.14.0
 mock==5.1.0
 pbr==6.0.0
-pycparser==2.21
+pycparser==2.22
 pyOpenSSL==24.1.0
 pyRFC3339==1.1
 pytz==2024.1
