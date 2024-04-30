@@ -29,11 +29,11 @@ class DownloadBinary(Component):
 
 class Prometheus(Component):
 
-    version = '2.49.1'
+    version = '2.51.2'
     url = (
         'https://github.com/prometheus/prometheus/releases/download/'
         'v{version}/prometheus-{version}.linux-amd64.tar.gz')
-    checksum = 'sha256:93460f66d17ee70df899e91db350d9705c20b1576800f96acbd78fa004e7dc07'
+    checksum = 'sha256:9bec7432fb92d80fdc193a0154f6c53653c37f8302528b06d63cf4a10a8b897f'
 
     def configure(self):
         self.url = self.url.format(version=self.version)
@@ -76,11 +76,11 @@ class Prometheus(Component):
 
 class Prom_Node(Component):
 
-    version = '1.7.0'
+    version = '1.8.0'
     url = (
         'https://github.com/prometheus/node_exporter/releases/download/'
         'v{version}/node_exporter-{version}.linux-amd64.tar.gz')
-    checksum = 'sha256:a550cd5c05f760b7934a2d0afad66d2e92e681482f5f57a917465b1fba3b02a6'
+    checksum = 'sha256:c184e5dd98d518ac468339a9e073c233f777e0948a18862dd88e3f1bdcdf1438'
 
     def configure(self):
         # Allow acessing supervisor control socket
@@ -110,11 +110,11 @@ class Prom_Node(Component):
 
 class Prom_Push(Component):
 
-    version = '1.6.2'
+    version = '1.8.0'
     url = (
         'https://github.com/prometheus/pushgateway/releases/download/'
         'v{version}/pushgateway-{version}.linux-amd64.tar.gz')
-    checksum = 'sha256:1622ef23cb7f9120ee29e3469d0d4ea513118e53e7a713c129f65ee93ffb0cd1'
+    checksum = 'sha256:8755652947732b94c2b19aba546e052c68f6831e1895a941853ee0f395a3ae7f'
 
     def configure(self):
         self += DownloadBinary(
@@ -128,11 +128,11 @@ class Prom_Push(Component):
 
 class Prom_Alert(Component):
 
-    version = '0.26.0'
+    version = '0.27.0'
     url = (
         'https://github.com/prometheus/alertmanager/releases/download/'
         'v{version}/alertmanager-{version}.linux-amd64.tar.gz')
-    checksum = 'sha256:abd73e2ee6bf67d3888699660abbecba7b076bf1f9459a3a8999d493b149ffa6'
+    checksum = 'sha256:23c3f5a3c73de91dbaec419f3c492bef636deb02680808e5d842e6553aa16074'
 
     pushover_user_key = None
     pushover_api_key = None
