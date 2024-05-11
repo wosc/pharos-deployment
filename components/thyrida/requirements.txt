@@ -1,6 +1,6 @@
 -e git+https://github.com/wosc/thyrida.git#egg=ws.thyrida
 
-SQLAlchemy==2.0.29
+SQLAlchemy==2.0.30
 greenlet==3.0.3
 typing-extensions==4.11.0
 transaction==4.0
