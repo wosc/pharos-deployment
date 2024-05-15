@@ -6,10 +6,10 @@ from batou_ext.supervisor import Program
 from batou_ext.user import GroupMember
 
 
-# On clients:
+# On clients, open localhost:8384
 # Set device name
 # Disable: Local discovery, Global discovery, Relaying
-# Add device pharos, set address to `tcp://pharos.wosc.de:22000`
+# Add device pharos (get its ID from pharos UI), set address to `tcp://pharos.wosc.de:22000`
 
 class Syncthing(Component):
 
