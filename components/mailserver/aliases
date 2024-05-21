@@ -1,4 +1,5 @@
 mailer-daemon: postmaster
+dmarc: postmaster
 postmaster: root
 nobody: root
 hostmaster: root
