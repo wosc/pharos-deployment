@@ -29,11 +29,11 @@ class DownloadBinary(Component):
 
 class Prometheus(Component):
 
-    version = '2.51.2'
+    version = '2.52.0'
     url = (
         'https://github.com/prometheus/prometheus/releases/download/'
         'v{version}/prometheus-{version}.linux-amd64.tar.gz')
-    checksum = 'sha256:9bec7432fb92d80fdc193a0154f6c53653c37f8302528b06d63cf4a10a8b897f'
+    checksum = 'sha256:7f31c5d6474bbff3e514e627e0b7a7fbbd4e5cea3f315fd0b76cad50be4c1ba3'
 
     def configure(self):
         self.url = self.url.format(version=self.version)
@@ -76,11 +76,11 @@ class Prometheus(Component):
 
 class Prom_Node(Component):
 
-    version = '1.8.0'
+    version = '1.8.1'
     url = (
         'https://github.com/prometheus/node_exporter/releases/download/'
         'v{version}/node_exporter-{version}.linux-amd64.tar.gz')
-    checksum = 'sha256:c184e5dd98d518ac468339a9e073c233f777e0948a18862dd88e3f1bdcdf1438'
+    checksum = 'sha256:fbadb376afa7c883f87f70795700a8a200f7fd45412532cc1938a24d41078011'
 
     def configure(self):
         # Allow acessing supervisor control socket
