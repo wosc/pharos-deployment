@@ -1,6 +1,6 @@
 -e git+https://github.com/wosc/simp_le.git#egg=simp-le-client
 
-acme==2.10.0
+acme==2.11.0
 asn1crypto==1.5.1
 certifi==2024.2.2
 cffi==1.16.0
