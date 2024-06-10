@@ -20,6 +20,7 @@ class DDNS(Component):
 
     username = ''
     password = ''
+    totp_secret = ''
     hostnames = ''
 
     def configure(self):
