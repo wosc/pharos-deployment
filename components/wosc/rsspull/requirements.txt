@@ -1,6 +1,6 @@
 ws.rsspull==2.5.0
 
-certifi==2024.6.2
+certifi==2024.7.4
 charset-normalizer==3.3.2
 feedparser==6.0.11
 html2text==2024.2.26
