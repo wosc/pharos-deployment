@@ -18,7 +18,7 @@ class Grafana(Component):
         self += AptRepository(
             'grafana',
             line='deb https://apt.grafana.com/ stable main',
-            key='https://apt.grafana.com/gpg.key')
+            key='https://apt.grafana.com/gpg-full.key')
         self += Package('grafana')
 
         self += File('/etc/grafana/grafana.ini')
