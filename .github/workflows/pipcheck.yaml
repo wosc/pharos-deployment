@@ -13,6 +13,7 @@ jobs:
       fail-fast: false
       matrix:
         directory:
+        - calibreview
         - cgi/ddns
         - cgi/nginxdbauth
         - cgi/passwd
