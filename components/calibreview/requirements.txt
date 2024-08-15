@@ -14,7 +14,7 @@ pyramid==2.0.2
 pyramid-jinja2==2.10.1
 translationstring==1.4
 venusian==3.1.0
-WebOb==1.8.7
+WebOb==1.8.8
 waitress==3.0.0
 zope.deprecation==5.0
 zope.interface==7.0.1
