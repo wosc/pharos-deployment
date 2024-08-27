@@ -4,7 +4,7 @@ certifi==2024.7.4
 charset-normalizer==3.3.2
 feedparser==6.0.11
 html2text==2024.2.26
-idna==3.7
+idna==3.8
 requests==2.32.3
 sgmllib3k==1.0.0
 urllib3==2.2.2
