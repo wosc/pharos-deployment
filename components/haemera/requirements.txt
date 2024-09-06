@@ -1,6 +1,6 @@
 -e git+https://github.com/wosc/haemera.git#egg=ws.haemera
 
-SQLAlchemy==2.0.32
+SQLAlchemy==2.0.34
 greenlet==3.0.3
 typing-extensions==4.12.2
 transaction==4.0
