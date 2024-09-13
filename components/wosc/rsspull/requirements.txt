@@ -7,4 +7,4 @@ html2text==2024.2.26
 idna==3.8
 requests==2.32.3
 sgmllib3k==1.0.0
-urllib3==2.2.2
+urllib3==2.2.3
