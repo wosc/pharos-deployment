@@ -3,6 +3,6 @@ github_vulnerability_exporter==1.5.2
 certifi==2024.8.30
 charset-normalizer==3.3.2
 idna==3.10
-prometheus-client==0.20.0
+prometheus-client==0.21.0
 requests==2.32.3
 urllib3==2.2.3
