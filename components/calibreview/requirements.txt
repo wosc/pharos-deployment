@@ -1,7 +1,7 @@
 -e git+https://github.com/wosc/calibre-web-view.git#egg=ws.caliview
 
 SQLAlchemy==2.0.35
-greenlet==3.1.0
+greenlet==3.1.1
 typing-extensions==4.12.2
 
 hupper==1.12.1
