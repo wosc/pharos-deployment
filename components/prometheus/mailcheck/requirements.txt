@@ -14,7 +14,7 @@ pytz-deprecation-shim==0.1.0.post0
 recurring-ical-events==3.3.0
 requests==2.32.3
 six==1.16.0
-tzdata==2024.1
+tzdata==2024.2
 tzlocal==5.2
 urllib3==2.2.3
 vobject==0.9.7
