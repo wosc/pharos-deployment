@@ -3,6 +3,6 @@ radicale == 1.1.7
 
 python-dateutil == 2.9.0.post0
 six == 1.16.0
-vobject == 0.9.7
+vobject == 0.9.8
 
 waitress == 3.0.0
