@@ -11,11 +11,11 @@ lxml==5.3.0
 python-dateutil==2.9.0.post0
 pytz==2024.2
 pytz-deprecation-shim==0.1.0.post0
-recurring-ical-events==3.3.0
+recurring-ical-events==3.3.2
 requests==2.32.3
 six==1.16.0
 tzdata==2024.2
 tzlocal==5.2
 urllib3==2.2.3
 vobject==0.9.8
-x-wr-timezone==0.0.7
+x-wr-timezone==1.0.1
