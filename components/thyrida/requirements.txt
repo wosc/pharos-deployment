@@ -21,7 +21,7 @@ pytzdata==2020.1
 translationstring==1.4
 venusian==3.1.0
 WebOb==1.8.9
-waitress==3.0.0
+waitress==3.0.1
 zope.component==6.0
 zope.deferredimport==5.0
 zope.deprecation==5.0
