@@ -5,7 +5,7 @@ greenlet==3.1.1
 typing-extensions==4.12.2
 transaction==5.0
 zope.sqlalchemy==3.1
-mysqlclient==2.2.5
+mysqlclient==2.2.6
 
 hupper==1.12.1
 Jinja2==3.1.4
