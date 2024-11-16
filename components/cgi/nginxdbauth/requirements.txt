@@ -13,7 +13,7 @@ zipp == 3.21.0
 SQLAlchemy==2.0.36
 greenlet==3.1.1
 typing-extensions==4.12.2
-mysqlclient == 2.2.5
+mysqlclient == 2.2.6
 
 passlib==1.7.4
 bcrypt==4.2.0
