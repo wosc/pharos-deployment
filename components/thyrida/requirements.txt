@@ -16,7 +16,7 @@ plaster==1.1.2
 plaster-pastedeploy==1.0.1
 pyramid==2.0.2
 pyramid-jinja2==2.10.1
-pyramid-tm==2.5
+pyramid-tm==2.6
 pytzdata==2020.1
 translationstring==1.4
 venusian==3.1.0
