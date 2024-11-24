@@ -29,11 +29,11 @@ class DownloadBinary(Component):
 
 class Prometheus(Component):
 
-    version = '2.54.1'
+    version = '3.0.0'
     url = (
         'https://github.com/prometheus/prometheus/releases/download/'
         'v{version}/prometheus-{version}.linux-amd64.tar.gz')
-    checksum = 'sha256:31715ef65e8a898d0f97c8c08c03b6b9afe485ac84e1698bcfec90fc6e62924f'
+    checksum = 'sha256:614ce24f4802f1a2d3dc35ab9bd35047f428469c7e029163602a40078bf7508b'
 
     def configure(self):
         self.url = self.url.format(version=self.version)
@@ -239,11 +239,11 @@ class Prom_Github(Component):
 
 class Prom_Mysql(Component):
 
-    version = '0.15.1'
+    version = '0.16.0'
     url = (
         'https://github.com/prometheus/mysqld_exporter/releases/download/'
         'v{version}/mysqld_exporter-{version}.linux-amd64.tar.gz')
-    checksum = 'sha256:85ea5bc68e1b9f466c1df10ff016652dd210371d42245e012b876265e89ae29d'
+    checksum = 'sha256:32fe0b59ef3f52624a1958aaf6b8855f27c2b492a7026d62a975bbd251be209d'
 
     db_password = None
 
