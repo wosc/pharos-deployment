@@ -19,7 +19,7 @@ pyramid-jinja2==2.10.1
 pyramid-tm==2.6
 pytzdata==2020.1
 translationstring==1.4
-venusian==3.1.0
+venusian==3.1.1
 WebOb==1.8.9
 waitress==3.0.2
 zope.component==6.0
