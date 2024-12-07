@@ -19,4 +19,4 @@ tzdata==2024.2
 tzlocal==5.2
 urllib3==2.2.3
 vobject==0.9.8
-x-wr-timezone==1.0.1
+x-wr-timezone==2.0.0
