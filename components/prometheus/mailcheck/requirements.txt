@@ -19,5 +19,5 @@ typing-extensions==4.12.2
 tzdata==2024.2
 tzlocal==5.2
 urllib3==2.2.3
-vobject==0.9.8
+vobject==0.9.9
 x-wr-timezone==2.0.0
