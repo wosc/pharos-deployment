@@ -16,7 +16,7 @@ vobject==0.9.9
 pytz==2024.2
 
 hupper==1.12.1
-Jinja2==3.1.4
+Jinja2==3.1.5
 MarkupSafe==3.0.2
 PasteDeploy==3.1.0
 packaging==24.2
