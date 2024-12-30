@@ -1,0 +1,5 @@
+# XXX Version 2.x removes the "ics-file" storage backend
+radicale == 1.1.7
+# undeclared by radicale
+vobject
+waitress
