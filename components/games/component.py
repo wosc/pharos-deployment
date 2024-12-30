@@ -36,9 +36,9 @@ class Roborally(Component):
         self += AptRepository(
             'mongodb',
             url='https://repo.mongodb.org/apt/ubuntu',
-            distro='%s/mongodb-org/6.0' % distro,
+            distro='%s/mongodb-org/8.0' % distro,
             component='multiverse',
-            key='https://www.mongodb.org/static/pgp/server-6.0.asc')
+            key='https://www.mongodb.org/static/pgp/server-8.0.asc')
 
         self += Package('mongodb-org')
         self += User('robometeor')
