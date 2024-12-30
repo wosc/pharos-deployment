@@ -1,6 +1,4 @@
 from batou.component import Component, Attribute
-from batou.lib.archive import Extract
-from batou.lib.download import Download
 from batou.lib.file import File, Symlink
 from batou_ext.apt import Package, AptRepository
 from batou_ext.file import Delete
@@ -12,7 +10,6 @@ from batou_ext.cron import CronTab
 from batou_ext.nginx import Nginx
 from batou_ext.nodejs import NodeJS
 from batou_ext.supervisor import Supervisor
-from batou_ext.systemd import SystemdConfig
 
 
 class BasePackages(Component):
@@ -113,36 +110,3 @@ class Jamulus(Component):
             line='deb http://ppa.launchpad.net/tormodvolden/jam/ubuntu xenial main',
             key='https://keyserver.ubuntu.com/pks/lookup?op=get&search=0x627abb1e29cc8356ad0800eb4b1e287796dd5c9a')
         self += Package('jamulus')
-
-
-class Soundjack(Component):
-
-    version = '210106'
-
-    packages = [
-        'libjack-jackd2-0',
-        'libqt5core5a',
-        'libqt5gui5',
-        'libqt5multimediawidgets5',
-        'libqt5websockets5',
-        'libqt5widgets5',
-        'xvfb',
-    ]
-
-    url = 'https://www.soundjack.eu/Downloads/SJC{version}.tar.gz'
-    checksum = 'sha256:eff6f938b435b24299918d542b7b91bdacd0247460e20046cd35d710dd240500'
-
-    def configure(self):
-        for name in self.packages:
-            self += Package(name)
-
-        self += Download(
-            self.url.format(version=self.version), checksum=self.checksum)
-        self += Extract(self._.target, strip=2, create_target_dir=False)
-        self += Symlink('/usr/local/bin/soundjack',
-                        source=self.map('SJC%s' % self.version))
-
-        self += File(
-            '/lib/systemd/system/soundjack.service',
-            source='soundjack.conf', is_template=False)
-        self += SystemdConfig(self._)
