@@ -23,14 +23,14 @@ class Wallabag(Component):
     # php bin/console --env=prod cache:clear
 
     packages = [
-        'php8.1-bcmath',
-        'php8.1-curl',
-        'php8.1-gd',
-        'php8.1-intl',
-        'php8.1-mbstring',
-        'php8.1-mysql',
-        'php8.1-tidy',
-        'php8.1-xml',
+        'php8.3-bcmath',
+        'php8.3-curl',
+        'php8.3-gd',
+        'php8.3-intl',
+        'php8.3-mbstring',
+        'php8.3-mysql',
+        'php8.3-tidy',
+        'php8.3-xml',
     ]
 
     db_password = None
