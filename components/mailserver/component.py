@@ -184,7 +184,6 @@ class Courier(Component):
     def configure(self):
         self += Package('courier-imap')
         self += Package('courier-authlib-mysql')
-        self += Package('gamin')
         self += GroupMember('courier', user='Debian-exim')
 
         deps = []
