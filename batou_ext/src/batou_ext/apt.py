@@ -38,13 +38,21 @@ class Package(Component):
 class AptRepository(Component):
 
     namevar = 'name'
-    line = None
     key = None
+
+    url = None
+    distro = None
+    component = 'main'
 
     def configure(self):
         self += AptKey(self.key, name=self.name)
-        self += File('/etc/apt/sources.list.d/%s.list' % self.name,
-                     content=self.line)
+        self += File('/etc/apt/sources.list.d/%s.sources' % self.name,
+                     content=f"""\
+Types: deb
+URIs: {self.url}
+Suites: {self.distro}
+Components: {self.component}
+""")
         self.config = self._
 
     def verify(self):

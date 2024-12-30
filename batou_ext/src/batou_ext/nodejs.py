@@ -12,7 +12,7 @@ class NodeJS(Component):
         self += Package('apt-transport-https')
         self += AptRepository(
             'nodesource',
-            line='deb https://deb.nodesource.com/node_%s.x %s main' % (
-                self.version, distro),
+            url='https://deb.nodesource.com/node_%s.x' % self.version,
+            distro=distro,
             key='https://deb.nodesource.com/gpgkey/nodesource.gpg.key')
         self += Package('nodejs')
