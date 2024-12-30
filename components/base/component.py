@@ -51,7 +51,7 @@ class BasePackages(Component):
 class CronAPT(Component):
 
     def configure(self):
-        Delete('/etc/apt/apt.conf.d/20auto-upgrades')
+        self += Delete('/etc/apt/apt.conf.d/20auto-upgrades')
         self += Package('cron-apt')
         self += File(
             '/etc/cron-apt/config', source='cron-apt.conf', is_template=False)
