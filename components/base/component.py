@@ -1,6 +1,6 @@
 from batou.component import Component, Attribute
 from batou.lib.file import File, Symlink
-from batou_ext.apt import Package, AptRepository
+from batou_ext.apt import Package
 from batou_ext.file import Delete
 from batou_ext.nginx import VHost
 from batou_ext.patch import Patch
@@ -97,16 +97,3 @@ class Pharos(Component):
         self += File('/etc/nginx/sites-available/pharos.wosc.de',
                      source='pharos.conf', is_template=False)
         self += VHost(self._, site_enable=True)
-
-
-class Jamulus(Component):
-
-    def configure(self):
-        self += File(
-            '/etc/systemd/system/jamulus-headless.service.d'
-            '/jamulus-headless.conf', leading=True, is_template=False)
-        self += AptRepository(
-            'jamulus',
-            line='deb http://ppa.launchpad.net/tormodvolden/jam/ubuntu xenial main',
-            key='https://keyserver.ubuntu.com/pks/lookup?op=get&search=0x627abb1e29cc8356ad0800eb4b1e287796dd5c9a')
-        self += Package('jamulus')
