@@ -1,12 +1,3 @@
-# Unlock encrypted repository
-
-```
-apt install git git-crypt
-git clone git@github.com:wosc/pharos-deployment.git pharos
-cd pharos
-git crypt unlock
-```
-
 # Bootstrap a new server
 
 ```
@@ -56,6 +47,10 @@ $ ln -s ~/.dot/x11/dailystrips.defs .dailystrips.defs
 
 # apt install python3-venv
 # sudo echo 'wosc ALL=(ALL) NOPASSWD:ALL' > /etc/sudoers.d/batou
+
+on local machine
+$ git clone git@github.com:wosc/pharos-deployment.git pharos
+$ cd pharos
 $ ./batou deploy production
 (cold run ca. 30 minutes, no-op ca. 2 minutes)
 ```
