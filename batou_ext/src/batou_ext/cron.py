@@ -4,7 +4,10 @@ from batou.lib.cron import ignore_comments
 from batou.lib.file import File
 import batou.lib.cron
 import collections
-import pkg_resources
+import os.path
+
+
+here = os.path.dirname(__file__) + '/'
 
 
 class CronJob(batou.lib.cron.CronJob):
@@ -15,8 +18,7 @@ class CronJob(batou.lib.cron.CronJob):
 
 class CronTab(Component):
 
-    crontab_template = pkg_resources.resource_filename(
-        'batou_ext', 'crontab')
+    crontab_template = here + 'crontab'
     mailto = ''
     install = Attribute('literal', default='True')
 

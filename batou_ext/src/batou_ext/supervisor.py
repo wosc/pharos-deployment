@@ -3,10 +3,10 @@ from batou.component import Component, Attribute
 from batou.lib.file import File, Symlink
 from batou_ext.apt import Package
 from batou_ext.user import Group
-import pkg_resources
+import os.path
 
 
-here = pkg_resources.resource_filename('batou_ext', '') + '/'
+here = os.path.dirname(__file__) + '/'
 
 
 class Supervisor(Component):

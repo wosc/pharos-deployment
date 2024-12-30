@@ -1,6 +1,8 @@
 from batou.component import Component
 from batou.lib.file import File
 from batou.lib.python import Package
+from batou.utils import CmdExecutionError
+import batou
 import batou.lib.python
 
 
@@ -56,3 +58,17 @@ class Requirements(Component):
         self.cmd('bin/pip install --no-deps -r %s' % self.requirements)
         self.cmd('bin/pip check')
         self.touch(self.success_marker)
+
+
+def verify_pkg_importlib(self, pkg):
+    try:
+        self.cmd('bin/python -c \''
+                 'import importlib.metadata; '
+                 f'assert importlib.metadata.version("{pkg.package}") == '
+                 f' "{pkg.version}"'
+                 '\'')
+    except CmdExecutionError:
+        raise batou.UpdateNeeded()
+
+
+batou.lib.python.VirtualEnvPyBase.verify_pkg = verify_pkg_importlib

@@ -4,10 +4,10 @@ from batou_ext.apt import Package
 from batou_ext.nginx import VHost
 from batou_ext.supervisor import Program
 from batou_ext.user import User
-import pkg_resources
+import os.path
 
 
-here = pkg_resources.resource_filename('batou_ext', '') + '/'
+here = os.path.dirname(__file__) + '/'
 
 
 class CGIServer(Component):
