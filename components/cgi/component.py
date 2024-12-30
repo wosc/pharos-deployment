@@ -41,24 +41,6 @@ class DDNS(Component):
         self += VHost(self._)
 
 
-class NginxDBAuth(Component):
-
-    db_password = None  # XXX Should retrieve settings from mailserver
-
-    def configure(self):
-        self += VirtualEnv(path='/srv/cgiserv/nginxdbauth')
-        self._ += Requirements(source='nginxdbauth/requirements.txt')
-
-        self += File(
-            '/srv/cgiserv/nginxdbauth/config',
-            owner='cgiserv', group='cgiserv', mode=0o640,
-            source='nginxdbauth/auth.conf')
-
-        self += File('/srv/cgiserv/apache.d/nginxdbauth.conf',
-                     source='nginxdbauth/apache.conf', is_template=False)
-        self += CGI(self._)
-
-
 class UptimeRobot(Component):
 
     api_key = ''

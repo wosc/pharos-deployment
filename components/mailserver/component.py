@@ -4,9 +4,12 @@ from batou.lib.cmmi import Build
 from batou.lib.file import File, Symlink
 from batou_ext.apt import Package
 from batou_ext.mysql import ServiceDatabase
+from batou_ext.nginx import VHost
 from batou_ext.patch import Patch
+from batou_ext.python import VirtualEnv, Requirements
+from batou_ext.supervisor import Program
 from batou_ext.systemd import Service
-from batou_ext.user import GroupMember
+from batou_ext.user import User, GroupMember
 import os.path
 import pwd
 
@@ -33,6 +36,10 @@ class Mailserver(Component):
             db_username=self.db_username,
             db_password=self.db_password)
         self += Courier(
+            db_name=self.db_name,
+            db_username=self.db_username,
+            db_password=self.db_password)
+        self += Auth(
             db_name=self.db_name,
             db_username=self.db_username,
             db_password=self.db_password)
@@ -234,3 +241,43 @@ class MLMMJ(Component):
             '/usr/local/bin/mlmmj-update-archives', mode=0o755,
             source='mlmmj/update-archives.sh', is_template=False)
         self += File('/etc/cron.d/mlmmj', source='mlmmj/cron')
+
+
+class Auth(Component):
+
+    db_name = None
+    db_username = None
+    db_password = None
+
+    instances = {
+        'mailbox': 7071,
+        'mailui': 7072,
+    }
+
+    def configure(self):
+        self += User('mailauth')
+
+        self += VirtualEnv(path='/srv/mailauth/deployment')
+        self._ += Requirements(source='auth/requirements.txt')
+        req = self._
+
+        for name, port in self.instances.items():
+            self += File(
+                f'/srv/mailauth/{name}.conf',
+                source=f'auth/{name}.conf',
+                owner='mailauth', group='mailauth', mode=0o640)
+            config = self._
+
+            self += Program(
+                f'auth-{name}',
+                command='/srv/mailauth/deployment/bin/nginx-db-auth-serve '
+                f'--host localhost --port {port} '
+                f'--config /srv/mailauth/{name}.conf',
+                user='mailauth',
+                dependencies=[req, config]
+            )
+
+        self += File(
+            '/srv/mailauth/nginx.conf',
+            source='auth/nginx.conf', is_template=False)
+        self += VHost(self._)
