@@ -17,12 +17,30 @@ class LetsEncrypt(Component):
         'pharos.wosc.de',
     ]
 
+    keys = [
+        {'target': 'account_key.json', 'source': 'account', 'mode': 0o600},
+        {'target': 'account_reg.json', 'source': 'reg', 'mode': 0o600},
+        {'target': 'key.pem', 'source': 'key', 'mode': 0o640},
+    ]
+    # Placeholders for batou secrets
+    grmusik_de_account = None
+    grmusik_de_reg = None
+    grmusik_de_key = None
+    mail_wosc_de_account = None
+    mail_wosc_de_reg = None
+    mail_wosc_de_key = None
+    # Note, account (and reg?) for pharos and wosc.de are the same
+    # as mail.wosc.de, but for simplicity it's duplicated here
+    pharos_wosc_de_account = None
+    pharos_wosc_de_reg = None
+    pharos_wosc_de_key = None
+    wosc_de_account = None
+    wosc_de_reg = None
+    wosc_de_key = None
+
     files = [
-        {'target': 'account_key.json', 'source': '.account', 'mode': 0o600},
-        {'target': 'account_reg.json', 'source': '.reg', 'mode': 0o600},
-        {'target': 'key.pem', 'source': '.key', 'mode': 0o640},
-        {'target': 'update', 'source': '.update', 'mode': 0o755},
-        {'target': 'aliases', 'source': '.aliases', 'mode': 0o600},
+        {'target': 'update', 'source': 'update', 'mode': 0o755},
+        {'target': 'aliases', 'source': 'aliases', 'mode': 0o600},
     ]
 
     def configure(self):
@@ -68,12 +86,21 @@ class LetsEncrypt(Component):
                 '/srv/letsencrypt/data/%s' % domain, ensure='directory',
                 owner='letsencrypt', group='letsencrypt')
 
+            for item in self.keys:
+                source = '%s.%s' % (domain, item['source'])
+                source = source.replace('.', '_')
+                self += File(
+                    '/srv/letsencrypt/data/%s/%s' % (domain, item['target']),
+                    content=getattr(self, source).replace(r'\n', '\n'),
+                    is_template=False, mode=item['mode'],
+                    owner='letsencrypt', group='letsencrypt')
+
             for item in self.files:
                 if not os.path.exists('%s/data/%s.%s' % (
                         self.defdir, domain, item['source'])):
                     continue
                 self += File(
                     '/srv/letsencrypt/data/%s/%s' % (domain, item['target']),
-                    source='%s.%s' % (domain, item['source']),
+                    source='data/%s.%s' % (domain, item['source']),
                     is_template=False, mode=item['mode'],
                     owner='letsencrypt', group='letsencrypt')
