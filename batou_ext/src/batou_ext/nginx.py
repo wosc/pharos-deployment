@@ -3,7 +3,6 @@ from batou.lib.file import File, Symlink
 from batou_ext.apt import Package
 from batou_ext.file import Delete
 import os.path
-import os.path
 
 
 here = os.path.dirname(__file__) + '/'
