@@ -120,11 +120,17 @@ class SpamAssassin(Component):
         'libdbd-mysql-perl',
         'pyzor',
         'razor',
+        'unbound',
     ]
 
     def configure(self):
         for name in self.packages:
             self += Package(name)
+
+        self += File(
+            '/etc/unbound/unbound.conf.d/listen.conf',
+            source='spam/unbound.conf', is_template=False)
+        self += Service('unbound', deps=[self._])
 
         self += SASchema(
             'sa_pref', db_name=self.db_name,
