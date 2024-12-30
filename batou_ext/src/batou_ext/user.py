@@ -1,5 +1,5 @@
 from batou import UpdateNeeded
-from batou.component import Component, Attribute
+from batou.component import Component, Attribute, ConfigString
 import grp
 import pwd
 
@@ -8,7 +8,7 @@ class User(Component):
 
     namevar = 'user'
     shell = '/bin/bash'
-    home = Attribute(default='/srv/{{component.user}}')
+    home = Attribute(default=ConfigString('/srv/{{component.user}}'))
 
     def verify(self):
         try:

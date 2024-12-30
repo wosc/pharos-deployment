@@ -1,11 +1,10 @@
-from batou.component import Component, Attribute
+from batou.component import Component, Attribute, ConfigString
 from batou.lib.file import File, Symlink
 from batou_ext.apt import Package
 from batou_ext.file import Delete
 from batou_ext.nginx import VHost
 from batou_ext.patch import Patch
 from batou_ext.user import User, GroupMember
-
 from batou_ext.cron import CronTab
 from batou_ext.nginx import Nginx
 from batou_ext.nodejs import NodeJS
@@ -14,7 +13,7 @@ from batou_ext.supervisor import Supervisor
 
 class BasePackages(Component):
 
-    packages = Attribute('literal', """[
+    packages = Attribute('literal', ConfigString("""[
         'build-essential',
         'emacs-nox',
         'dnsutils',
@@ -30,7 +29,7 @@ class BasePackages(Component):
         'screen',
         'unzip',
         'zip',
-    ]""")
+    ]"""))
 
     def configure(self):
         for name in self.packages:

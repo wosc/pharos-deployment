@@ -1,6 +1,4 @@
 *.pyc
-*.egg-info/
-/.batou/
+/.appenv/
 /.batou-lock
 /.vagrant/
-/build/

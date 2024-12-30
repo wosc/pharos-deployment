@@ -1,5 +1,5 @@
 from batou import UpdateNeeded
-from batou.component import Component, Attribute
+from batou.component import Component, Attribute, ConfigString
 from batou.lib.file import File, Symlink
 from batou_ext.apt import Package
 from batou_ext.user import Group
@@ -101,7 +101,7 @@ class PHP(Program):
     params = None
 
     socket = 'unix:///run/supervisor/%(program_name)s.sock'
-    socket_owner = Attribute(default='{{component.user}}:www-data')
+    socket_owner = Attribute(default=ConfigString('{{component.user}}:www-data'))
     socket_mode = '0770'
 
     option_names = Program.option_names + [
