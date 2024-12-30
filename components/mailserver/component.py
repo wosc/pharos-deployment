@@ -114,6 +114,7 @@ class SpamAssassin(Component):
 
     packages = [
         'spamassassin',
+        'spamd',
         'spamc',
         'libdbi-perl',
         'libdbd-mysql-perl',
@@ -141,7 +142,7 @@ class SpamAssassin(Component):
         deps = []
         self += File('/etc/spamassassin/local.cf', source='spam/local.conf')
         deps.append(self._)
-        self += File('/etc/default/spamassassin', source='spam/default',
+        self += File('/etc/default/spamd', source='spam/default',
                      is_template=False)
         deps.append(self._)
         self += Patch(
@@ -150,7 +151,7 @@ class SpamAssassin(Component):
             target='loadplugin Mail::SpamAssassin::Plugin::DCC',
             check_source_removed=True)
         deps.append(self._)
-        self += Service('spamassassin', action='restart', deps=deps)
+        self += Service('spamd', action='restart', deps=deps)
 
         self += File('/etc/spamassassin/pyzor', ensure='directory')
         self += File('/etc/spamassassin/pyzor/servers',
