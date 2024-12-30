@@ -27,9 +27,6 @@ class Radicale(Component):
             courier_py, source='sock.send(line)',
             target='sock.send(line.encode("utf-8")')
 
-        # Allow access to authdaemon
-        self += GroupMember('courier', user='radicale')
-
         for name in ['radicale.conf', 'logging.conf', 'serve.py']:
             self += File('/srv/radicale/%s' % name, is_template=False)
             deps.append(self._)
