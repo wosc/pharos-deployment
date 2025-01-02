@@ -3,8 +3,3 @@
 sudo systemctl reload nginx &> /dev/null
 sudo systemctl reload exim4 &> /dev/null
 sudo systemctl restart dovecot &> /dev/null
-
-cp key.pem courier.pem
-echo >> courier.pem
-cat fullchain.pem >> courier.pem
-sudo systemctl restart courier-imap-ssl &> /dev/null

@@ -30,9 +30,6 @@ CREATE TABLE `mailboxes` (
   `vacation_subject` varchar(255) default NULL,
   `vacation_body` text,
   `action` varchar(255) NOT NULL,
-  `mailbox_path` varchar(255) NOT NULL,
-  `uid` int(11) NOT NULL default '{{component.exim_user["uid"]}}',
-  `gid` int(11) NOT NULL default '{{component.exim_user["gid"]}}',
   PRIMARY KEY  (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
 

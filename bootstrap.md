@@ -59,11 +59,9 @@ $ ./batou deploy production
 
 - /srv/letsencrypt/data/*/fullchain.pem
   wosc.de mail.wosc.de pharos.wosc.de grmusik.de
-  mail.wosc.de/courier.pem
 - mysql databases:
   mailserver
   grshop
-  `# echo "UPDATE mailboxes SET uid=$(id -u Debian-exim), gid=$(id -g Debian-exim) | mysql mailserver"`
 - /var/mail
 
 - /srv/radicale/data

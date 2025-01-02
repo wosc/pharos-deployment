@@ -56,14 +56,13 @@ class Exim(Component):
     def configure(self):
         self += Package('exim4-daemon-heavy')
 
-        if self.exim_user:  # Handle case "package is not installed yet"
-            self += File('/etc/exim4/schema.sql')
-            schema = self._
-            self += ServiceDatabase(
-                self.db_name,
-                username=self.db_username, password=self.db_password,
-                schema=schema.path)
-            self += Service('exim4', action='restart', deps=schema)
+        self += File('/etc/exim4/schema.sql')
+        schema = self._
+        self += ServiceDatabase(
+            self.db_name,
+            username=self.db_username, password=self.db_password,
+            schema=schema.path)
+        self += Service('exim4', action='restart', deps=schema)
 
         self += DisableDebconf()
 
@@ -86,14 +85,6 @@ class Exim(Component):
         self += Service('exim4', action='reload', deps=self._)
 
         self += File('/var/mail', ensure='directory', group='Debian-exim')
-
-    @property
-    def exim_user(self):
-        try:
-            user = pwd.getpwnam('Debian-exim')
-            return {'uid': user.pw_uid, 'gid': user.pw_gid}
-        except KeyError:
-            return None
 
 
 class Clamav(Component):
@@ -187,36 +178,6 @@ class SASchema(Component):
 
     def update(self):
         self.cmd('%s | mysql -Bs -uroot %s' % (self.command, self.db_name))
-
-
-class Courier(Component):
-
-    db_name = None
-    db_username = None
-    db_password = None
-
-    def configure(self):
-        self += Package('courier-imap')
-        self += Package('courier-authlib-mysql')
-
-        deps = []
-        self += File(
-            '/etc/courier/authdaemonrc', source='courier/authdaemonrc',
-            owner='daemon', group='daemon', mode=0o660, is_template=False)
-        deps.append(self._)
-        self += File(
-            '/etc/courier/authmysqlrc', source='courier/authmysqlrc',
-            owner='daemon', group='daemon', mode=0o660)
-        deps.append(self._)
-        self += Service('courier-authdaemon', action='restart', deps=deps)
-
-        self += File('/etc/courier/imapd-ssl', source='courier/imapd-ssl',
-                     is_template=False)
-        self += Service('courier-imap-ssl', action='restart', deps=self._)
-
-        self += Package('socat')
-        self += File('/usr/local/bin/authdaemon-test', mode=0o755,
-                     source='courier/authdaemon-test', is_template=False)
 
 
 class Dovecot(Component):

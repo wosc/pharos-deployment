@@ -19,14 +19,6 @@ class Radicale(Component):
         self._ += Requirements()
         deps.append(self._)
 
-        courier_py = (
-            '/srv/radicale/deployment/lib/python%s/site-packages'
-            '/radicale/auth/courier.py' % VirtualEnv.version)
-        self += Patch(courier_py, source='"GID"', target='b"GID"')
-        self += Patch(
-            courier_py, source='sock.send(line)',
-            target='sock.send(line.encode("utf-8")')
-
         for name in ['radicale.conf', 'logging.conf', 'serve.py']:
             self += File('/srv/radicale/%s' % name, is_template=False)
             deps.append(self._)

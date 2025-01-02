@@ -9,7 +9,7 @@ import os.path
 
 class LetsEncrypt(Component):
 
-    daemons = ['courier', 'Debian-exim', 'www-data']
+    daemons = ['Debian-exim', 'www-data']
     domains = [
         'grmusik.de',
         'wosc.de',
@@ -67,7 +67,7 @@ class LetsEncrypt(Component):
 
         self += File(
             '/etc/sudoers.d/letsencrypt',
-            content='letsencrypt ALL=(root) NOPASSWD: /usr/bin/systemctl reload nginx, /usr/bin/systemctl reload exim4, /usr/bin/systemctl restart courier-imap-ssl, /usr/bin/systemctl restart dovecot\n')
+            content='letsencrypt ALL=(root) NOPASSWD: /usr/bin/systemctl reload nginx, /usr/bin/systemctl reload exim4, /usr/bin/systemctl restart dovecot\n')
 
         self += File(
             '/srv/letsencrypt/update-letsencrypt', source='update.sh',
