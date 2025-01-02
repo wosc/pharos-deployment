@@ -35,7 +35,7 @@ class Mailserver(Component):
             db_name=self.db_name,
             db_username=self.db_username,
             db_password=self.db_password)
-        self += Courier(
+        self += Dovecot(
             db_name=self.db_name,
             db_username=self.db_username,
             db_password=self.db_password)
@@ -217,6 +217,24 @@ class Courier(Component):
         self += Package('socat')
         self += File('/usr/local/bin/authdaemon-test', mode=0o755,
                      source='courier/authdaemon-test', is_template=False)
+
+
+class Dovecot(Component):
+
+    db_name = None
+    db_username = None
+    db_password = None
+
+    def configure(self):
+        self += Package('dovecot-imapd')
+        self += Package('dovecot-mysql')
+
+        deps = []
+        self += File('/etc/dovecot/dovecot.conf', is_template=False)
+        deps.append(self._)
+        self += File('/etc/dovecot/dovecot-sql.conf.ext', mode=0o660)
+        deps.append(self._)
+        self += Service('dovecot', deps=deps)
 
 
 class DisableDebconf(Component):

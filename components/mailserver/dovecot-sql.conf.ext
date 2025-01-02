@@ -1,0 +1,4 @@
+driver = mysql
+connect = host=localhost dbname={{component.db_name}} user={{component.db_username}} password={{component.db_password}}
+password_query = SELECT password FROM mailboxes WHERE login="%u" AND has_mailbox=1
+default_pass_scheme = SHA512-CRYPT
