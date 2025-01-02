@@ -1,11 +1,11 @@
 #!/bin/bash
 
-sudo /etc/init.d/nginx reload &> /dev/null
+sudo systemctl reload nginx &> /dev/null
 
-sudo /etc/init.d/exim4 reload &> /dev/null
+sudo systemctl reload exim4 &> /dev/null
 
 cp key.pem courier.pem
 echo >> courier.pem
 cat fullchain.pem >> courier.pem
 
-sudo /etc/init.d/courier-imap-ssl restart &> /dev/null
+sudo systemctl restart courier-imap-ssl &> /dev/null

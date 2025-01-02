@@ -67,7 +67,7 @@ class LetsEncrypt(Component):
 
         self += File(
             '/etc/sudoers.d/letsencrypt',
-            content='letsencrypt ALL=(root) NOPASSWD: /etc/init.d/nginx, /etc/init.d/exim4, /etc/init.d/courier-imap-ssl\n')
+            content='letsencrypt ALL=(root) NOPASSWD: /usr/bin/systemctl reload nginx, /usr/bin/systemctl reload exim4, /usr/bin/systemctl restart courier-imap-ssl\n')
 
         self += File(
             '/srv/letsencrypt/update-letsencrypt', source='update.sh',
