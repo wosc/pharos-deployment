@@ -20,6 +20,7 @@ $config['des_key'] = '{{component.store_pass_key}}';
 $config['plugins'] = array(
     'archive',
     'login_info',
+    'subscriptions_option',
     'zipdownload',
 );
 
