@@ -11,11 +11,6 @@ updates:
     interval: "weekly"
     day: "friday"
 - package-ecosystem: "pip"
-  directory: "/components/cgi/nginxdbauth"
-  schedule:
-    interval: "weekly"
-    day: "friday"
-- package-ecosystem: "pip"
   directory: "/components/cgi/passwd"
   schedule:
     interval: "weekly"
@@ -32,6 +27,11 @@ updates:
     day: "friday"
 - package-ecosystem: "pip"
   directory: "/components/letsencrypt"
+  schedule:
+    interval: "weekly"
+    day: "friday"
+- package-ecosystem: "pip"
+  directory: "/components/mailserver/auth"
   schedule:
     interval: "weekly"
     day: "friday"
