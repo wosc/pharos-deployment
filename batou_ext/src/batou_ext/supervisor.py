@@ -24,6 +24,9 @@ class Supervisor(Component):
         self += File('/etc/supervisor/supervisord.conf', is_template=False,
                      source=here + 'supervisord.conf')
 
+        self += File('/etc/logrotate.d/supervisor', is_template=False,
+                     source=here + 'supervisor-logrotate.conf')
+
     def verify(self):
         self.assert_no_subcomponent_changes()
 
