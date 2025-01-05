@@ -43,6 +43,12 @@ class Roborally(Component):
         self += Package('mongodb-org')
         self += User('robometeor')
 
+        # Download URL taken from https://github.com/meteor/meteor/blob/release/METEOR@3.1/npm-packages/meteor-installer/install.js#L94-L95
+        # wget https://static.meteor.com/packages-bootstrap/3.1/meteor-bootstrap-os.linux.x86_64.tar.gz
+        # mkdir /opt/meteor
+        # tar xf; mv .meteor/* /opt/meteor
+        # add `export METEOR_WAREHOUSE_DIR=/opt/meteor` to `/opt/meteor/meteor`
+
         # meteor build dist
         # scp dist/robometeor.tar.gz wosc.de:/srv/robometeor
         # rm -rf /srv/robometeor/bundle/*; tar xfC robometeor.tar.gz /srv/robometeor/; npm install --prefix /srv/robometeor/bundle/programs/server; sudo sv restart robometeor
