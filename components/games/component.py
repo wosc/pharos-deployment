@@ -51,10 +51,10 @@ class Roborally(Component):
 
         # meteor build dist
         # scp dist/robometeor.tar.gz wosc.de:/srv/robometeor
-        # rm -rf /srv/robometeor/bundle/*; tar xfC robometeor.tar.gz /srv/robometeor/; npm install --prefix /srv/robometeor/bundle/programs/server; sudo sv restart robometeor
+        # rm -rf /srv/robometeor/bundle/*; tar xfC robometeor.tar.gz /srv/robometeor/; npm install --prefix /srv/robometeor/bundle/programs/server; sudo chmod -R a+r /srv/robometeor/bundle; sudo sv restart robometeor
 
         # replace in programs/web.browser/12345.js:
-        # `Router.route('/` with `Router.router('/roborally/`
+        # `Router.route("/` with `Router.router("/roborally/`
         # prefix with `/roborally`:
         # `/robots/`, `/tiles/`, `/finish.png`, `/start.png`,
         # `/damage-token.png`, `/Power_Off.png`
