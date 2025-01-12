@@ -5,103 +5,37 @@
 #    pip-compile --allow-unsafe --annotation-style=line --output-file=requirements.txt --strip-extras requirements.in
 #
 -e git+https://github.com/wosc/haemera.git#egg=ws.haemera  # via -r requirements.in
-    # via -r requirements.in
-greenlet==3.1.1
-    # via sqlalchemy
-hupper==1.12.1
-    # via pyramid
-jinja2==3.1.5
-    # via pyramid-jinja2
-markupsafe==3.0.2
-    # via
-    #   jinja2
-    #   pyramid-jinja2
-mysqlclient==2.2.7
-    # via -r requirements.in
-packaging==24.2
-    # via zope-sqlalchemy
-pastedeploy==3.1.0
-    # via plaster-pastedeploy
-pendulum==3.0.0
-    # via ws-haemera
-plaster==1.1.2
-    # via
-    #   plaster-pastedeploy
-    #   pyramid
-plaster-pastedeploy==1.0.1
-    # via pyramid
-pyramid==2.0.2
-    # via
-    #   pyramid-jinja2
-    #   pyramid-tm
-    #   ws-haemera
-pyramid-jinja2==2.10.1
-    # via ws-haemera
-pyramid-tm==2.6
-    # via ws-haemera
-python-dateutil==2.9.0.post0
-    # via
-    #   pendulum
-    #   time-machine
-    #   vobject
-    #   ws-haemera
-pytz==2024.2
-    # via vobject
-six==1.17.0
-    # via
-    #   python-dateutil
-    #   vobject
-sqlalchemy==2.0.36
-    # via
-    #   ws-haemera
-    #   zope-sqlalchemy
-time-machine==2.16.0
-    # via pendulum
-transaction==5.0
-    # via
-    #   pyramid-tm
-    #   ws-haemera
-    #   zope-sqlalchemy
-translationstring==1.4
-    # via pyramid
-typing-extensions==4.12.2
-    # via sqlalchemy
-tzdata==2024.2
-    # via pendulum
-venusian==3.1.1
-    # via pyramid
-vobject==0.9.9
-    # via ws-haemera
-webob==1.8.9
-    # via pyramid
-zope-component==6.0
-    # via ws-haemera
-zope-deprecation==5.0
-    # via
-    #   pyramid
-    #   pyramid-jinja2
-zope-event==5.0
-    # via zope-component
-zope-hookable==7.0
-    # via zope-component
-zope-interface==7.2
-    # via
-    #   pyramid
-    #   transaction
-    #   ws-haemera
-    #   zope-component
-    #   zope-sqlalchemy
-zope-sqlalchemy==3.1
-    # via ws-haemera
+greenlet==3.1.1           # via sqlalchemy
+hupper==1.12.1            # via pyramid
+jinja2==3.1.5             # via pyramid-jinja2
+markupsafe==3.0.2         # via jinja2, pyramid-jinja2
+mysqlclient==2.2.7        # via -r requirements.in
+packaging==24.2           # via zope-sqlalchemy
+pastedeploy==3.1.0        # via plaster-pastedeploy
+pendulum==3.0.0           # via ws-haemera
+plaster==1.1.2            # via plaster-pastedeploy, pyramid
+plaster-pastedeploy==1.0.1  # via pyramid
+pyramid==2.0.2            # via pyramid-jinja2, pyramid-tm, ws-haemera
+pyramid-jinja2==2.10.1    # via ws-haemera
+pyramid-tm==2.6           # via ws-haemera
+python-dateutil==2.9.0.post0  # via pendulum, time-machine, vobject, ws-haemera
+pytz==2024.2              # via vobject
+six==1.17.0               # via python-dateutil, vobject
+sqlalchemy==2.0.36        # via ws-haemera, zope-sqlalchemy
+time-machine==2.16.0      # via pendulum
+transaction==5.0          # via pyramid-tm, ws-haemera, zope-sqlalchemy
+translationstring==1.4    # via pyramid
+typing-extensions==4.12.2  # via sqlalchemy
+tzdata==2024.2            # via pendulum
+venusian==3.1.1           # via pyramid
+vobject==0.9.9            # via ws-haemera
+webob==1.8.9              # via pyramid
+zope-component==6.0       # via ws-haemera
+zope-deprecation==5.0     # via pyramid, pyramid-jinja2
+zope-event==5.0           # via zope-component
+zope-hookable==7.0        # via zope-component
+zope-interface==7.2       # via pyramid, transaction, ws-haemera, zope-component, zope-sqlalchemy
+zope-sqlalchemy==3.1      # via ws-haemera
 
 # The following packages are considered to be unsafe in a requirements file:
-setuptools==75.8.0
-    # via
-    #   pyramid
-    #   ws-haemera
-    #   zope-component
-    #   zope-deprecation
-    #   zope-event
-    #   zope-hookable
-    #   zope-interface
-    #   zope-sqlalchemy
+setuptools==75.8.0        # via pyramid, ws-haemera, zope-component, zope-deprecation, zope-event, zope-hookable, zope-interface, zope-sqlalchemy
