@@ -13,7 +13,6 @@ class VirtualEnv(batou.lib.python.VirtualEnv):
 
     bootstrap_versions = {
         'pip': '24.3.1',
-        'setuptools': '75.6.0',
     }
 
     def __init__(self, namevar=None, **kw):
@@ -72,3 +71,20 @@ def verify_pkg_importlib(self, pkg):
 
 
 batou.lib.python.VirtualEnvPyBase.verify_pkg = verify_pkg_importlib
+
+
+def verify_without_setuptools(self):
+    expected_version = tuple(int(x) for x in self.parent.version.split("."))
+    version_specificity = len(expected_version)
+    self.assert_cmd(
+        'bin/python -c "import sys; '
+        'assert sys.version_info[:{}] == {}"'.format(
+            version_specificity, repr(expected_version)
+        )
+    )
+    # patched to remove this
+    # self.assert_cmd('bin/python -c "import pkg_resources"')
+    self.assert_cmd('bin/python -c "import pip"')
+
+
+batou.lib.python.VirtualEnvPyBase.verify = verify_without_setuptools
