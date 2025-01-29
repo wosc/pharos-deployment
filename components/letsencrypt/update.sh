@@ -27,7 +27,7 @@ for domain in */; do
         if [ -x ./update ]; then
             ./update
         else
-            sudo /etc/init.d/nginx reload &> /dev/null
+            sudo systemctl reload nginx &> /dev/null
         fi
     fi
 done
