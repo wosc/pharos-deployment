@@ -15,11 +15,11 @@ jobs:
         directory:
         - calibreview
         - cgi/ddns
-        - cgi/nginxdbauth
         - cgi/passwd
         - cgi/uptimerobot
         - haemera
         - letsencrypt
+        - mailserver/auth
         - prometheus/github
         - prometheus/mailcheck
         - radicale
