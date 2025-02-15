@@ -1,0 +1,11 @@
+groups:
+- name: exim
+  rules:
+  - alert: ssl_certiricates_expires
+    # letsencrypt certs are valid for 90d and renew 30d before expiry
+    expr: ssl_certificate_expires - time() < 14 * 24 * 3600 or absent(ssl_certificate_expires)
+    for: 4h
+    labels:
+      severity: warning
+    annotations:
+      summary: SSL certificate ${labels.hostname} expires in less than two weeks

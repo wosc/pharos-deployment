@@ -214,6 +214,18 @@ class Prom_Exim(Component):
             '/srv/prometheus/conf.d/alert-mailcheck.yml', is_template=False)
         self.provide('prom:rule', self._)
 
+        self += File('/srv/prometheus/bin/sslexpires',
+                     source='sslexpires.py', is_template=False, mode=0o755)
+        self += File('/srv/prometheus/bin/node_exporter-sslexpires',
+                     source='sslexpires.sh', is_template=False, mode=0o755)
+        self += CronJob(
+            '/srv/prometheus/bin/node_exporter-sslexpires',
+            user='prometheus',
+            timing='0 * * * *')
+        self += File(
+            '/srv/prometheus/conf.d/alert-sslexpires.yml', is_template=False)
+        self.provide('prom:rule', self._)
+
 
 class Prom_Github(Component):
 
