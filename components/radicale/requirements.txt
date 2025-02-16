@@ -5,7 +5,7 @@
 #    pip-compile --allow-unsafe --annotation-style=line --output-file=requirements.txt --strip-extras requirements.in
 #
 python-dateutil==2.9.0.post0  # via vobject
-pytz==2024.2              # via vobject
+pytz==2025.1              # via vobject
 radicale==1.1.7           # via -r requirements.in
 six==1.17.0               # via python-dateutil, vobject
 vobject==0.9.9            # via -r requirements.in

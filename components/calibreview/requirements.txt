@@ -14,13 +14,13 @@ plaster==1.1.2            # via plaster-pastedeploy, pyramid
 plaster-pastedeploy==1.0.1  # via pyramid
 pyramid==2.0.2            # via pyramid-jinja2, ws-caliview
 pyramid-jinja2==2.10.1    # via ws-caliview
-sqlalchemy==2.0.36        # via ws-caliview
+sqlalchemy==2.0.38        # via ws-caliview
 translationstring==1.4    # via pyramid
 typing-extensions==4.12.2  # via sqlalchemy
 venusian==3.1.1           # via pyramid
 waitress==3.0.2           # via ws-caliview
 webob==1.8.9              # via pyramid
-zope-deprecation==5.0     # via pyramid, pyramid-jinja2
+zope-deprecation==5.1     # via pyramid, pyramid-jinja2
 zope-interface==7.2       # via pyramid
 
 # The following packages are considered to be unsafe in a requirements file:
