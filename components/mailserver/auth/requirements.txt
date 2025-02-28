@@ -4,7 +4,7 @@
 #
 #    pip-compile --allow-unsafe --annotation-style=line --output-file=requirements.txt --strip-extras requirements.in
 #
-bcrypt==4.2.1             # via -r requirements.in
+bcrypt==4.3.0             # via -r requirements.in
 blinker==1.9.0            # via flask
 click==8.1.8              # via flask
 flask==3.1.0              # via ws-nginxdbauth

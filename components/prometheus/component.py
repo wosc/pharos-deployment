@@ -29,11 +29,11 @@ class DownloadBinary(Component):
 
 class Prometheus(Component):
 
-    version = '3.0.0'
+    version = '3.2.1'
     url = (
         'https://github.com/prometheus/prometheus/releases/download/'
         'v{version}/prometheus-{version}.linux-amd64.tar.gz')
-    checksum = 'sha256:614ce24f4802f1a2d3dc35ab9bd35047f428469c7e029163602a40078bf7508b'
+    checksum = 'sha256:a622e3007c9109a7f470e1433cbd29bf392596715cf7eea8b81b37fa9d26b7be'
 
     def configure(self):
         self.url = self.url.format(version=self.version)
@@ -76,11 +76,11 @@ class Prometheus(Component):
 
 class Prom_Node(Component):
 
-    version = '1.8.2'
+    version = '1.9.0'
     url = (
         'https://github.com/prometheus/node_exporter/releases/download/'
         'v{version}/node_exporter-{version}.linux-amd64.tar.gz')
-    checksum = 'sha256:6809dd0b3ec45fd6e992c19071d6b5253aed3ead7bf0686885a51d85c6643c66'
+    checksum = 'sha256:e7b65ea30eec77180487d518081d3dcb121b975f6d95f1866dfb9156c5b24075'
 
     def configure(self):
         # Allow acessing supervisor control socket
@@ -110,11 +110,11 @@ class Prom_Node(Component):
 
 class Prom_Push(Component):
 
-    version = '1.10.0'
+    version = '1.11.0'
     url = (
         'https://github.com/prometheus/pushgateway/releases/download/'
         'v{version}/pushgateway-{version}.linux-amd64.tar.gz')
-    checksum = 'sha256:e2310c978da19362f2c7f91668550fdbbbb7421f7dfc8eb81a927e017f7b8d17'
+    checksum = 'sha256:5888b0c36d1b8e85950b6eb81ad168ff485a139807896a8727f877813690170c'
 
     def configure(self):
         self += DownloadBinary(
@@ -128,11 +128,11 @@ class Prom_Push(Component):
 
 class Prom_Alert(Component):
 
-    version = '0.27.0'
+    version = '0.28.0'
     url = (
         'https://github.com/prometheus/alertmanager/releases/download/'
         'v{version}/alertmanager-{version}.linux-amd64.tar.gz')
-    checksum = 'sha256:23c3f5a3c73de91dbaec419f3c492bef636deb02680808e5d842e6553aa16074'
+    checksum = 'sha256:6b5a38d32cddef23aad4435a58c1ea39dc0a07b4b155029c601d200720da9ca4'
 
     pushover_user_key = None
     pushover_api_key = None
@@ -251,11 +251,11 @@ class Prom_Github(Component):
 
 class Prom_Mysql(Component):
 
-    version = '0.16.0'
+    version = '0.17.2'
     url = (
         'https://github.com/prometheus/mysqld_exporter/releases/download/'
         'v{version}/mysqld_exporter-{version}.linux-amd64.tar.gz')
-    checksum = 'sha256:32fe0b59ef3f52624a1958aaf6b8855f27c2b492a7026d62a975bbd251be209d'
+    checksum = 'sha256:ef6a2322b869d7d3c1ee3493e28a939ff80b367373142b9b2f3f70a6709d00d7'
 
     db_password = None
 
