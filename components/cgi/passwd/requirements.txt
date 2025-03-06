@@ -9,7 +9,7 @@ click==8.1.8              # via flask
 flask==3.1.0              # via flask-wtf, ws-webpasswd
 flask-wtf==1.2.2          # via ws-webpasswd
 itsdangerous==2.2.0       # via flask, flask-wtf
-jinja2==3.1.5             # via flask
+jinja2==3.1.6             # via flask
 markupsafe==3.0.2         # via jinja2, werkzeug, wtforms
 python-pam==2.0.2         # via ws-webpasswd
 six==1.17.0               # via ws-webpasswd

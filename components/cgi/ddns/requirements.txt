@@ -12,7 +12,7 @@ flask==3.1.0              # via ws-ddns
 gocept-logging==1.0       # via ws-ddns
 idna==3.10                # via requests
 itsdangerous==2.2.0       # via flask
-jinja2==3.1.5             # via flask
+jinja2==3.1.6             # via flask
 lxml==5.3.1               # via ws-ddns
 markupsafe==3.0.2         # via jinja2, werkzeug
 pyotp==2.9.0              # via -r requirements.in

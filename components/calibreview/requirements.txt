@@ -7,7 +7,7 @@
 -e git+https://github.com/wosc/calibre-web-view.git#egg=ws.caliview  # via -r requirements.in
 greenlet==3.1.1           # via sqlalchemy
 hupper==1.12.1            # via pyramid
-jinja2==3.1.5             # via pyramid-jinja2
+jinja2==3.1.6             # via pyramid-jinja2
 markupsafe==3.0.2         # via jinja2, pyramid-jinja2
 pastedeploy==3.1.0        # via plaster-pastedeploy
 plaster==1.1.2            # via plaster-pastedeploy, pyramid
