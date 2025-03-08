@@ -2,3 +2,4 @@
 /.appenv/
 /.batou-lock
 /.vagrant/
+/components/openvpn/rsa
