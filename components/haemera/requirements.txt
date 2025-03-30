@@ -19,14 +19,14 @@ pyramid==2.0.2            # via pyramid-jinja2, pyramid-tm, ws-haemera
 pyramid-jinja2==2.10.1    # via ws-haemera
 pyramid-tm==2.6           # via ws-haemera
 python-dateutil==2.9.0.post0  # via pendulum, time-machine, vobject, ws-haemera
-pytz==2025.1              # via vobject
+pytz==2025.2              # via vobject
 six==1.17.0               # via python-dateutil, vobject
-sqlalchemy==2.0.38        # via ws-haemera, zope-sqlalchemy
+sqlalchemy==2.0.40        # via ws-haemera, zope-sqlalchemy
 time-machine==2.16.0      # via pendulum
 transaction==5.0          # via pyramid-tm, ws-haemera, zope-sqlalchemy
 translationstring==1.4    # via pyramid
-typing-extensions==4.12.2  # via sqlalchemy
-tzdata==2025.1            # via pendulum
+typing-extensions==4.13.0  # via sqlalchemy
+tzdata==2025.2            # via pendulum
 venusian==3.1.1           # via pyramid
 vobject==0.9.9            # via ws-haemera
 webob==1.8.9              # via pyramid
@@ -38,4 +38,4 @@ zope-interface==7.2       # via pyramid, transaction, ws-haemera, zope-component
 zope-sqlalchemy==3.1      # via ws-haemera
 
 # The following packages are considered to be unsafe in a requirements file:
-setuptools==75.8.2        # via pyramid, ws-haemera, zope-component, zope-deprecation, zope-event, zope-hookable, zope-interface, zope-sqlalchemy
+setuptools==78.1.0        # via pyramid, ws-haemera, zope-component, zope-deprecation, zope-event, zope-hookable, zope-interface, zope-sqlalchemy

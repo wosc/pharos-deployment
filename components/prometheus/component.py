@@ -128,11 +128,11 @@ class Prom_Push(Component):
 
 class Prom_Alert(Component):
 
-    version = '0.28.0'
+    version = '0.28.1'
     url = (
         'https://github.com/prometheus/alertmanager/releases/download/'
         'v{version}/alertmanager-{version}.linux-amd64.tar.gz')
-    checksum = 'sha256:6b5a38d32cddef23aad4435a58c1ea39dc0a07b4b155029c601d200720da9ca4'
+    checksum = 'sha256:5ac7ab5e4b8ee5ce4d8fb0988f9cb275efcc3f181b4b408179fafee121693311'
 
     pushover_user_key = None
     pushover_api_key = None
