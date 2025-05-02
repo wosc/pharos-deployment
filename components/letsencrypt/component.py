@@ -23,20 +23,14 @@ class LetsEncrypt(Component):
         {'target': 'key.pem', 'source': 'key', 'mode': 0o640},
     ]
     # Placeholders for batou secrets
-    grmusik_de_account = None
-    grmusik_de_reg = None
-    grmusik_de_key = None
-    mail_wosc_de_account = None
-    mail_wosc_de_reg = None
-    mail_wosc_de_key = None
     # Note, account (and reg?) for pharos and wosc.de are the same
     # as mail.wosc.de, but for simplicity it's duplicated here
-    pharos_wosc_de_account = None
-    pharos_wosc_de_reg = None
-    pharos_wosc_de_key = None
-    wosc_de_account = None
-    wosc_de_reg = None
-    wosc_de_key = None
+    for domain in domains:
+        domain = domain.replace('.', '_')
+        for name in ['account', 'key', 'reg']:
+            locals()[f'{domain}_{name}'] = None
+    del domain
+    del name
 
     files = [
         {'target': 'update', 'source': 'update', 'mode': 0o755},
