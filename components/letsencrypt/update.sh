@@ -12,6 +12,9 @@ for domain in */; do
         aliases="$aliases $(tr "\n" " " < ./aliases)"
     fi
 
+    # Using the main $domain for all vhosts works in conjunction with nginx.conf
+    # which specifies (the first) $server_name, because our port 80 servers
+    # redirect to https://$server_name -- i.e. once an initial certificate exists
     vhosts=""
     for name in $aliases; do
         vhosts="$vhosts --vhost $name:$HOME/public/$domain"

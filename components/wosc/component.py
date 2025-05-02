@@ -99,12 +99,19 @@ class WoscDe(Component):
 
 class GRmusik(Component):
 
+    turawa_ports = {
+        'router': '6080',
+        'home': '6123',
+        'home-reset': '6180',
+        'camera': '6190',
+    }
+
     def configure(self):
         self += User(
             'grmusik', home='/home/grmusik',
             shell='/usr/lib/openssh/sftp-server')
         self += File('/etc/nginx/sites-available/grmusik.de',
-                     source='grmusik.de.conf', is_template=False)
+                     source='grmusik.de.conf')
         self += VHost(self._, site_enable=True)
 
 

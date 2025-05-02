@@ -12,6 +12,7 @@ class LetsEncrypt(Component):
     daemons = ['Debian-exim', 'www-data']
     domains = [
         'grmusik.de',
+        'turawa.grmusik.de',
         'wosc.de',
         'mail.wosc.de',
         'pharos.wosc.de',
@@ -23,8 +24,9 @@ class LetsEncrypt(Component):
         {'target': 'key.pem', 'source': 'key', 'mode': 0o640},
     ]
     # Placeholders for batou secrets
-    # Note, account (and reg?) for pharos and wosc.de are the same
-    # as mail.wosc.de, but for simplicity it's duplicated here
+    # Note, account and reg for pharos and wosc.de are the same
+    # as mail.wosc.de, and turawa is the same as grmusik.de,
+    # but for simplicity it's duplicated here.
     for domain in domains:
         domain = domain.replace('.', '_')
         for name in ['account', 'key', 'reg']:
