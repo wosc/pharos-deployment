@@ -4,13 +4,13 @@
 #
 #    pip-compile --allow-unsafe --annotation-style=line --output-file=requirements.txt --strip-extras requirements.in
 #
-certifi==2025.1.31        # via requests
-charset-normalizer==3.4.1  # via requests
+certifi==2025.4.26        # via requests
+charset-normalizer==3.4.2  # via requests
 github-vulnerability-exporter==1.5.2  # via -r requirements.in
 idna==3.10                # via requests
 prometheus-client==0.21.1  # via github-vulnerability-exporter
 requests==2.32.3          # via github-vulnerability-exporter
-urllib3==2.3.0            # via requests
+urllib3==2.4.0            # via requests
 
 # The following packages are considered to be unsafe in a requirements file:
-setuptools==78.1.0        # via github-vulnerability-exporter
+setuptools==80.4.0        # via github-vulnerability-exporter
