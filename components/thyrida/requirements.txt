@@ -5,7 +5,7 @@
 #    pip-compile --allow-unsafe --annotation-style=line --output-file=requirements.txt --strip-extras requirements.in
 #
 -e git+https://github.com/wosc/thyrida.git#egg=ws.thyrida  # via -r requirements.in
-greenlet==3.2.2           # via sqlalchemy
+greenlet==3.2.3           # via sqlalchemy
 hupper==1.12.1            # via pyramid
 jinja2==3.1.6             # via pyramid-jinja2
 markupsafe==3.0.2         # via jinja2, pyramid-jinja2, wtforms
@@ -17,10 +17,10 @@ plaster-pastedeploy==1.0.1  # via pyramid
 pyramid==2.0.2            # via pyramid-jinja2, pyramid-tm, ws-thyrida
 pyramid-jinja2==2.10.1    # via ws-thyrida
 pyramid-tm==2.6           # via ws-thyrida
-sqlalchemy==2.0.40        # via ws-thyrida, zope-sqlalchemy
+sqlalchemy==2.0.41        # via ws-thyrida, zope-sqlalchemy
 transaction==5.0          # via pyramid-tm, ws-thyrida, zope-sqlalchemy
 translationstring==1.4    # via pyramid
-typing-extensions==4.13.2  # via sqlalchemy
+typing-extensions==4.14.0  # via sqlalchemy
 venusian==3.1.1           # via pyramid
 webob==1.8.9              # via pyramid
 wtforms==3.2.1            # via ws-thyrida
@@ -32,4 +32,4 @@ zope-interface==7.2       # via pyramid, transaction, ws-thyrida, zope-component
 zope-sqlalchemy==3.1      # via ws-thyrida
 
 # The following packages are considered to be unsafe in a requirements file:
-setuptools==80.4.0        # via pyramid, ws-thyrida, zope-component, zope-deprecation, zope-event, zope-hookable, zope-interface, zope-sqlalchemy
+setuptools==80.9.0        # via pyramid, ws-thyrida, zope-component, zope-deprecation, zope-event, zope-hookable, zope-interface, zope-sqlalchemy

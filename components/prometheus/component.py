@@ -29,11 +29,11 @@ class DownloadBinary(Component):
 
 class Prometheus(Component):
 
-    version = '3.2.1'
+    version = '3.4.1'
     url = (
         'https://github.com/prometheus/prometheus/releases/download/'
         'v{version}/prometheus-{version}.linux-amd64.tar.gz')
-    checksum = 'sha256:a622e3007c9109a7f470e1433cbd29bf392596715cf7eea8b81b37fa9d26b7be'
+    checksum = 'sha256:09203151c132f36b004615de1a3dea22117ad17e6d7a59962e34f3abf328f312'
 
     def configure(self):
         self.url = self.url.format(version=self.version)
@@ -76,11 +76,11 @@ class Prometheus(Component):
 
 class Prom_Node(Component):
 
-    version = '1.9.0'
+    version = '1.9.1'
     url = (
         'https://github.com/prometheus/node_exporter/releases/download/'
         'v{version}/node_exporter-{version}.linux-amd64.tar.gz')
-    checksum = 'sha256:e7b65ea30eec77180487d518081d3dcb121b975f6d95f1866dfb9156c5b24075'
+    checksum = 'sha256:becb950ee80daa8ae7331d77966d94a611af79ad0d3307380907e0ec08f5b4e8'
 
     def configure(self):
         # Allow acessing supervisor control socket
@@ -110,11 +110,11 @@ class Prom_Node(Component):
 
 class Prom_Push(Component):
 
-    version = '1.11.0'
+    version = '1.11.1'
     url = (
         'https://github.com/prometheus/pushgateway/releases/download/'
         'v{version}/pushgateway-{version}.linux-amd64.tar.gz')
-    checksum = 'sha256:5888b0c36d1b8e85950b6eb81ad168ff485a139807896a8727f877813690170c'
+    checksum = 'sha256:6ce6ffab84d0d71195036326640295c02165462abd12b8092b0fa93188f5ee37'
 
     def configure(self):
         self += DownloadBinary(
