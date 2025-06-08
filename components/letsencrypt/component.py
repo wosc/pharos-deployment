@@ -16,6 +16,7 @@ class LetsEncrypt(Component):
         'wosc.de',
         'mail.wosc.de',
         'pharos.wosc.de',
+        'neckharmonics.de',
     ]
 
     keys = [

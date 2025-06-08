@@ -97,6 +97,17 @@ class WoscDe(Component):
         self += VHost(self._, site_enable=True)
 
 
+class Neckharmonics(Component):
+
+    def configure(self):
+        self += File('/home/neckharmonics', ensure='directory',
+                     owner='wosc', group='wosc')
+
+        self += File('/etc/nginx/sites-available/neckharmonics.de',
+                     source='neckharmonics.conf', is_template=False)
+        self += VHost(self._, site_enable=True)
+
+
 class GRmusik(Component):
 
     turawa_ports = {
