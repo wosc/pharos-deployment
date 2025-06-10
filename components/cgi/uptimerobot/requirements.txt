@@ -8,6 +8,6 @@ certifi==2025.4.26        # via requests
 charset-normalizer==3.4.2  # via requests
 idna==3.10                # via requests
 prometheus-client==0.22.1  # via ws-prometheus-uptimerobot
-requests==2.32.3          # via ws-prometheus-uptimerobot
+requests==2.32.4          # via ws-prometheus-uptimerobot
 urllib3==2.4.0            # via requests
 ws-prometheus-uptimerobot==1.3.0  # via -r requirements.in

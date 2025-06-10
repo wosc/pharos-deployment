@@ -13,8 +13,8 @@ idna==3.10                # via requests
 lxml==5.4.0               # via caldav
 python-dateutil==2.9.0.post0  # via icalendar, recurring-ical-events, vobject
 pytz==2025.2              # via vobject
-recurring-ical-events==3.7.0  # via caldav
-requests==2.32.3          # via caldav
+recurring-ical-events==3.8.0  # via caldav
+requests==2.32.4          # via caldav
 six==1.17.0               # via python-dateutil, vobject
 tzdata==2025.2            # via icalendar, recurring-ical-events, x-wr-timezone
 urllib3==2.4.0            # via requests

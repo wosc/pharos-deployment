@@ -9,7 +9,7 @@ acme==4.0.0               # via simp-le-client
 certifi==2025.4.26        # via requests
 cffi==1.17.1              # via cryptography
 charset-normalizer==3.4.2  # via requests
-cryptography==45.0.3      # via acme, josepy, pyopenssl, simp-le-client
+cryptography==45.0.4      # via acme, josepy, pyopenssl, simp-le-client
 idna==3.10                # via requests, simp-le-client
 josepy==2.0.0             # via acme, simp-le-client
 mock==5.2.0               # via simp-le-client
@@ -17,7 +17,7 @@ pycparser==2.22           # via cffi
 pyopenssl==25.1.0         # via acme, simp-le-client
 pyrfc3339==2.0.1          # via acme
 pytz==2025.2              # via acme, simp-le-client
-requests==2.32.3          # via acme
+requests==2.32.4          # via acme
 six==1.17.0               # via simp-le-client
 typing-extensions==4.14.0  # via pyopenssl
 urllib3==2.4.0            # via requests

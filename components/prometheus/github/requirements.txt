@@ -9,7 +9,7 @@ charset-normalizer==3.4.2  # via requests
 github-vulnerability-exporter==1.5.2  # via -r requirements.in
 idna==3.10                # via requests
 prometheus-client==0.22.1  # via github-vulnerability-exporter
-requests==2.32.3          # via github-vulnerability-exporter
+requests==2.32.4          # via github-vulnerability-exporter
 urllib3==2.4.0            # via requests
 
 # The following packages are considered to be unsafe in a requirements file:
