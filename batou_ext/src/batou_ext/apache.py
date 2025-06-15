@@ -40,6 +40,7 @@ class CGIServer(Component):
 
     def update(self):
         self.cmd('systemctl disable apache2')
+        self.cmd('systemctl disable apache-htcacheclean')
 
 
 class CGI(Component):
