@@ -21,17 +21,17 @@ pyramid-tm==2.6           # via ws-haemera
 python-dateutil==2.9.0.post0  # via pendulum, vobject, ws-haemera
 pytz==2025.2              # via vobject
 six==1.17.0               # via python-dateutil, vobject
-sqlalchemy==2.0.41        # via ws-haemera, zope-sqlalchemy
+sqlalchemy==2.0.42        # via ws-haemera, zope-sqlalchemy
 transaction==5.0          # via pyramid-tm, ws-haemera, zope-sqlalchemy
 translationstring==1.4    # via pyramid
-typing-extensions==4.14.0  # via sqlalchemy
+typing-extensions==4.14.1  # via sqlalchemy
 tzdata==2025.2            # via pendulum
 venusian==3.1.1           # via pyramid
 vobject==0.9.9            # via ws-haemera
 webob==1.8.9              # via pyramid
 zope-component==6.0       # via ws-haemera
 zope-deprecation==5.1     # via pyramid, pyramid-jinja2
-zope-event==5.0           # via zope-component
+zope-event==5.1.1         # via zope-component
 zope-hookable==7.0        # via zope-component
 zope-interface==7.2       # via pyramid, transaction, ws-haemera, zope-component, zope-sqlalchemy
 zope-sqlalchemy==3.1      # via ws-haemera
