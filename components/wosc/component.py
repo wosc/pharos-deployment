@@ -63,11 +63,9 @@ class Dailystrips(Component):
     ui_password = None
 
     def configure(self):
-        self += Package('dailystrips')
-        self += Patch(
-            '/usr/bin/dailystrips',
-            target='altpattern',
-            file='dailystrips-altpattern.patch', strip=0)
+        self += VirtualEnv()
+        self._ += Requirements(source='dailycomics/requirements.txt')
+        self += Symlink('/usr/local/bin/dailycomics', source=self.map('bin/dailycomics'))
 
         self += File(
             '/home/wosc/bin/dailycomics.sh', is_template=False, mode=0o755)
