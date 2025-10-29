@@ -5,16 +5,16 @@
 #    pip-compile --allow-unsafe --annotation-style=line --output-file=requirements.txt --strip-extras requirements.in
 #
 caldav==2.0.1             # via ws-caldavcheck
-certifi==2025.7.14        # via requests
-charset-normalizer==3.4.2  # via requests
-click==8.2.1              # via x-wr-timezone
+certifi==2025.10.5        # via requests
+charset-normalizer==3.4.4  # via requests
+click==8.3.0              # via x-wr-timezone
 icalendar==6.3.1          # via caldav, recurring-ical-events, x-wr-timezone
-idna==3.10                # via requests
-lxml==6.0.0               # via caldav
+idna==3.11                # via requests
+lxml==6.0.2               # via caldav
 python-dateutil==2.9.0.post0  # via icalendar, recurring-ical-events, vobject
 pytz==2025.2              # via vobject
 recurring-ical-events==3.8.0  # via caldav
-requests==2.32.4          # via caldav
+requests==2.32.5          # via caldav
 six==1.17.0               # via python-dateutil, vobject
 tzdata==2025.2            # via icalendar, recurring-ical-events, x-wr-timezone
 urllib3==2.5.0            # via requests
