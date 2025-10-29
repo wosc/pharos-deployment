@@ -13,11 +13,11 @@ from batou_ext.user import User
 
 class Wallabag(Component):
 
-    version = '2.6.13'
+    version = '2.6.14'
     url = (
         'https://github.com/wallabag/wallabag/releases/download/{version}'
         '/wallabag-{version}.tar.gz')
-    checksum = 'sha256:1a79d70279fc8ea9ddcb7182ae8bee4b975d77365b4bf4675fc24be72355a696'
+    checksum = 'sha256:0049345aec597dace8e2be2c85c2b8e7744217fe15fd5303bcab3811719eff0d'
 
     # php bin/console --env=prod doctrine:migrations:migrate --no-interaction
     # php bin/console --env=prod cache:clear
