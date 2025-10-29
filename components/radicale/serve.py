@@ -14,4 +14,4 @@ def wsgi(environ, start_response):
 
 radicale.log.start()
 APP = radicale.Application()
-waitress.serve(wsgi, threads=4, listen='localhost:7076')
+waitress.serve(wsgi, threads=1, listen='localhost:7076')
