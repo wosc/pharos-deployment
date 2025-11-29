@@ -31,10 +31,10 @@ vobject==0.9.9            # via ws-haemera
 webob==1.8.9              # via pyramid
 zope-component==7.0       # via ws-haemera
 zope-deprecation==6.0     # via pyramid, pyramid-jinja2
-zope-event==6.0           # via zope-component
-zope-hookable==8.1        # via zope-component
-zope-interface==8.0.1     # via pyramid, transaction, ws-haemera, zope-component, zope-sqlalchemy
-zope-sqlalchemy==4.0      # via ws-haemera
+zope-event==6.1           # via zope-component
+zope-hookable==8.2        # via zope-component
+zope-interface==8.1.1     # via pyramid, transaction, ws-haemera, zope-component, zope-sqlalchemy
+zope-sqlalchemy==4.1      # via ws-haemera
 
 # The following packages are considered to be unsafe in a requirements file:
-setuptools==80.9.0        # via pyramid, zope-component, zope-deprecation, zope-event, zope-sqlalchemy
+setuptools==80.9.0        # via pyramid, zope-component, zope-deprecation

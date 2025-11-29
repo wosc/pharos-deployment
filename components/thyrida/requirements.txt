@@ -26,10 +26,10 @@ webob==1.8.9              # via pyramid
 wtforms==3.2.1            # via ws-thyrida
 zope-component==7.0       # via ws-thyrida
 zope-deprecation==6.0     # via pyramid, pyramid-jinja2
-zope-event==6.0           # via zope-component
-zope-hookable==8.1        # via zope-component
-zope-interface==8.0.1     # via pyramid, transaction, ws-thyrida, zope-component, zope-sqlalchemy
-zope-sqlalchemy==4.0      # via ws-thyrida
+zope-event==6.1           # via zope-component
+zope-hookable==8.2        # via zope-component
+zope-interface==8.1.1     # via pyramid, transaction, ws-thyrida, zope-component, zope-sqlalchemy
+zope-sqlalchemy==4.1      # via ws-thyrida
 
 # The following packages are considered to be unsafe in a requirements file:
-setuptools==80.9.0        # via pyramid, zope-component, zope-deprecation, zope-event, zope-sqlalchemy
+setuptools==80.9.0        # via pyramid, zope-component, zope-deprecation
