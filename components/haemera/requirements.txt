@@ -5,7 +5,7 @@
 #    pip-compile --allow-unsafe --annotation-style=line --output-file=requirements.txt --strip-extras requirements.in
 #
 -e git+https://github.com/wosc/haemera.git#egg=ws.haemera  # via -r requirements.in
-greenlet==3.2.4           # via sqlalchemy
+greenlet==3.3.0           # via sqlalchemy
 hupper==1.12.1            # via pyramid
 jinja2==3.1.6             # via pyramid-jinja2
 markupsafe==3.0.3         # via jinja2, pyramid-jinja2

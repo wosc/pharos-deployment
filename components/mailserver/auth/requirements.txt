@@ -8,7 +8,7 @@ bcrypt==5.0.0             # via -r requirements.in
 blinker==1.9.0            # via flask
 click==8.3.1              # via flask
 flask==3.1.2              # via ws-nginxdbauth
-greenlet==3.2.4           # via sqlalchemy
+greenlet==3.3.0           # via sqlalchemy
 itsdangerous==2.2.0       # via flask
 jinja2==3.1.6             # via flask
 markupsafe==3.0.3         # via flask, jinja2, werkzeug
