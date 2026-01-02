@@ -17,7 +17,7 @@ plaster-pastedeploy==1.0.1  # via pyramid
 pyramid==2.0.2            # via pyramid-jinja2, pyramid-tm, ws-thyrida
 pyramid-jinja2==2.10.1    # via ws-thyrida
 pyramid-tm==2.6           # via ws-thyrida
-sqlalchemy==2.0.44        # via ws-thyrida, zope-sqlalchemy
+sqlalchemy==2.0.45        # via ws-thyrida, zope-sqlalchemy
 transaction==5.0          # via pyramid-tm, ws-thyrida, zope-sqlalchemy
 translationstring==1.4    # via pyramid
 typing-extensions==4.15.0  # via sqlalchemy

@@ -11,5 +11,5 @@ html2text==2025.4.15      # via ws-rsspull
 idna==3.11                # via requests
 requests==2.32.5          # via ws-rsspull
 sgmllib3k==1.0.0          # via feedparser
-urllib3==2.6.1            # via requests
+urllib3==2.6.2            # via requests
 ws-rsspull==2.5.0         # via -r requirements.in

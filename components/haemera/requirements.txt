@@ -21,11 +21,11 @@ pyramid-tm==2.6           # via ws-haemera
 python-dateutil==2.9.0.post0  # via pendulum, vobject, ws-haemera
 pytz==2025.2              # via vobject
 six==1.17.0               # via python-dateutil, vobject
-sqlalchemy==2.0.44        # via ws-haemera, zope-sqlalchemy
+sqlalchemy==2.0.45        # via ws-haemera, zope-sqlalchemy
 transaction==5.0          # via pyramid-tm, ws-haemera, zope-sqlalchemy
 translationstring==1.4    # via pyramid
 typing-extensions==4.15.0  # via sqlalchemy
-tzdata==2025.2            # via pendulum
+tzdata==2025.3            # via pendulum
 venusian==3.1.1           # via pyramid
 vobject==0.9.9            # via ws-haemera
 webob==1.8.9              # via pyramid
