@@ -33,7 +33,7 @@ zope-component==7.0       # via ws-haemera
 zope-deprecation==6.0     # via pyramid, pyramid-jinja2
 zope-event==6.1           # via zope-component
 zope-hookable==8.2        # via zope-component
-zope-interface==8.1.1     # via pyramid, transaction, ws-haemera, zope-component, zope-sqlalchemy
+zope-interface==8.2       # via pyramid, transaction, ws-haemera, zope-component, zope-sqlalchemy
 zope-sqlalchemy==4.1      # via ws-haemera
 
 # The following packages are considered to be unsafe in a requirements file:

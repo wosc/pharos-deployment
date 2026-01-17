@@ -13,7 +13,7 @@ icalendar==6.3.2          # via caldav, icalendar-searcher, recurring-ical-event
 icalendar-searcher==1.0.3  # via caldav
 jh2==5.0.10               # via urllib3-future
 lxml==6.0.2               # via caldav
-niquests==3.16.1          # via caldav
+niquests==3.17.0          # via caldav
 python-dateutil==2.9.0.post0  # via icalendar, recurring-ical-events, vobject
 pytz==2025.2              # via vobject
 qh3==1.5.6                # via urllib3-future
@@ -22,7 +22,7 @@ six==1.17.0               # via python-dateutil, vobject
 tzdata==2025.3            # via icalendar, recurring-ical-events, x-wr-timezone
 urllib3-future==2.15.901  # via niquests
 vobject==0.9.9            # via ws-caldavcheck
-wassima==2.0.3            # via niquests
+wassima==2.0.4            # via niquests
 ws-caldavcheck==1.0.2     # via -r requirements.in
 ws-mailcheck==1.0.5       # via -r requirements.in
 x-wr-timezone==2.0.1      # via recurring-ical-events

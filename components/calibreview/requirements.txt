@@ -21,7 +21,7 @@ venusian==3.1.1           # via pyramid
 waitress==3.0.2           # via ws-caliview
 webob==1.8.9              # via pyramid
 zope-deprecation==6.0     # via pyramid, pyramid-jinja2
-zope-interface==8.1.1     # via pyramid
+zope-interface==8.2       # via pyramid
 
 # The following packages are considered to be unsafe in a requirements file:
 setuptools==80.9.0        # via pyramid, zope-deprecation
