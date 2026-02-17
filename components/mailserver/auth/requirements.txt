@@ -8,13 +8,13 @@ bcrypt==5.0.0             # via -r requirements.in
 blinker==1.9.0            # via flask
 click==8.3.1              # via flask
 flask==3.1.2              # via ws-nginxdbauth
-greenlet==3.3.0           # via sqlalchemy
+greenlet==3.3.1           # via sqlalchemy
 itsdangerous==2.2.0       # via flask
 jinja2==3.1.6             # via flask
 markupsafe==3.0.3         # via flask, jinja2, werkzeug
-mysqlclient==2.2.7        # via -r requirements.in
+mysqlclient==2.2.8        # via -r requirements.in
 passlib==1.7.4            # via -r requirements.in
-sqlalchemy==2.0.45        # via ws-nginxdbauth
+sqlalchemy==2.0.46        # via ws-nginxdbauth
 typing-extensions==4.15.0  # via sqlalchemy
 werkzeug==3.1.5           # via flask
 ws-nginxdbauth==1.1.1     # via -r requirements.in

@@ -5,14 +5,13 @@
 #    pip-compile --allow-unsafe --annotation-style=line --output-file=requirements.txt --strip-extras requirements.in
 #
 -e git+https://github.com/wosc/haemera.git#egg=ws.haemera  # via -r requirements.in
-greenlet==3.3.0           # via sqlalchemy
 hupper==1.12.1            # via pyramid
 jinja2==3.1.6             # via pyramid-jinja2
 markupsafe==3.0.3         # via jinja2, pyramid-jinja2
-mysqlclient==2.2.7        # via -r requirements.in
-packaging==25.0           # via zope-sqlalchemy
+mysqlclient==2.2.8        # via -r requirements.in
+packaging==26.0           # via zope-sqlalchemy
 pastedeploy==3.1.0        # via plaster-pastedeploy
-pendulum==3.1.0           # via ws-haemera
+pendulum==3.2.0           # via ws-haemera
 plaster==1.1.2            # via plaster-pastedeploy, pyramid
 plaster-pastedeploy==1.0.1  # via pyramid
 pyramid==2.0.2            # via pyramid-jinja2, pyramid-tm, ws-haemera
@@ -21,7 +20,7 @@ pyramid-tm==2.6           # via ws-haemera
 python-dateutil==2.9.0.post0  # via pendulum, vobject, ws-haemera
 pytz==2025.2              # via vobject
 six==1.17.0               # via python-dateutil, vobject
-sqlalchemy==2.0.45        # via ws-haemera, zope-sqlalchemy
+sqlalchemy==2.1.0b1       # via ws-haemera, zope-sqlalchemy
 transaction==5.0          # via pyramid-tm, ws-haemera, zope-sqlalchemy
 translationstring==1.4    # via pyramid
 typing-extensions==4.15.0  # via sqlalchemy
@@ -29,7 +28,7 @@ tzdata==2025.3            # via pendulum
 venusian==3.1.1           # via pyramid
 vobject==0.9.9            # via ws-haemera
 webob==1.8.9              # via pyramid
-zope-component==7.0       # via ws-haemera
+zope-component==7.1       # via ws-haemera
 zope-deprecation==6.0     # via pyramid, pyramid-jinja2
 zope-event==6.1           # via zope-component
 zope-hookable==8.2        # via zope-component
@@ -37,4 +36,4 @@ zope-interface==8.2       # via pyramid, transaction, ws-haemera, zope-component
 zope-sqlalchemy==4.1      # via ws-haemera
 
 # The following packages are considered to be unsafe in a requirements file:
-setuptools==80.9.0        # via pyramid, zope-component, zope-deprecation
+setuptools==81.0.0        # via -r requirements.in, pyramid, zope-deprecation

@@ -22,4 +22,4 @@ werkzeug==3.1.5           # via flask
 ws-ddns==1.6.0            # via -r requirements.in
 
 # The following packages are considered to be unsafe in a requirements file:
-setuptools==80.9.0        # via gocept-logging
+setuptools==82.0.0        # via gocept-logging
