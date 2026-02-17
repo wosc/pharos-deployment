@@ -1,2 +1,3 @@
 -e git+https://github.com/wosc/haemera.git#egg=ws.haemera
 mysqlclient
+setuptools<82

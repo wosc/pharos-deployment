@@ -1,1 +1,2 @@
 -e git+https://github.com/wosc/calibre-web-view.git#egg=ws.caliview
+setuptools<82
