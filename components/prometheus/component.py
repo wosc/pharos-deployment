@@ -29,11 +29,11 @@ class DownloadBinary(Component):
 
 class Prometheus(Component):
 
-    version = '3.8.1'
+    version = '3.10.0'
     url = (
         'https://github.com/prometheus/prometheus/releases/download/'
         'v{version}/prometheus-{version}.linux-amd64.tar.gz')
-    checksum = 'sha256:a09972ced892cd298e353eb9559f1a90f499da3fb4ff0845be352fc138780ee7'
+    checksum = 'sha256:41c50d97bb6a181623fc89d3fe61d0cc68ee69cc93da9091b8bba005f9690122'
 
     def configure(self):
         self.url = self.url.format(version=self.version)
@@ -128,11 +128,11 @@ class Prom_Push(Component):
 
 class Prom_Alert(Component):
 
-    version = '0.30.0'
+    version = '0.31.1'
     url = (
         'https://github.com/prometheus/alertmanager/releases/download/'
         'v{version}/alertmanager-{version}.linux-amd64.tar.gz')
-    checksum = 'sha256:86fd95034e3e17094d6951118c54b396200be22a1c16af787e1f7129ebce8f1f'
+    checksum = 'sha256:35191cbd9d4f8162458b78dd7e93990cccd246044d9a6f788adb1c66ac3ea07b'
 
     pushover_user_key = None
     pushover_api_key = None
