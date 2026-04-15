@@ -5,19 +5,16 @@
 #    pip-compile --allow-unsafe --annotation-style=line --output-file=requirements.txt --strip-extras requirements.in
 #
 -e git+https://github.com/wosc/simp_le.git#egg=simp-le-client  # via -r requirements.in
-acme==5.4.0               # via simp-le-client
+acme==5.5.0               # via simp-le-client
 certifi==2026.2.25        # via requests
 cffi==2.0.0               # via cryptography
-charset-normalizer==3.4.6  # via requests
-cryptography==46.0.6      # via acme, josepy, pyopenssl, simp-le-client
-idna==3.11                # via requests, simp-le-client
+charset-normalizer==3.4.7  # via requests
+cryptography==46.0.7      # via acme, josepy, pyopenssl, simp-le-client
+idna==3.11                # via requests
 josepy==2.2.0             # via acme, simp-le-client
-mock==5.2.0               # via simp-le-client
 pycparser==3.0            # via cffi
-pyopenssl==26.0.0         # via acme, simp-le-client
+pyopenssl==26.0.0         # via acme
 pyrfc3339==2.1.0          # via acme
-pytz==2026.1.post1        # via simp-le-client
 requests==2.33.1          # via acme
-six==1.17.0               # via simp-le-client
 typing-extensions==4.15.0  # via pyopenssl
 urllib3==2.6.3            # via requests
