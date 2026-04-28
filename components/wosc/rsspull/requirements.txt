@@ -4,11 +4,11 @@
 #
 #    pip-compile --allow-unsafe --annotation-style=line --output-file=requirements.txt --strip-extras requirements.in
 #
-certifi==2026.2.25        # via requests
+certifi==2026.4.22        # via requests
 charset-normalizer==3.4.7  # via requests
 feedparser==6.0.12        # via ws-rsspull
 html2text==2025.4.15      # via ws-rsspull
-idna==3.11                # via requests
+idna==3.13                # via requests
 requests==2.33.1          # via ws-rsspull
 sgmllib3k==1.0.0          # via feedparser
 urllib3==2.6.3            # via requests

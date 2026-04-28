@@ -4,9 +4,9 @@
 #
 #    pip-compile --allow-unsafe --annotation-style=line --output-file=requirements.txt --strip-extras requirements.in
 #
-certifi==2026.2.25        # via requests
+certifi==2026.4.22        # via requests
 charset-normalizer==3.4.7  # via requests
-idna==3.11                # via requests
+idna==3.13                # via requests
 prometheus-client==0.25.0  # via ws-prometheus-uptimerobot
 requests==2.33.1          # via ws-prometheus-uptimerobot
 urllib3==2.6.3            # via requests

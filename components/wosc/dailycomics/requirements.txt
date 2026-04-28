@@ -5,9 +5,9 @@
 #    pip-compile --allow-unsafe --annotation-style=line --output-file=requirements.txt --strip-extras requirements.in
 #
 -e git+https://github.com/wosc/dailycomics.git#egg=ws.dailycomics  # via -r requirements.in
-certifi==2026.2.25        # via requests
+certifi==2026.4.22        # via requests
 charset-normalizer==3.4.7  # via requests
-idna==3.11                # via requests
+idna==3.13                # via requests
 jinja2==3.1.6             # via ws-dailycomics
 markupsafe==3.0.3         # via jinja2
 pyyaml==6.0.3             # via ws-dailycomics
