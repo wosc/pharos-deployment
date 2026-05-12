@@ -7,10 +7,10 @@
 certifi==2026.4.22        # via requests
 charset-normalizer==3.4.7  # via requests
 github-vulnerability-exporter==1.5.2  # via -r requirements.in
-idna==3.13                # via requests
+idna==3.14                # via requests
 prometheus-client==0.25.0  # via github-vulnerability-exporter
-requests==2.33.1          # via github-vulnerability-exporter
-urllib3==2.6.3            # via requests
+requests==2.34.0          # via github-vulnerability-exporter
+urllib3==2.7.0            # via requests
 
 # The following packages are considered to be unsafe in a requirements file:
 setuptools==82.0.1        # via github-vulnerability-exporter
