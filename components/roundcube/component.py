@@ -1,6 +1,6 @@
 from batou.component import Component
 from batou.lib.download import Download
-from batou.lib.file import File, SyncDirectory
+from batou.lib.file import File
 from batou_ext.apt import Package
 from batou_ext.archive import Extract
 from batou_ext.file import Delete
@@ -45,18 +45,12 @@ class Roundcube(Component):
         self += File(
             '/srv/roundcube/config/config.inc.php', source='config.php',
             owner='roundcube', group='roundcube', mode=0o640)
-
-        # self += Download(
-        #     'https://github.com/marneu/login_info/archive/'
-        #     'b4e8a299a3f10b5e81a753a84cc9fe51015b0035.zip',
-        #     checksum='sha256:3e90853e991dfb7e8ec1814f716ebf031633859a6c522e9281a1381b310b45e6')
-        # self += Extract(self._.target, owner='roundcube', group='roundcube')
-        # Poor man's strip for zip, idea taken from
-        # <https://github.com/chef-cookbooks/ark/blob/e8c03f6/
-        #   libraries/unzip_command_builder.rb#L34>
-        # self += SyncDirectory(
-        #     '/srv/roundcube/plugins/login_info',
-        #     source=self._.target + '/*', sync_opts='-a')
+        self += File('/srv/roundcube/plugins/login_info',
+                     ensure='directory', owner='roundcube', group='roundcube')
+        self += File(
+            '/srv/roundcube/plugins/login_info/login_info.php',
+            source='login_info.php', is_template=False,
+            owner='roundcube', group='roundcube')
 
         self += ServiceDatabase(
             'roundcube', password=self.db_password,
