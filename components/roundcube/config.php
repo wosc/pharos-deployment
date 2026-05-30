@@ -19,13 +19,12 @@ $config['des_key'] = '{{component.store_pass_key}}';
 // List of active plugins (in plugins/ directory)
 $config['plugins'] = array(
     'archive',
-    'login_info',
+    // 'login_info',
     'subscriptions_option',
     'zipdownload',
 );
 
-// skin name: folder from skins/
-$config['skin'] = 'elastic';
+$config['assets_path'] = '/';
 
 $config['custom_login_info_localization'] = false;
 $config['custom_login_info_after'] = '<div style="position: relative; top: 20vh;"><a href="/config/password">Change password</a></div>';

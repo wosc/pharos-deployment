@@ -14,11 +14,11 @@ from batou_ext.user import User
 
 class Roundcube(Component):
 
-    version = '1.6.15'
+    version = '1.7.1'
     url = (
         'https://github.com/roundcube/roundcubemail/releases/download/{version}'
         '/roundcubemail-{version}-complete.tar.gz')
-    checksum = 'sha256:48c9f212c77460132491f670abaf440b765c8276268349a690913764d26afbef'
+    checksum = 'sha256:1e0382bcefd627ab0b6285d3181ddfba5b444fdcf6d49f33f5ea15fbf97864ef'
 
     db_password = None
     store_pass_key = None
@@ -32,6 +32,7 @@ class Roundcube(Component):
             check_source_removed=True)
         self += Service('imapproxy', action='restart', deps=self._)
 
+        self += Package('php8.3-zip')  # for zipdownload plugin
         self += User('roundcube')
 
         self += Download(
@@ -39,23 +40,23 @@ class Roundcube(Component):
         self += Extract(
             self._.target, target='/srv/roundcube', strip=1,
             owner='roundcube', group='roundcube')
-        self += Delete('/srv/roundcube/installer')
+        self += Delete('/srv/roundcube/public_html/installer.php')
 
         self += File(
             '/srv/roundcube/config/config.inc.php', source='config.php',
             owner='roundcube', group='roundcube', mode=0o640)
 
-        self += Download(
-            'https://github.com/marneu/login_info/archive/'
-            'b4e8a299a3f10b5e81a753a84cc9fe51015b0035.zip',
-            checksum='sha256:3e90853e991dfb7e8ec1814f716ebf031633859a6c522e9281a1381b310b45e6')
-        self += Extract(self._.target, owner='roundcube', group='roundcube')
+        # self += Download(
+        #     'https://github.com/marneu/login_info/archive/'
+        #     'b4e8a299a3f10b5e81a753a84cc9fe51015b0035.zip',
+        #     checksum='sha256:3e90853e991dfb7e8ec1814f716ebf031633859a6c522e9281a1381b310b45e6')
+        # self += Extract(self._.target, owner='roundcube', group='roundcube')
         # Poor man's strip for zip, idea taken from
         # <https://github.com/chef-cookbooks/ark/blob/e8c03f6/
         #   libraries/unzip_command_builder.rb#L34>
-        self += SyncDirectory(
-            '/srv/roundcube/plugins/login_info',
-            source=self._.target + '/*', sync_opts='-a')
+        # self += SyncDirectory(
+        #     '/srv/roundcube/plugins/login_info',
+        #     source=self._.target + '/*', sync_opts='-a')
 
         self += ServiceDatabase(
             'roundcube', password=self.db_password,
@@ -68,5 +69,5 @@ class Roundcube(Component):
 
         self += File(
             '/etc/nginx/sites-available/mail.wosc.de',
-            source='nginx.conf', is_template=False)
+            source='nginx.conf')
         self += VHost(self._, site_enable=True)
