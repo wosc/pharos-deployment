@@ -4,27 +4,27 @@
 #
 #    pip-compile --allow-unsafe --annotation-style=line --output-file=requirements.txt --strip-extras requirements.in
 #
-caldav==3.2.0             # via ws-caldavcheck
+caldav==3.2.1             # via ws-caldavcheck
 charset-normalizer==3.4.7  # via niquests
 click==8.4.1              # via x-wr-timezone
 dnspython==2.8.0          # via caldav
 h11==0.16.0               # via urllib3-future
 icalendar==7.1.2          # via caldav, icalendar-searcher, recurring-ical-events, x-wr-timezone
-icalendar-searcher==1.0.5  # via caldav
-jh2==5.0.11               # via urllib3-future
+icalendar-searcher==1.0.6  # via caldav
+jh2==5.0.13               # via urllib3-future
 lxml==6.1.1               # via caldav
-niquests==3.18.8          # via caldav
+niquests==3.19.1          # via caldav
 python-dateutil==2.9.0.post0  # via caldav, icalendar, recurring-ical-events, vobject
 pytz==2026.2              # via vobject
 pyyaml==6.0.3             # via caldav
-qh3==1.8.1                # via urllib3-future
+qh3==1.9.2                # via urllib3-future
 recurring-ical-events==3.8.2  # via caldav, icalendar-searcher
 six==1.17.0               # via python-dateutil, vobject
 typing-extensions==4.15.0  # via icalendar
 tzdata==2026.2            # via icalendar, recurring-ical-events, x-wr-timezone
-urllib3-future==2.20.907  # via niquests
+urllib3-future==2.21.902  # via niquests
 vobject==0.9.9            # via ws-caldavcheck
-wassima==2.1.0            # via niquests
+wassima==2.1.1            # via niquests
 ws-caldavcheck==1.0.2     # via -r requirements.in
 ws-mailcheck==1.0.5       # via -r requirements.in
 x-wr-timezone==2.0.1      # via recurring-ical-events
