@@ -5,7 +5,7 @@
 #    pip-compile --allow-unsafe --annotation-style=line --output-file=requirements.txt --strip-extras requirements.in
 #
 -e git+https://github.com/wosc/calibre-web-view.git#egg=ws.caliview  # via -r requirements.in
-greenlet==3.5.1           # via sqlalchemy
+greenlet==3.5.3           # via sqlalchemy
 hupper==1.12.1            # via pyramid
 jinja2==3.1.6             # via pyramid-jinja2
 markupsafe==3.0.3         # via jinja2, pyramid-jinja2
@@ -14,9 +14,9 @@ plaster==1.1.2            # via plaster-pastedeploy, pyramid
 plaster-pastedeploy==1.0.1  # via pyramid
 pyramid==2.1              # via pyramid-jinja2, ws-caliview
 pyramid-jinja2==2.10.1    # via ws-caliview
-sqlalchemy==2.0.50        # via ws-caliview
+sqlalchemy==2.0.51        # via ws-caliview
 translationstring==1.4    # via pyramid
-typing-extensions==4.15.0  # via sqlalchemy
+typing-extensions==4.16.0  # via sqlalchemy
 venusian==3.1.1           # via pyramid
 waitress==3.0.2           # via ws-caliview
 webob==1.8.10             # via pyramid

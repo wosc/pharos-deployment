@@ -5,9 +5,9 @@
 #    pip-compile --allow-unsafe --annotation-style=line --output-file=requirements.txt --strip-extras requirements.in
 #
 blinker==1.9.0            # via flask
-certifi==2026.5.20        # via requests
+certifi==2026.6.17        # via requests
 charset-normalizer==3.4.7  # via requests
-click==8.4.1              # via flask
+click==8.4.2              # via flask
 flask==3.1.3              # via ws-ddns
 gocept-logging==1.0       # via ws-ddns
 idna==3.18                # via requests
@@ -15,7 +15,7 @@ itsdangerous==2.2.0       # via flask
 jinja2==3.1.6             # via flask
 lxml==6.1.1               # via ws-ddns
 markupsafe==3.0.3         # via flask, jinja2, werkzeug
-pyotp==2.9.0              # via -r requirements.in
+pyotp==2.10.0             # via -r requirements.in
 requests==2.34.2          # via ws-ddns
 urllib3==2.7.0            # via requests
 werkzeug==3.1.8           # via flask
