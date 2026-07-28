@@ -5,8 +5,8 @@
 #    pip-compile --allow-unsafe --annotation-style=line --output-file=requirements.txt --strip-extras requirements.in
 #
 blinker==1.9.0            # via flask
-certifi==2026.6.17        # via requests
-charset-normalizer==3.4.7  # via requests
+certifi==2026.7.22        # via requests
+charset-normalizer==3.4.9  # via requests
 click==8.4.2              # via flask
 flask==3.1.3              # via ws-ddns
 gocept-logging==1.0       # via ws-ddns
@@ -22,4 +22,4 @@ werkzeug==3.1.8           # via flask
 ws-ddns==1.6.0            # via -r requirements.in
 
 # The following packages are considered to be unsafe in a requirements file:
-setuptools==82.0.1        # via gocept-logging
+setuptools==83.0.0        # via gocept-logging
