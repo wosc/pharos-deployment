@@ -7,14 +7,14 @@
 -e git+https://github.com/wosc/simp_le.git#egg=simp-le-client  # via -r requirements.in
 acme==5.7.0               # via simp-le-client
 certifi==2026.7.22        # via requests
-cffi==2.1.0               # via cryptography
+cffi==2.1.1               # via cryptography
 charset-normalizer==3.4.9  # via requests
-cryptography==49.0.0      # via acme, josepy, pyopenssl, simp-le-client
+cryptography==50.0.0      # via acme, josepy, pyopenssl, simp-le-client
 idna==3.18                # via requests, simp-le-client
 josepy==2.2.0             # via acme, simp-le-client
 mock==5.2.0               # via simp-le-client
 pycparser==3.0            # via cffi
-pyopenssl==26.3.0         # via acme, simp-le-client
+pyopenssl==26.4.0         # via acme, simp-le-client
 pyrfc3339==2.1.0          # via acme
 pytz==2026.3.post1        # via simp-le-client
 requests==2.34.2          # via acme

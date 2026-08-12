@@ -6,8 +6,8 @@
 #
 certifi==2026.7.22        # via requests
 charset-normalizer==3.4.9  # via requests
-feedparser==6.0.13        # via ws-rsspull
-feedparser-sgmllib==1.0.0  # via feedparser
+feedparser==6.0.14        # via ws-rsspull
+feedparser-sgmllib==2.1.0  # via feedparser
 html2text==2025.4.15      # via ws-rsspull
 idna==3.18                # via requests
 requests==2.34.2          # via ws-rsspull

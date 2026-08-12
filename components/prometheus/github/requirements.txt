@@ -13,4 +13,4 @@ requests==2.34.2          # via github-vulnerability-exporter
 urllib3==2.7.0            # via requests
 
 # The following packages are considered to be unsafe in a requirements file:
-setuptools==83.0.0        # via github-vulnerability-exporter
+setuptools==84.0.0        # via github-vulnerability-exporter

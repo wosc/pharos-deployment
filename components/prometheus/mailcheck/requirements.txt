@@ -13,7 +13,7 @@ icalendar==7.2.2          # via caldav, icalendar-searcher, recurring-ical-event
 icalendar-searcher==1.0.6  # via caldav
 jh2==5.0.13               # via urllib3-future
 lxml==6.1.1               # via caldav
-niquests==3.20.1          # via caldav
+niquests==3.21.0          # via caldav
 python-dateutil==2.9.0.post0  # via caldav, icalendar, recurring-ical-events, vobject
 pytz==2026.3.post1        # via vobject
 pyyaml==6.0.3             # via caldav

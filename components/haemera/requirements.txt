@@ -9,7 +9,7 @@ hupper==1.12.1            # via pyramid
 jinja2==3.1.6             # via pyramid-jinja2
 markupsafe==3.0.3         # via jinja2, pyramid-jinja2
 mysqlclient==2.2.8        # via -r requirements.in
-packaging==26.2           # via zope-sqlalchemy
+packaging==26.3           # via zope-sqlalchemy
 pastedeploy==3.1.0        # via plaster-pastedeploy
 pendulum==3.2.0           # via ws-haemera
 plaster==1.1.2            # via plaster-pastedeploy, pyramid
@@ -27,7 +27,7 @@ typing-extensions==4.16.0  # via sqlalchemy
 tzdata==2026.3            # via pendulum
 venusian==3.1.1           # via pyramid
 vobject==0.9.9            # via ws-haemera
-webob==1.8.10             # via pyramid
+webob==1.8.11             # via pyramid
 zope-component==7.1       # via ws-haemera
 zope-deprecation==6.0     # via pyramid, pyramid-jinja2
 zope-event==6.2           # via zope-component
