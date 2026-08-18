@@ -6,8 +6,8 @@
 #
 -e git+https://github.com/wosc/dailycomics.git#egg=ws.dailycomics  # via -r requirements.in
 certifi==2026.7.22        # via requests
-charset-normalizer==3.4.9  # via requests
-idna==3.18                # via requests
+charset-normalizer==3.5.1  # via requests
+idna==3.19                # via requests
 jinja2==3.1.6             # via ws-dailycomics
 markupsafe==3.0.3         # via jinja2
 pyyaml==6.0.3             # via ws-dailycomics

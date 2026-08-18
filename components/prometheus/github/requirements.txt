@@ -5,9 +5,9 @@
 #    pip-compile --allow-unsafe --annotation-style=line --output-file=requirements.txt --strip-extras requirements.in
 #
 certifi==2026.7.22        # via requests
-charset-normalizer==3.4.9  # via requests
+charset-normalizer==3.5.1  # via requests
 github-vulnerability-exporter==1.5.2  # via -r requirements.in
-idna==3.18                # via requests
+idna==3.19                # via requests
 prometheus-client==0.26.0  # via github-vulnerability-exporter
 requests==2.34.2          # via github-vulnerability-exporter
 urllib3==2.7.0            # via requests

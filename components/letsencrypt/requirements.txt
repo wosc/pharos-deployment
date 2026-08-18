@@ -8,9 +8,9 @@
 acme==5.7.0               # via simp-le-client
 certifi==2026.7.22        # via requests
 cffi==2.1.1               # via cryptography
-charset-normalizer==3.4.9  # via requests
+charset-normalizer==3.5.1  # via requests
 cryptography==50.0.0      # via acme, josepy, pyopenssl, simp-le-client
-idna==3.18                # via requests, simp-le-client
+idna==3.19                # via requests, simp-le-client
 josepy==2.2.0             # via acme, simp-le-client
 mock==5.2.0               # via simp-le-client
 pycparser==3.0            # via cffi
