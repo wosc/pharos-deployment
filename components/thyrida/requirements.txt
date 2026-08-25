@@ -27,8 +27,8 @@ wtforms==3.2.2            # via ws-thyrida
 zope-component==7.1       # via ws-thyrida
 zope-deprecation==6.0     # via pyramid, pyramid-jinja2
 zope-event==6.2           # via zope-component
-zope-hookable==8.2        # via zope-component
-zope-interface==8.5       # via pyramid, transaction, ws-thyrida, zope-component, zope-sqlalchemy
+zope-hookable==8.3        # via zope-component
+zope-interface==8.6       # via pyramid, transaction, ws-thyrida, zope-component, zope-sqlalchemy
 zope-sqlalchemy==4.1      # via ws-thyrida
 
 # The following packages are considered to be unsafe in a requirements file:
