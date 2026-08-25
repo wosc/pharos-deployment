@@ -1,1 +1,2 @@
 -e git+https://github.com/wosc/calibre-web-view.git#egg=ws.caliview
+-e git+https://github.com/ZeitOnline/pyramid.git@pkgresources#egg=pyramid

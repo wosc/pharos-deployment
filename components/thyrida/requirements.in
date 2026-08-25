@@ -1,2 +1,3 @@
 -e git+https://github.com/wosc/thyrida.git#egg=ws.thyrida
+-e git+https://github.com/ZeitOnline/pyramid.git@pkgresources#egg=pyramid
 mysqlclient

@@ -4,6 +4,7 @@
 #
 #    pip-compile --allow-unsafe --annotation-style=line --output-file=requirements.txt --strip-extras requirements.in
 #
+-e git+https://github.com/ZeitOnline/pyramid.git@pkgresources#egg=pyramid  # via -r requirements.in, pyramid-jinja2, pyramid-tm, ws-thyrida
 -e git+https://github.com/wosc/thyrida.git#egg=ws.thyrida  # via -r requirements.in
 greenlet==3.5.5           # via sqlalchemy
 hupper==1.12.1            # via pyramid
@@ -14,7 +15,6 @@ packaging==26.3           # via zope-sqlalchemy
 pastedeploy==3.1.0        # via plaster-pastedeploy
 plaster==1.1.2            # via plaster-pastedeploy, pyramid
 plaster-pastedeploy==1.0.1  # via pyramid
-pyramid==2.1              # via pyramid-jinja2, pyramid-tm, ws-thyrida
 pyramid-jinja2==2.10.1    # via ws-thyrida
 pyramid-tm==2.6           # via ws-thyrida
 sqlalchemy==2.0.52        # via ws-thyrida, zope-sqlalchemy
@@ -32,4 +32,4 @@ zope-interface==8.6       # via pyramid, transaction, ws-thyrida, zope-component
 zope-sqlalchemy==4.1      # via ws-thyrida
 
 # The following packages are considered to be unsafe in a requirements file:
-setuptools==81.0.0        # via pyramid, zope-deprecation
+setuptools==84.0.0        # via zope-deprecation

@@ -4,6 +4,7 @@
 #
 #    pip-compile --allow-unsafe --annotation-style=line --output-file=requirements.txt --strip-extras requirements.in
 #
+-e git+https://github.com/ZeitOnline/pyramid.git@pkgresources#egg=pyramid  # via -r requirements.in, pyramid-jinja2, pyramid-tm, ws-haemera
 -e git+https://github.com/wosc/haemera.git#egg=ws.haemera  # via -r requirements.in
 hupper==1.12.1            # via pyramid
 jinja2==3.1.6             # via pyramid-jinja2
@@ -14,7 +15,6 @@ pastedeploy==3.1.0        # via plaster-pastedeploy
 pendulum==3.2.0           # via ws-haemera
 plaster==1.1.2            # via plaster-pastedeploy, pyramid
 plaster-pastedeploy==1.0.1  # via pyramid
-pyramid==2.1              # via pyramid-jinja2, pyramid-tm, ws-haemera
 pyramid-jinja2==2.10.1    # via ws-haemera
 pyramid-tm==2.6           # via ws-haemera
 python-dateutil==2.9.0.post0  # via pendulum, vobject, ws-haemera
@@ -36,4 +36,4 @@ zope-interface==8.6       # via pyramid, transaction, ws-haemera, zope-component
 zope-sqlalchemy==4.1      # via ws-haemera
 
 # The following packages are considered to be unsafe in a requirements file:
-setuptools==81.0.0        # via pyramid, zope-deprecation
+setuptools==84.0.0        # via zope-deprecation
