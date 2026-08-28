@@ -10,17 +10,17 @@ from batou_ext.user import User
 
 class Shaarli(Component):
 
-    version = '0.12.1'
+    version = '0.16.1'
     url = (
         'https://github.com/shaarli/Shaarli/releases/download'
         '/v{version}/shaarli-v{version}-full.tar.gz')
-    checksum = 'sha256:f614e9baddbb5ea72b2158bbfa586b5761d17918be9a97a7bd28d7255276fc0b'
+    checksum = 'sha256:48af49f30f1c7a4c62581873fd9a79a4e7c782775f104379fca71fea55c90660'
 
-    material_version = '0.12.0'
+    material_version = '0.16.1'
     material = (
         'https://github.com/kalvn/Shaarli-Material/releases/download'
         '/v{version}/shaarli-material.v{version}.tar.gz')
-    material_checksum = 'sha256:714b332be1e0e651e91353f7ffad0e322aea00e045645b53bebbc20a0af88db4'
+    material_checksum = 'sha256:59f85407053581b8ac01ab39805beb784156887909577990ff2b443db93ea496'
 
     packages = [
         'php8.3-curl',
