@@ -17,4 +17,4 @@ passlib==1.7.4            # via -r requirements.in
 sqlalchemy==2.0.52        # via ws-nginxdbauth
 typing-extensions==4.16.0  # via sqlalchemy
 werkzeug==3.1.8           # via flask
-ws-nginxdbauth==1.1.1     # via -r requirements.in
+ws-nginxdbauth==1.2.0     # via -r requirements.in
