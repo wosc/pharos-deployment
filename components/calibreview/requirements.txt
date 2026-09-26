@@ -6,7 +6,6 @@
 #
 -e git+https://github.com/ZeitOnline/pyramid.git@pkgresources#egg=pyramid  # via -r requirements.in, pyramid-jinja2, ws-caliview
 -e git+https://github.com/wosc/calibre-web-view.git#egg=ws.caliview  # via -r requirements.in
-greenlet==3.5.5           # via sqlalchemy
 hupper==1.12.1            # via pyramid
 jinja2==3.1.6             # via pyramid-jinja2
 markupsafe==3.0.3         # via jinja2, pyramid-jinja2
@@ -14,7 +13,7 @@ pastedeploy==3.1.0        # via plaster-pastedeploy
 plaster==1.1.2            # via plaster-pastedeploy, pyramid
 plaster-pastedeploy==1.0.1  # via pyramid
 pyramid-jinja2==2.10.1    # via ws-caliview
-sqlalchemy==2.0.52        # via ws-caliview
+sqlalchemy==2.1.1         # via ws-caliview
 translationstring==1.4    # via pyramid
 typing-extensions==4.16.0  # via sqlalchemy
 venusian==3.1.1           # via pyramid

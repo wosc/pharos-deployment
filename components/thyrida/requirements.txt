@@ -6,18 +6,17 @@
 #
 -e git+https://github.com/ZeitOnline/pyramid.git@pkgresources#egg=pyramid  # via -r requirements.in, pyramid-jinja2, pyramid-tm, ws-thyrida
 -e git+https://github.com/wosc/thyrida.git#egg=ws.thyrida  # via -r requirements.in
-greenlet==3.5.5           # via sqlalchemy
 hupper==1.12.1            # via pyramid
 jinja2==3.1.6             # via pyramid-jinja2
 markupsafe==3.0.3         # via jinja2, pyramid-jinja2, wtforms
-mysqlclient==2.2.8        # via -r requirements.in
+mysqlclient==2.3.0        # via -r requirements.in
 packaging==26.3           # via zope-sqlalchemy
 pastedeploy==3.1.0        # via plaster-pastedeploy
 plaster==1.1.2            # via plaster-pastedeploy, pyramid
 plaster-pastedeploy==1.0.1  # via pyramid
 pyramid-jinja2==2.10.1    # via ws-thyrida
 pyramid-tm==2.6           # via ws-thyrida
-sqlalchemy==2.0.52        # via ws-thyrida, zope-sqlalchemy
+sqlalchemy==2.1.1         # via ws-thyrida, zope-sqlalchemy
 transaction==5.1          # via pyramid-tm, ws-thyrida, zope-sqlalchemy
 translationstring==1.4    # via pyramid
 typing-extensions==4.16.0  # via sqlalchemy

@@ -14,11 +14,11 @@ from batou_ext.user import User
 
 class Roundcube(Component):
 
-    version = '1.7.3'
+    version = '1.7.4'
     url = (
         'https://github.com/roundcube/roundcubemail/releases/download/{version}'
         '/roundcubemail-{version}-complete.tar.gz')
-    checksum = 'sha256:443cde2ea03b840ce4701fe23c273f01e68702f176d282e60248236bbb5f5f85'
+    checksum = 'sha256:2c6c878f0093f1bf7fb6086781d2dd9269d652c016b86939c157c5f1729139a2'
 
     db_password = None
     store_pass_key = None
