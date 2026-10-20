@@ -8,19 +8,19 @@
 -e git+https://github.com/wosc/calibre-web-view.git#egg=ws.caliview  # via -r requirements.in
 hupper==1.12.1            # via pyramid
 jinja2==3.1.6             # via pyramid-jinja2
-markupsafe==3.0.3         # via jinja2, pyramid-jinja2
+markupsafe==3.0.4         # via jinja2, pyramid-jinja2
 pastedeploy==3.1.0        # via plaster-pastedeploy
 plaster==1.1.2            # via plaster-pastedeploy, pyramid
 plaster-pastedeploy==1.0.1  # via pyramid
 pyramid-jinja2==2.10.1    # via ws-caliview
-sqlalchemy==2.1.1         # via ws-caliview
+sqlalchemy==2.1.5         # via ws-caliview
 translationstring==1.4    # via pyramid
 typing-extensions==4.16.0  # via sqlalchemy
 venusian==3.1.1           # via pyramid
 waitress==3.0.2           # via ws-caliview
 webob==1.8.11             # via pyramid
 zope-deprecation==6.0     # via pyramid, pyramid-jinja2
-zope-interface==8.6       # via pyramid
+zope-interface==8.7       # via pyramid
 
 # The following packages are considered to be unsafe in a requirements file:
-setuptools==84.0.0        # via zope-deprecation
+setuptools==84.2.0        # via zope-deprecation
