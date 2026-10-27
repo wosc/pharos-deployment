@@ -4,7 +4,7 @@ from batou_ext.apt import AptRepository, Package
 
 class NodeJS(Component):
 
-    version = '22'
+    version = '24'
 
     def configure(self):
         self += Package('apt-transport-https')
