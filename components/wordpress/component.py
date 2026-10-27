@@ -32,7 +32,7 @@ class Wordpress(Component):
     nonce_salt = None
 
     def configure(self):
-        self += Package('php8.3-mysql')
+        self += Package('php8.5-mysql')
 
         self += User('grshop')
         self += ServiceDatabase('grshop', password=self.db_password)

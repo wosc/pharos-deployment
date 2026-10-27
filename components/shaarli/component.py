@@ -23,10 +23,10 @@ class Shaarli(Component):
     material_checksum = 'sha256:59f85407053581b8ac01ab39805beb784156887909577990ff2b443db93ea496'
 
     packages = [
-        'php8.3-curl',
-        'php8.3-mbstring',
-        'php8.3-gd',
-        'php8.3-xml',
+        'php8.5-curl',
+        'php8.5-mbstring',
+        'php8.5-gd',
+        'php8.5-xml',
     ]
 
     def configure(self):

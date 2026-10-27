@@ -32,7 +32,7 @@ class Roundcube(Component):
             check_source_removed=True)
         self += Service('imapproxy', action='restart', deps=self._)
 
-        self += Package('php8.3-zip')  # for zipdownload plugin
+        self += Package('php8.5-zip')  # for zipdownload plugin
         self += User('roundcube')
 
         self += Download(

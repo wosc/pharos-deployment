@@ -20,12 +20,12 @@ class Matomo(Component):
     checksum = 'sha256:f0799f8452a36b25293e5c9f40112095ff2f8ea2a4bf376a2b21608b6279153e'
 
     packages = [
-        'php8.3-cli',
-        'php8.3-curl',
-        'php8.3-gd',
-        'php8.3-mbstring',
-        'php8.3-mysql',
-        'php8.3-xml',
+        'php8.5-cli',
+        'php8.5-curl',
+        'php8.5-gd',
+        'php8.5-mbstring',
+        'php8.5-mysql',
+        'php8.5-xml',
         # 'php-geoip',
         # 'geoip-database-contrib',
     ]
