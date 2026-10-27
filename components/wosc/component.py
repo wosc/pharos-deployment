@@ -1,3 +1,4 @@
+from base64 import b64encode
 from batou.component import Component
 from batou.lib.archive import Extract
 from batou.lib.cmmi import Configure, Make
@@ -9,8 +10,8 @@ from batou_ext.nginx import VHost
 from batou_ext.patch import Patch
 from batou_ext.python import VirtualEnv, Requirements
 from batou_ext.user import User, GroupMember
-from crypt import crypt
 import batou.lib.python
+import hashlib
 
 
 class Backup(Component):
@@ -79,9 +80,13 @@ class Dailystrips(Component):
         self += BinaryFile(
             '/home/wosc/public_html/dailystrips/favicon.png',
             source='kevinandkell.png', owner='wosc', group='wosc')
+
+        password = b64encode(
+            hashlib.sha256(self.ui_password.encode('ascii')).digest()
+        ).decode('ascii')
         self += File(
             '/home/wosc/public_html/dailystrips/.htpasswd',
-            content='wosc:' + crypt(self.ui_password, 'hX'),
+            content='wosc:{SHA256}%s' % password,
             sensitive_data=True)
 
 

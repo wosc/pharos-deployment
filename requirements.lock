@@ -1,19 +1,19 @@
-# appenv-requirements-hash: d8388ad39d94e37004f041ba2ccfff5e51b21510508c67ba5bb24a1a73f897fb
+# appenv-requirements-hash: 06b505a3e836b51f692637e59a80344b79adbd7086ef12e8cf4e184064b01fa6
 -e./batou_ext
-ConfigUpdater==3.2
-Jinja2==3.1.5
-MarkupSafe==3.0.2
-PyYAML==6.0.2
-batou==2.5.2
-certifi==2024.12.14
-charset-normalizer==3.4.1
-execnet==2.1.1
-idna==3.10
-importlib_metadata==8.5.0
-importlib_resources==6.4.5
+ConfigUpdater==4.0
+Jinja2==3.1.6
+MarkupSafe==3.0.4
+PyYAML==6.0.3
+batou==2.7.1
+certifi==2026.10.23
+charset-normalizer==3.5.2
+execnet==2.1.2
+idna==3.20
+importlib_metadata==10.1.0
+importlib_resources==7.1.0
 py==1.11.0
 remote-pdb==2.1.0
-requests==2.32.3
-setuptools==75.6.0
-urllib3==2.3.0
-zipp==3.21.0
+requests==2.34.2
+setuptools==84.2.1
+urllib3==2.8.0
+zipp==4.1.2
