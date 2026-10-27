@@ -23,6 +23,7 @@ transaction==5.1          # via pyramid-tm, ws-thyrida, zope-sqlalchemy
 translationstring==1.4    # via pyramid
 typing-extensions==4.16.0  # via sqlalchemy
 venusian==3.1.1           # via pyramid
+waitress==3.0.2           # via -r requirements.in
 webob==1.8.11             # via pyramid
 wtforms==3.3.1            # via ws-thyrida
 zope-component==7.1       # via ws-thyrida

@@ -28,6 +28,7 @@ typing-extensions==4.16.0  # via sqlalchemy
 tzdata==2026.5            # via pendulum, python-dateutil
 venusian==3.1.1           # via pyramid
 vobject==0.9.9            # via ws-haemera
+waitress==3.0.2           # via -r requirements.in
 webob==1.8.11             # via pyramid
 zope-component==7.1       # via ws-haemera
 zope-deprecation==6.0     # via pyramid, pyramid-jinja2
