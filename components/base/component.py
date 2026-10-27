@@ -14,9 +14,9 @@ from batou_ext.supervisor import Supervisor
 class BasePackages(Component):
 
     packages = Attribute('literal', ConfigString("""[
+        'bind9-dnsutils',
         'build-essential',
         'emacs-nox',
-        'dnsutils',
         'git',
         'htop',
         'httpie',
