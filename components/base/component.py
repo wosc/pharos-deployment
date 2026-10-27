@@ -59,8 +59,8 @@ class CronAPT(Component):
 class MySQL(Component):
 
     packages = [
-        'mysql-server-8.0',
-        'mysql-client-8.0',
+        'mysql-server',
+        'mysql-client',
         'libmysqlclient-dev',
         'pkg-config',  # for python package `mysqlclient`
     ]

@@ -45,8 +45,8 @@ WHERE
             create, unless=create_unless, admin_password=self.admin_password)
 
         set_password = self.expand("""\
-SET PASSWORD FOR
-    '{{component.user}}'@'{{component.allow_from_hostname}}' =
-    '{{component.password}}';
+ALTER USER
+    '{{component.user}}'@'{{component.allow_from_hostname}}'
+    IDENTIFIED BY '{{component.password}}';
 """)
         self += Command(set_password, admin_password=self.admin_password)
