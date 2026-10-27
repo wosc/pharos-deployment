@@ -8,11 +8,11 @@ import batou.lib.python
 
 class VirtualEnv(batou.lib.python.VirtualEnv):
 
-    version = '3.12'
+    version = '3.14'
     path = None
 
     bootstrap_versions = {
-        'pip': '24.3.1',
+        'pip': '26.2.2',
     }
 
     def __init__(self, namevar=None, **kw):
