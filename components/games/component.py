@@ -43,6 +43,8 @@ class Roborally(Component):
         self += Package('mongodb-org')
         self += User('robometeor')
         self += File('/etc/mongod.conf', is_template=False)
+        self += File('/etc/logrotate.d/mongod', source='mongod-logrotate.conf', is_template=False)
+
 
         # Download URL taken from https://github.com/meteor/meteor/blob/release/METEOR@3.1/npm-packages/meteor-installer/install.js#L94-L95
         # wget https://static.meteor.com/packages-bootstrap/3.1/meteor-bootstrap-os.linux.x86_64.tar.gz
