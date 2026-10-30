@@ -21,6 +21,7 @@ class BasePackages(Component):
         'htop',
         'httpie',
         'jq',
+        'libarchive-tools',
         'mc',
         'mosh',
         'python3-dev',

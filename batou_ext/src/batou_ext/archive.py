@@ -27,3 +27,24 @@ def get_names_from_archive(self):
 
 original = batou.lib.archive.Untar.get_names_from_archive
 batou.lib.archive.Untar.get_names_from_archive = get_names_from_archive
+
+
+def zip_get_names(self):
+    stdout, stderr = self.cmd(
+        'bsdtar tf {{component.archive}}'
+    )
+    return [x for x in stdout.splitlines() if os.path.sep in x]
+
+
+batou.lib.archive.Unzip.get_names_from_archive = zip_get_names
+
+
+def zip_update(self):
+    self.cmd(
+        'bsdtar xf {{component.archive}} -C {{component.target}} '
+        '--strip-components {{component.strip}}'
+    )
+
+
+batou.lib.archive.Unzip.update = zip_update
+batou.lib.archive.Unzip._supports_strip = True
