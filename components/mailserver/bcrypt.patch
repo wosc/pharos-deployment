@@ -1,0 +1,11 @@
+--- a/passlib/handlers/bcrypt.py
++++ /srv/mailauth/deployment/lib/python3.14/site-packages/passlib/handlers/bcrypt.py
+@@ -652,7 +652,7 @@
+         config = self._get_config(ident)
+         if isinstance(config, unicode):
+             config = config.encode("ascii")
+-        hash = _bcrypt.hashpw(secret, config)
++        hash = _bcrypt.hashpw(secret[:72], config)  # wosc patched
+         assert isinstance(hash, bytes)
+         if not hash.startswith(config) or len(hash) != len(config)+31:
+             raise uh.exc.CryptBackendError(self, config, hash, source="`bcrypt` package")

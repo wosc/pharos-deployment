@@ -245,6 +245,12 @@ class Auth(Component):
         self += VirtualEnv(path='/srv/mailauth/deployment')
         self._ += Requirements(source='auth/requirements.txt')
         req = self._
+        # https://foss.heptapod.net/python-libs/passlib/-/work_items/196
+        # https://github.com/notypecheck/passlib/pull/21
+        self += Patch(
+            '/srv/mailauth/deployment/lib/python%s/site-packages'
+            '/passlib/handlers/bcrypt.py' % VirtualEnv.version,
+            target='wosc patched', file='bcrypt.patch')
 
         for name, port in self.instances.items():
             self += File(
