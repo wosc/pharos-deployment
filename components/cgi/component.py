@@ -69,9 +69,8 @@ class WebPasswd(Component):
             '/etc/sudoers.d/webpasswd',
             content='cgiserv ALL=(root) NOPASSWD: /srv/cgiserv/passwd/bin/webpasswd-change\n')
 
-        self += File(
-            '/srv/cgiserv/apache.d/passwd.conf',
-            content='ScriptAlias /passwd /srv/cgiserv/passwd/bin/webpasswd-cgi\n' )
+        self += File('/srv/cgiserv/apache.d/passwd.conf',
+                     source='passwd/apache.conf', is_template=False)
         self += CGI(self._)
 
         self += File(
