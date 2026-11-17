@@ -4,10 +4,10 @@
 #
 #    pip-compile --allow-unsafe --annotation-style=line --output-file=requirements.txt --strip-extras requirements.in
 #
-python-dateutil==3.0.0    # via vobject
-pytz==2026.5              # via vobject
+python-dateutil==4.0.0    # via vobject
+pytz==2026.6              # via vobject
 radicale==1.1.7           # via -r requirements.in
-six==1.17.0               # via python-dateutil, vobject
-tzdata==2026.5            # via python-dateutil
+six==1.17.0               # via vobject
+tzdata==2026.6            # via python-dateutil
 vobject==0.9.9            # via -r requirements.in
 waitress==3.0.2           # via -r requirements.in

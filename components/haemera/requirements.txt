@@ -10,7 +10,7 @@ hupper==1.12.1            # via pyramid
 jinja2==3.1.6             # via pyramid-jinja2
 legacy-cgi==2.6.4         # via webob
 markupsafe==3.0.4         # via jinja2, pyramid-jinja2
-mysqlclient==2.3.0        # via -r requirements.in
+mysqlclient==2.3.1        # via -r requirements.in
 packaging==26.3           # via zope-sqlalchemy
 pastedeploy==3.1.0        # via plaster-pastedeploy
 pendulum==3.3.0           # via ws-haemera
@@ -18,14 +18,14 @@ plaster==1.1.2            # via plaster-pastedeploy, pyramid
 plaster-pastedeploy==1.0.1  # via pyramid
 pyramid-jinja2==2.10.1    # via ws-haemera
 pyramid-tm==2.6           # via ws-haemera
-python-dateutil==3.0.0    # via pendulum, vobject, ws-haemera
-pytz==2026.5              # via vobject
-six==1.17.0               # via python-dateutil, vobject
-sqlalchemy==2.1.6         # via ws-haemera, zope-sqlalchemy
+python-dateutil==4.0.0    # via pendulum, vobject, ws-haemera
+pytz==2026.6              # via vobject
+six==1.17.0               # via vobject
+sqlalchemy==2.1.9         # via ws-haemera, zope-sqlalchemy
 transaction==5.1          # via pyramid-tm, ws-haemera, zope-sqlalchemy
 translationstring==1.4    # via pyramid
 typing-extensions==4.16.0  # via sqlalchemy
-tzdata==2026.5            # via pendulum, python-dateutil
+tzdata==2026.6            # via pendulum, python-dateutil
 venusian==3.1.1           # via pyramid
 vobject==0.9.9            # via ws-haemera
 waitress==3.0.2           # via -r requirements.in

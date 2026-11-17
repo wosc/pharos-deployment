@@ -10,7 +10,7 @@ hupper==1.12.1            # via pyramid
 jinja2==3.1.6             # via pyramid-jinja2
 legacy-cgi==2.6.4         # via webob
 markupsafe==3.0.4         # via jinja2, pyramid-jinja2, wtforms
-mysqlclient==2.3.0        # via -r requirements.in
+mysqlclient==2.3.1        # via -r requirements.in
 packaging==26.3           # via zope-sqlalchemy
 passlib==1.7.4            # via ws-thyrida
 pastedeploy==3.1.0        # via plaster-pastedeploy
@@ -18,14 +18,14 @@ plaster==1.1.2            # via plaster-pastedeploy, pyramid
 plaster-pastedeploy==1.0.1  # via pyramid
 pyramid-jinja2==2.10.1    # via ws-thyrida
 pyramid-tm==2.6           # via ws-thyrida
-sqlalchemy==2.1.6         # via ws-thyrida, zope-sqlalchemy
+sqlalchemy==2.1.9         # via ws-thyrida, zope-sqlalchemy
 transaction==5.1          # via pyramid-tm, ws-thyrida, zope-sqlalchemy
 translationstring==1.4    # via pyramid
 typing-extensions==4.16.0  # via sqlalchemy
 venusian==3.1.1           # via pyramid
 waitress==3.0.2           # via -r requirements.in
 webob==1.8.11             # via pyramid
-wtforms==3.3.1            # via ws-thyrida
+wtforms==3.3.2            # via ws-thyrida
 zope-component==7.1       # via ws-thyrida
 zope-deprecation==6.0     # via pyramid, pyramid-jinja2
 zope-event==6.2           # via zope-component

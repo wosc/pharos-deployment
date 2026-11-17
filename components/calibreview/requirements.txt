@@ -14,7 +14,7 @@ pastedeploy==3.1.0        # via plaster-pastedeploy
 plaster==1.1.2            # via plaster-pastedeploy, pyramid
 plaster-pastedeploy==1.0.1  # via pyramid
 pyramid-jinja2==2.10.1    # via ws-caliview
-sqlalchemy==2.1.6         # via ws-caliview
+sqlalchemy==2.1.9         # via ws-caliview
 translationstring==1.4    # via pyramid
 typing-extensions==4.16.0  # via sqlalchemy
 venusian==3.1.1           # via pyramid
