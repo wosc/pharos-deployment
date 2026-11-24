@@ -29,11 +29,11 @@ class DownloadBinary(Component):
 
 class Prometheus(Component):
 
-    version = '3.15.0'
+    version = '3.16.0'
     url = (
         'https://github.com/prometheus/prometheus/releases/download/'
         'v{version}/prometheus-{version}.linux-amd64.tar.gz')
-    checksum = 'sha256:2a542df32eac02ee17b9d844fb2aa1de00dafa5476579ba8a3ba862e9d572ea0'
+    checksum = 'sha256:68727009472a2c02e1ff7f062fd5b3e637285bffc8fc2d340c76fb449d6e0f34'
 
     def configure(self):
         self.url = self.url.format(version=self.version)
@@ -76,11 +76,11 @@ class Prometheus(Component):
 
 class Prom_Node(Component):
 
-    version = '1.12.1'
+    version = '1.13.1'
     url = (
         'https://github.com/prometheus/node_exporter/releases/download/'
         'v{version}/node_exporter-{version}.linux-amd64.tar.gz')
-    checksum = 'sha256:b51d8a76aa2a9156a55d501aca6276fae09e262259a5e4e831d2c2222f084e63'
+    checksum = 'sha256:5c00c5234f1ee45900b25539a5a0ab82146a098c15c16a4ec3bc855b597a6477'
 
     def configure(self):
         # Allow acessing supervisor control socket
@@ -110,7 +110,7 @@ class Prom_Node(Component):
 
 class Prom_Push(Component):
 
-    version = '1.11.3'
+    version = '1.11.4'
     url = (
         'https://github.com/prometheus/pushgateway/releases/download/'
         'v{version}/pushgateway-{version}.linux-amd64.tar.gz')
@@ -128,11 +128,11 @@ class Prom_Push(Component):
 
 class Prom_Alert(Component):
 
-    version = '0.34.1'
+    version = '0.35.0'
     url = (
         'https://github.com/prometheus/alertmanager/releases/download/'
         'v{version}/alertmanager-{version}.linux-amd64.tar.gz')
-    checksum = 'sha256:265b9d1e55ef0d5306a436018af6d2b686c2ce051f03d968f7464ecb1372a7e8'
+    checksum = 'sha256:6c7752a903c40c8a749e0b29df9240437e4fbb8228068d0af8807377db32addd'
 
     pushover_user_key = None
     pushover_api_key = None
@@ -251,11 +251,11 @@ class Prom_Github(Component):
 
 class Prom_Mysql(Component):
 
-    version = '0.20.0'
+    version = '0.21.0'
     url = (
         'https://github.com/prometheus/mysqld_exporter/releases/download/'
         'v{version}/mysqld_exporter-{version}.linux-amd64.tar.gz')
-    checksum = 'sha256:5773496e9962ca3817b3599fe4d74f218c95c1295eb2a742462df8e035fe51bd'
+    checksum = 'sha256:dc38d4173ab07d1e2ec8699a3957d29d31c0b9619822cc3a451771c468f704c7'
 
     db_password = None
 
